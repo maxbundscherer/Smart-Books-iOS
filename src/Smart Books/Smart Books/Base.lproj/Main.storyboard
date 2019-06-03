@@ -77,7 +77,6 @@
         <!--View Controller-->
         <scene sceneID="GbP-7O-vc3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h48-Sj-3PF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Bucheinsicht" id="mh1-ca-YbG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uVG-He-Qze">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -162,8 +161,9 @@
                         <viewLayoutGuide key="safeArea" id="UMX-rC-yCC"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h48-Sj-3PF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.811594202899" y="-731.25"/>
+            <point key="canvasLocation" x="3635" y="-914"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="CCb-rz-r3y">
@@ -205,10 +205,13 @@
                             <outlet property="delegate" destination="MzB-0b-jCi" id="f5H-f7-3bg"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="37w-Uf-DBc" kind="show" identifier="sgShowCollection" id="4yR-DM-1W4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfR-1l-K0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3664" y="-360"/>
+            <point key="canvasLocation" x="3635" y="-247"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YUl-EM-mgf">
@@ -305,10 +308,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FX5-mM-qzd"/>
                     </view>
+                    <connections>
+                        <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="2yH-cf-aYw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN6-Z5-umB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3663.7681159420295" y="344.86607142857139"/>
+            <point key="canvasLocation" x="2893" y="242"/>
         </scene>
         <!--Anlegen-->
         <scene sceneID="wg7-f3-ORb">
@@ -412,6 +418,9 @@
                         <viewLayoutGuide key="safeArea" id="E0U-hR-Njb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Suchen" id="Rog-ap-KqO"/>
+                    <connections>
+                        <segue destination="37w-Uf-DBc" kind="show" identifier="sgShowCollection" id="LHF-dv-iY1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqw-bs-AXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,4 +506,8 @@
     <resources>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2yH-cf-aYw"/>
+        <segue reference="LHF-dv-iY1"/>
+    </inferredMetricsTieBreakers>
 </document>
