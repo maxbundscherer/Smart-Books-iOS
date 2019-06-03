@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B67311722A5161800D499E3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3B67311622A5161800D499E3 /* .gitkeep */; };
+		3B67311A22A5164B00D499E3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3B67311922A5164B00D499E3 /* .gitkeep */; };
+		3B67311D22A5166C00D499E3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3B67311C22A5166C00D499E3 /* .gitkeep */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127622A513A80065B7C1 /* FirstViewController.swift */; };
 		3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127822A513A80065B7C1 /* SecondViewController.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B67311622A5161800D499E3 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3B67311922A5164B00D499E3 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3B67311C22A5166C00D499E3 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127622A513A80065B7C1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B67311522A515FE00D499E3 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3B67311622A5161800D499E3 /* .gitkeep */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		3B67311822A5162900D499E3 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B67311922A5164B00D499E3 /* .gitkeep */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		3B67311B22A5165E00D499E3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3B67311C22A5166C00D499E3 /* .gitkeep */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		3B6E126822A513A80065B7C1 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +93,9 @@
 		3B6E127322A513A80065B7C1 /* Smart Books */ = {
 			isa = PBXGroup;
 			children = (
+				3B67311B22A5165E00D499E3 /* models */,
+				3B67311822A5162900D499E3 /* controllers */,
+				3B67311522A515FE00D499E3 /* utils */,
 				3B6E127422A513A80065B7C1 /* AppDelegate.swift */,
 				3B6E127622A513A80065B7C1 /* FirstViewController.swift */,
 				3B6E127822A513A80065B7C1 /* SecondViewController.swift */,
@@ -88,7 +121,6 @@
 				9DAD7806F402E0B509D09CA7 /* Pods-Smart Books.debug.xcconfig */,
 				5FC6065BC7848D6596C2FCBD /* Pods-Smart Books.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,7 +185,10 @@
 			files = (
 				3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */,
 				3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */,
+				3B67311A22A5164B00D499E3 /* .gitkeep in Resources */,
+				3B67311D22A5166C00D499E3 /* .gitkeep in Resources */,
 				3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */,
+				3B67311722A5161800D499E3 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
