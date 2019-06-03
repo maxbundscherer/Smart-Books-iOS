@@ -13,9 +13,11 @@
 		3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127A22A513A80065B7C1 /* Main.storyboard */; };
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
 		3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127F22A513A90065B7C1 /* LaunchScreen.storyboard */; };
+		7F74D3CD1396B43A247ED262 /* Pods_Smart_Books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127622A513A80065B7C1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		3B6E127D22A513A90065B7C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B6E128022A513A90065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6E128222A513A90065B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FC6065BC7848D6596C2FCBD /* Pods-Smart Books.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Books.release.xcconfig"; path = "Target Support Files/Pods-Smart Books/Pods-Smart Books.release.xcconfig"; sourceTree = "<group>"; };
+		9DAD7806F402E0B509D09CA7 /* Pods-Smart Books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Books.debug.xcconfig"; path = "Target Support Files/Pods-Smart Books/Pods-Smart Books.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F74D3CD1396B43A247ED262 /* Pods_Smart_Books.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				3B6E127322A513A80065B7C1 /* Smart Books */,
 				3B6E127222A513A80065B7C1 /* Products */,
+				853AA504FDA145DD970BAC98 /* Pods */,
+				4FF67E31A43D3E5E614362B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = "Smart Books";
 			sourceTree = "<group>";
 		};
+		4FF67E31A43D3E5E614362B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		853AA504FDA145DD970BAC98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DAD7806F402E0B509D09CA7 /* Pods-Smart Books.debug.xcconfig */,
+				5FC6065BC7848D6596C2FCBD /* Pods-Smart Books.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B6E128522A513A90065B7C1 /* Build configuration list for PBXNativeTarget "Smart Books" */;
 			buildPhases = (
+				D3E0BCAD1CEE3702AD42EEED /* [CP] Check Pods Manifest.lock */,
 				3B6E126D22A513A80065B7C1 /* Sources */,
 				3B6E126E22A513A80065B7C1 /* Frameworks */,
 				3B6E126F22A513A80065B7C1 /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3E0BCAD1CEE3702AD42EEED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smart Books-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B6E126D22A513A80065B7C1 /* Sources */ = {
@@ -284,6 +335,7 @@
 		};
 		3B6E128622A513A90065B7C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DAD7806F402E0B509D09CA7 /* Pods-Smart Books.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +353,7 @@
 		};
 		3B6E128722A513A90065B7C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FC6065BC7848D6596C2FCBD /* Pods-Smart Books.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
