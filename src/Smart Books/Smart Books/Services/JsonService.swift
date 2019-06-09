@@ -8,9 +8,9 @@
 
 import Foundation
 
-class JsonConverter {
+class JsonService {
     
-    static let shared = JsonConverter()
+    static let shared = JsonService()
     
     private init() {
         

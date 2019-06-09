@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B41D6C122AD17A200C361FB /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntity.swift */; };
 		3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */; };
-		3B41D6C622AD1A7D00C361FB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C522AD1A7D00C361FB /* Network.swift */; };
+		3B41D6C622AD1A7D00C361FB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C522AD1A7D00C361FB /* NetworkService.swift */; };
 		3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* Configurator.swift */; };
-		3B41D6CB22AD1EAA00C361FB /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonConverter.swift */; };
+		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127622A513A80065B7C1 /* FirstViewController.swift */; };
@@ -28,9 +28,9 @@
 		2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B41D6C022AD17A200C361FB /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
 		3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableView.swift; sourceTree = "<group>"; };
-		3B41D6C522AD1A7D00C361FB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		3B41D6C522AD1A7D00C361FB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3B41D6C722AD1B0200C361FB /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
-		3B41D6CA22AD1EAA00C361FB /* JsonConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
+		3B41D6CA22AD1EAA00C361FB /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleCovers.xcassets; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		3B41D6C422AD1A6900C361FB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3B41D6C522AD1A7D00C361FB /* Network.swift */,
-				3B41D6CA22AD1EAA00C361FB /* JsonConverter.swift */,
+				3B41D6C522AD1A7D00C361FB /* NetworkService.swift */,
+				3B41D6CA22AD1EAA00C361FB /* JsonService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,10 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7DD89F22AD34D1009C7DD2 /* StringConverters.swift in Sources */,
-				3B41D6CB22AD1EAA00C361FB /* JsonConverter.swift in Sources */,
+				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */,
 				3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */,
-				3B41D6C622AD1A7D00C361FB /* Network.swift in Sources */,
+				3B41D6C622AD1A7D00C361FB /* NetworkService.swift in Sources */,
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,
 				3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */,
 				3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */,

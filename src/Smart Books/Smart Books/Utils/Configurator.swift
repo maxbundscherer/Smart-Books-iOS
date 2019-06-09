@@ -13,8 +13,8 @@ class Configurator {
     
     static let shared   = Configurator()
     
-    private let network         = Network.shared
-    private let jsonConverter   = JsonConverter.shared
+    private let networkService  = NetworkService.shared
+    private let jsonService     = JsonService.shared
     
     private init() {
     }
