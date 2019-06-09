@@ -10,7 +10,7 @@ import UIKit
 
 class PrototypeCellBook: UITableViewCell {
     @IBOutlet weak var cover: UIImageView!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var headline: UILabel!
     @IBOutlet weak var desc: UITextView!
 }
 
@@ -43,9 +43,9 @@ class CollectionTableViewController: UITableViewController {
 
         let bookEntity: BookEntity = self.bookEnitiesValues[indexPath.row]
         
-        cell.cover.image = bookEntity.coverImage
-        cell.title.text  = bookEntity.title
-        cell.desc.text   = StringConverters.convertBookEntityToDescription(value: bookEntity)
+        cell.cover.image    = bookEntity.coverImage
+        cell.headline.text  = bookEntity.title
+        cell.desc.text      = StringConverters.convertBookEntityToDescription(value: bookEntity)
 
         return cell
     }

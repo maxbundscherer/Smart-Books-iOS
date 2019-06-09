@@ -26,13 +26,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mein wirklich langer Buchtitel 3000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deA-pJ-FlH" userLabel="LabelTitle">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mein wirklich langer Buchtitel 3000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deA-pJ-FlH" userLabel="LabelHeadline">
                                             <rect key="frame" x="149.5" y="10" width="254.5" height="48"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDescription">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDesc">
                                             <rect key="frame" x="144.5" y="63" width="259.5" height="76.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -59,7 +59,7 @@
                                 <connections>
                                     <outlet property="cover" destination="hWY-se-jTh" id="AUk-Aw-Dhi"/>
                                     <outlet property="desc" destination="0sc-oT-gUU" id="UK6-v3-zGq"/>
-                                    <outlet property="title" destination="deA-pJ-FlH" id="SSs-Gn-PNH"/>
+                                    <outlet property="headline" destination="deA-pJ-FlH" id="wOh-zQ-DJv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
