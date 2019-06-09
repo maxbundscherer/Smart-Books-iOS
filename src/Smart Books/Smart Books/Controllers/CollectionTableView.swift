@@ -29,7 +29,7 @@ class CollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookEnitiesKeys.count
+        return self.bookEnitiesKeys.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,7 +41,7 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: "PrototypeCellBook", for: indexPath) as! PrototypeCellBook
 
-        let bookEntity: BookEntity = bookEnitiesValues[indexPath.row]
+        let bookEntity: BookEntity = self.bookEnitiesValues[indexPath.row]
         
         cell.cover.image = bookEntity.coverImage
         cell.title.text  = bookEntity.title
@@ -52,7 +52,7 @@ class CollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let bookEntityId: UUID = bookEnitiesKeys[indexPath.row]
+        let bookEntityId: UUID = self.bookEnitiesKeys[indexPath.row]
 
         performSegue(withIdentifier: "sgShowBook", sender: bookEntityId)
     }
