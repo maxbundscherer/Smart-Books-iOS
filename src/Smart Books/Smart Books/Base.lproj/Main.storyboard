@@ -103,7 +103,7 @@
                                                     <constraint firstAttribute="width" secondItem="byk-xD-qMN" secondAttribute="height" multiplier="1:1" id="B2W-JH-eWS"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXQ-sN-UlK" userLabel="TextViewDescription">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXQ-sN-UlK" userLabel="TextViewDesc">
                                                 <rect key="frame" x="20" y="519.5" width="374" height="75"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -163,6 +163,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UMX-rC-yCC"/>
                     </view>
+                    <connections>
+                        <outlet property="cover" destination="byk-xD-qMN" id="qpa-4U-wUk"/>
+                        <outlet property="desc" destination="sXQ-sN-UlK" id="NJ6-f9-Cxm"/>
+                        <outlet property="headline" destination="tOY-5s-KkO" id="9k4-x2-abh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h48-Sj-3PF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

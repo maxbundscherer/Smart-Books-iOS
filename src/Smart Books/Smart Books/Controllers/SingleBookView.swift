@@ -10,9 +10,27 @@ import UIKit
 
 class SingleBookView: UIViewController {
 
-    var passedBookEntityId: UUID?
+    @IBOutlet weak var headline: UILabel!
+    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var desc: UITextView!
+    
+    var passedBookEntityId: UUID? {
+        didSet {
+            guard let uuid: UUID = self.passedBookEntityId else { return }
+            self.bookEntity = Configurator.shared.exampleData[uuid]
+        }
+    }
+    
+    var bookEntity: BookEntity?
     
     override func viewDidLoad() {
+        
+        guard let entity: BookEntity = bookEntity else { return }
+        
+        self.headline.text  = entity.headline
+        self.cover.image    = entity.coverImage
+        self.desc.text      = StringConverters.convertBookEntityToDescription(value: entity)
+        
         super.viewDidLoad()
     }
 
