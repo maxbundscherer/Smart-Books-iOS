@@ -19,30 +19,29 @@ class Configurator {
     private init() {
     }
     
-    func getExampleData() -> [BookEntity] {
-        
-        let bookOne: BookEntity = BookEntity(
-            title: "Haha",
+    let exampleData: [UUID : BookEntity] =
+    
+    [
+    UUID(): BookEntity(
+            title: "Buchtitel 1",
             isbn: "1234",
             publisher: "MB Books",
             tags: ["tag1", "tag2"],
-            coverImage: UIImage(named: "exampleCoverOne"))
+            coverImage: UIImage(named: "exampleCoverOne")),
         
-        let bookTwo: BookEntity = BookEntity(
-            title: "Haha",
-            isbn: "1234",
-            publisher: "MB Books",
-            tags: ["tag1", "tag2"],
-            coverImage: UIImage(named: "exampleCoverTwo"))
+    UUID(): BookEntity(
+            title: "Buchtitel 2",
+            isbn: "5678",
+            publisher: "TM Books",
+            tags: ["tag3", "tag4"],
+            coverImage: UIImage(named: "exampleCoverTwo")),
         
-        let bookThree: BookEntity = BookEntity(
-            title: "Haha",
-            isbn: "1234",
-            publisher: "MB Books",
-            tags: ["tag1", "tag2"],
+    UUID(): BookEntity(
+            title: "Buchtitel 3",
+            isbn: "9123",
+            publisher: "ZW Books",
+            tags: ["tag5", "tag6"],
             coverImage: UIImage(named: "exampleCoverThree"))
-        
-        return [bookOne, bookTwo, bookThree]
-    }
+    ]
     
 }
