@@ -32,7 +32,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDescription">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDescription">
                                             <rect key="frame" x="144.5" y="63" width="259.5" height="76.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="-731.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Book View-->
         <scene sceneID="GbP-7O-vc3">
             <objects>
-                <viewController storyboardIdentifier="Bucheinsicht" id="mh1-ca-YbG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Bucheinsicht" id="mh1-ca-YbG" customClass="SingleBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uVG-He-Qze">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,7 +242,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hallo, wie geht es dir?" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Di-Ty-PUt" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="40" y="5" width="748" height="89.5"/>
+                                                    <rect key="frame" x="40" y="5" width="354" height="89.5"/>
                                                     <color key="backgroundColor" red="0.89599034791582621" green="1" blue="0.89043761326628423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -264,7 +264,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Gut und dir?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-qB-nw3" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="10" y="5" width="748" height="89.5"/>
+                                                    <rect key="frame" x="10" y="5" width="354" height="89.5"/>
                                                     <color key="backgroundColor" red="0.87556377568986432" green="0.97845176457497973" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

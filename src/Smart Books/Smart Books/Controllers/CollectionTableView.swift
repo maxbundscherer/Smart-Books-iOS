@@ -16,7 +16,9 @@ class PrototypeCellBook: UITableViewCell {
 
 class CollectionTableViewController: UITableViewController {
     
-    private let exampleData: [UUID : BookEntity] = Configurator.shared.exampleData
+    //TODO: Implement data structure
+    private let bookEnitiesKeys: [UUID]         = Configurator.shared.exampleData.map { (key, value) in key }
+    private let bookEnitiesValues: [BookEntity] = Configurator.shared.exampleData.map { (key, value) in value }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class CollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exampleData.count
+        return bookEnitiesKeys.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,13 +41,28 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: "PrototypeCellBook", for: indexPath) as! PrototypeCellBook
 
-        let bookEntity: BookEntity = exampleData.map { (key, value) in value }[indexPath.row]
+        let bookEntity: BookEntity = bookEnitiesValues[indexPath.row]
         
         cell.cover.image = bookEntity.coverImage
         cell.title.text  = bookEntity.title
-        cell.desc.text   = "ISBN:\t\(bookEntity.title ?? "")\nVerlag:\t\(bookEntity.publisher ?? "")\nTags:\t\(bookEntity.tags.joined(separator: "; "))"
+        cell.desc.text   = StringConverters.convertBookEntityToDescription(value: bookEntity)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let bookEntityId: UUID = bookEnitiesKeys[indexPath.row]
+
+        performSegue(withIdentifier: "sgShowBook", sender: bookEntityId)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let bookEntityId: UUID    = sender as? UUID else { return }
+        guard let dest: SingleBookView  = segue.destination as? SingleBookView else { return }
+    
+        dest.passedBookEntityId = bookEntityId
     }
 
 }
