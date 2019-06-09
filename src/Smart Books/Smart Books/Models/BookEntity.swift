@@ -6,6 +6,7 @@
 //  Copyright © 2019 Maximilian Bundscherer. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class BookEntity {
