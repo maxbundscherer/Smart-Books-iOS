@@ -25,7 +25,7 @@ class SingleBookView: UIViewController {
     
     override func viewDidLoad() {
         
-        guard let entity: BookEntity = bookEntity else { return }
+        guard let entity: BookEntity = self.bookEntity else { return }
         
         self.headline.text  = entity.headline
         self.cover.image    = entity.coverImage
