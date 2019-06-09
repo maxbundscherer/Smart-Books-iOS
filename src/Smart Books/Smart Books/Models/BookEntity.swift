@@ -11,14 +11,14 @@ import UIKit
 
 class BookEntity {
  
-    var title: String?
+    var headline: String?
     var isbn: String?
     var publisher: String?
     var tags: [String]
     var coverImage: UIImage?
     
     init(title: String?, isbn: String?, publisher: String?, tags: [String], coverImage: UIImage?) {
-        self.title = title
+        self.headline = title
         self.isbn = isbn
         self.publisher = publisher
         self.tags = tags

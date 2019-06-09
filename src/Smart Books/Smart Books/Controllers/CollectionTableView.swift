@@ -44,7 +44,7 @@ class CollectionTableViewController: UITableViewController {
         let bookEntity: BookEntity = self.bookEnitiesValues[indexPath.row]
         
         cell.cover.image    = bookEntity.coverImage
-        cell.headline.text  = bookEntity.title
+        cell.headline.text  = bookEntity.headline
         cell.desc.text      = StringConverters.convertBookEntityToDescription(value: bookEntity)
 
         return cell
