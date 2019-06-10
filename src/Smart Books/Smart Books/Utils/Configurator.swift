@@ -19,28 +19,30 @@ class Configurator {
     
     private init() {
         
-        //TODO: Remove create example data
-        var coverFileName: String = ""
-        
-        switch Int.random(in: 0..<3) {
-            case 0:
-                coverFileName = "exampleCoverOne"
-            case 1:
-                coverFileName = "exampleCoverTwo"
-            case 2:
-                coverFileName = "exampleCoverThree"
-            default:
-                coverFileName = "exampleCoverOne"
+        if(getAllBooks().isEmpty) {
+            
+            var coverFileName: String = ""
+            
+            switch Int.random(in: 0..<3) {
+                case 0:
+                    coverFileName = "exampleCoverOne"
+                case 1:
+                    coverFileName = "exampleCoverTwo"
+                case 2:
+                    coverFileName = "exampleCoverThree"
+                default:
+                    coverFileName = "exampleCoverOne"
+            }
+            
+            let entity = BookEntityDto(title: "Beispielsbuch",
+                isbn: "123456789",
+                publisher: "Beispielverlag",
+                tags: ["tag1", "tag2"],
+                coverImage: UIImage(named: coverFileName))
+            
+            _ = createBook(value: entity)
         }
         
-        
-        let entity = BookEntityDto(title: "Buchtitel \(getAllBooks().count)",
-                                   isbn: "1234",
-                                   publisher: "MB Books",
-                                   tags: ["tag1", "tag2"],
-                                   coverImage: UIImage(named: coverFileName))
-        
-        _ = createBook(value: entity)
     }
 
     func createBook(value: BookEntityDto) -> Bool {
