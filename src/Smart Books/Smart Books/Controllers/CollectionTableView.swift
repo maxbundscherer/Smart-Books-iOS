@@ -16,7 +16,7 @@ class PrototypeCellBook: UITableViewCell {
 
 class CollectionTableViewController: UITableViewController {
     
-    private let books: [BookEntityDto] = Configurator.shared.getAllBooks()
+    private let entities: [BookEntity] = Configurator.shared.getAllBooks()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class CollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.books.count
+        return self.entities.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,7 +39,7 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: "PrototypeCellBook", for: indexPath) as! PrototypeCellBook
 
-        let book: BookEntityDto = self.books[indexPath.row]
+        let book: BookEntityDto = BookEntityDto(coreDataEntity: self.entities[indexPath.row])
         
         cell.cover.image    = book.coverImage
         cell.headline.text  = book.headline
@@ -50,17 +50,17 @@ class CollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let book: BookEntityDto = self.books[indexPath.row]
+        let entity: BookEntity = self.entities[indexPath.row]
 
-        performSegue(withIdentifier: "sgShowBook", sender: book)
+        performSegue(withIdentifier: "sgShowBook", sender: entity)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let book: BookEntityDto   = sender as? BookEntityDto else { return }
-        guard let dest: SingleBookView  = segue.destination as? SingleBookView else { return }
+        guard let entity:   BookEntity      = sender as? BookEntity else { return }
+        guard let dest:     SingleBookView  = segue.destination as? SingleBookView else { return }
     
-        dest.passedBook = book
+        dest.passedEntity = entity
     }
 
 }

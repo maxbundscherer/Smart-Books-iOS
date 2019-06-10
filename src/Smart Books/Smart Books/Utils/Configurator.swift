@@ -51,7 +51,7 @@ class Configurator {
         
     }
     
-    func getAllBooks() -> [BookEntityDto] {
+    func getAllBooks() -> [BookEntity] {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
@@ -62,8 +62,7 @@ class Configurator {
         let managementContext = appDelegate.persistentContainer.viewContext
     
         do {
-            let data: [BookEntity] = try managementContext.fetch(BookEntity.fetchRequest())
-            return data.map({ cdEntity in BookEntityDto(coreDataEntity: cdEntity) })
+            return try managementContext.fetch(BookEntity.fetchRequest())
         } catch let error as NSError {
             NSLog("Error: Fetch failure '\(error)'")
             return []

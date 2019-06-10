@@ -14,11 +14,12 @@ class SingleBookView: UIViewController {
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var desc: UITextView!
     
-    var passedBook: BookEntityDto?
+    var passedEntity: BookEntity?
     
     override func viewDidLoad() {
         
-        guard let book: BookEntityDto = self.passedBook else { return }
+        guard let entity: BookEntity = self.passedEntity else { return }
+        let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
         
         self.headline.text  = book.headline
         self.cover.image    = book.coverImage
