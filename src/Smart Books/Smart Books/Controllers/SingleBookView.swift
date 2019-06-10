@@ -14,22 +14,15 @@ class SingleBookView: UIViewController {
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var desc: UITextView!
     
-    var passedBookEntityId: UUID? {
-        didSet {
-            guard let uuid: UUID = self.passedBookEntityId else { return }
-            self.bookEntity = Configurator.shared.exampleData[uuid]
-        }
-    }
-    
-    var bookEntity: BookEntity?
+    var passedBook: BookEntityDto?
     
     override func viewDidLoad() {
         
-        guard let entity: BookEntity = self.bookEntity else { return }
+        guard let book: BookEntityDto = self.passedBook else { return }
         
-        self.headline.text  = entity.headline
-        self.cover.image    = entity.coverImage
-        self.desc.text      = StringConverters.convertBookEntityToDescription(value: entity)
+        self.headline.text  = book.headline
+        self.cover.image    = book.coverImage
+        self.desc.text      = StringConverters.convertBookEntityToDescription(value: book)
         
         super.viewDidLoad()
     }

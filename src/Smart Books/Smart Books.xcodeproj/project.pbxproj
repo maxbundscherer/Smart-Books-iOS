@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B41D6C122AD17A200C361FB /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntity.swift */; };
+		3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntityDto.swift */; };
 		3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */; };
 		3B41D6C622AD1A7D00C361FB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C522AD1A7D00C361FB /* NetworkService.swift */; };
 		3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* Configurator.swift */; };
 		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
+		3B664B6922AD70780099055A /* SmartBooksModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127622A513A80065B7C1 /* FirstViewController.swift */; };
 		3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127822A513A80065B7C1 /* SecondViewController.swift */; };
@@ -26,12 +27,13 @@
 
 /* Begin PBXFileReference section */
 		2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B41D6C022AD17A200C361FB /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
+		3B41D6C022AD17A200C361FB /* BookEntityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntityDto.swift; sourceTree = "<group>"; };
 		3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableView.swift; sourceTree = "<group>"; };
 		3B41D6C522AD1A7D00C361FB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3B41D6C722AD1B0200C361FB /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		3B41D6CA22AD1EAA00C361FB /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleCovers.xcassets; sourceTree = "<group>"; };
+		3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127622A513A80065B7C1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +98,8 @@
 		3B67311B22A5165E00D499E3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3B41D6C022AD17A200C361FB /* BookEntity.swift */,
+				3B41D6C022AD17A200C361FB /* BookEntityDto.swift */,
+				3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,7 +264,8 @@
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,
 				3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */,
 				3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */,
-				3B41D6C122AD17A200C361FB /* BookEntity.swift in Sources */,
+				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
+				3B664B6922AD70780099055A /* SmartBooksModels.xcdatamodeld in Sources */,
 				3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +468,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */,
+			);
+			currentVersion = 3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */;
+			path = SmartBooksModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B6E126922A513A80065B7C1 /* Project object */;
 }

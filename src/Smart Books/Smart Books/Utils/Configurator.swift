@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class Configurator {
     
@@ -17,31 +18,57 @@ class Configurator {
     private let jsonService     = JsonService.shared
     
     private init() {
+        
+        //TODO: Remove create example data
+        let entity = BookEntityDto(title: "Buchtitel 1",
+                                   isbn: "1234",
+                                   publisher: "MB Books",
+                                   tags: ["tag1", "tag2"],
+                                   coverImage: UIImage(named: "exampleCoverOne"))
+        
+        _ = createBook(value: entity)
+    }
+
+    func createBook(value: BookEntityDto) -> Bool {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            
+            NSLog("Error: Save failure 'appDelegate'")
+            return false
+        }
+        
+        let managementContext = appDelegate.persistentContainer.viewContext
+        
+        value.saveToCoreData(context: managementContext)
+        
+        do {
+            try managementContext.save()
+            return true
+        } catch let error as NSError {
+            NSLog("Error: Save failure '\(error)'")
+            return false
+        }
+        
     }
     
-    let exampleData: [UUID : BookEntity] =
+    func getAllBooks() -> [BookEntityDto] {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            
+            NSLog("Error: Fetch failure 'appDelegate'")
+            return []
+        }
+        
+        let managementContext = appDelegate.persistentContainer.viewContext
     
-    [
-    UUID(): BookEntity(
-            title: "Buchtitel 1",
-            isbn: "1234",
-            publisher: "MB Books",
-            tags: ["tag1", "tag2"],
-            coverImage: UIImage(named: "exampleCoverOne")),
+        do {
+            let data: [BookEntity] = try managementContext.fetch(BookEntity.fetchRequest())
+            return data.map({ cdEntity in BookEntityDto(coreDataEntity: cdEntity) })
+        } catch let error as NSError {
+            NSLog("Error: Fetch failure '\(error)'")
+            return []
+        }
         
-    UUID(): BookEntity(
-            title: "Buchtitel 2",
-            isbn: "5678",
-            publisher: "TM Books",
-            tags: ["tag3", "tag4"],
-            coverImage: UIImage(named: "exampleCoverTwo")),
-        
-    UUID(): BookEntity(
-            title: "Buchtitel 3",
-            isbn: "9123",
-            publisher: "ZW Books",
-            tags: ["tag5", "tag6"],
-            coverImage: UIImage(named: "exampleCoverThree"))
-    ]
+    }
     
 }

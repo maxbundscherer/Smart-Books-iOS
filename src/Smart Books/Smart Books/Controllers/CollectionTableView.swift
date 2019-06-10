@@ -16,9 +16,7 @@ class PrototypeCellBook: UITableViewCell {
 
 class CollectionTableViewController: UITableViewController {
     
-    //TODO: Implement data structure
-    private let bookEnitiesKeys: [UUID]         = Configurator.shared.exampleData.map { (key, value) in key }
-    private let bookEnitiesValues: [BookEntity] = Configurator.shared.exampleData.map { (key, value) in value }
+    private let books: [BookEntityDto] = Configurator.shared.getAllBooks()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,7 @@ class CollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.bookEnitiesKeys.count
+        return self.books.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,28 +39,28 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: "PrototypeCellBook", for: indexPath) as! PrototypeCellBook
 
-        let bookEntity: BookEntity = self.bookEnitiesValues[indexPath.row]
+        let book: BookEntityDto = self.books[indexPath.row]
         
-        cell.cover.image    = bookEntity.coverImage
-        cell.headline.text  = bookEntity.headline
-        cell.desc.text      = StringConverters.convertBookEntityToDescription(value: bookEntity)
+        cell.cover.image    = book.coverImage
+        cell.headline.text  = book.headline
+        cell.desc.text      = StringConverters.convertBookEntityToDescription(value: book)
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let bookEntityId: UUID = self.bookEnitiesKeys[indexPath.row]
+        let book: BookEntityDto = self.books[indexPath.row]
 
-        performSegue(withIdentifier: "sgShowBook", sender: bookEntityId)
+        performSegue(withIdentifier: "sgShowBook", sender: book)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let bookEntityId: UUID    = sender as? UUID else { return }
+        guard let book: BookEntityDto   = sender as? BookEntityDto else { return }
         guard let dest: SingleBookView  = segue.destination as? SingleBookView else { return }
     
-        dest.passedBookEntityId = bookEntityId
+        dest.passedBook = book
     }
 
 }
