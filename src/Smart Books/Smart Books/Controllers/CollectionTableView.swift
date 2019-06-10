@@ -16,10 +16,15 @@ class PrototypeCellBook: UITableViewCell {
 
 class CollectionTableViewController: UITableViewController {
     
-    private let entities: [BookEntity] = Configurator.shared.getAllBooks()
+    private var entities: [BookEntity] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.entities = Configurator.shared.getAllBooks()
+        self.tableView.reloadData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
