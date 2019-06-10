@@ -29,13 +29,13 @@ class EditBookTableView: UITableViewController {
     
     override func viewDidLoad() {
         
-        remapTableCells()
+        remapAttributes()
         super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         
-        remapTableCells()
+        remapAttributes()
         self.tableView.reloadData()
     }
     
@@ -58,7 +58,7 @@ class EditBookTableView: UITableViewController {
         return cell
     }
     
-    func remapTableCells() {
+    func remapAttributes() {
         
         guard let entity: BookEntity = self.passedEntity else { return }
         let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
