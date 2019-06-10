@@ -20,11 +20,25 @@ class Configurator {
     private init() {
         
         //TODO: Remove create example data
-        let entity = BookEntityDto(title: "Buchtitel 1",
+        var coverFileName: String = ""
+        
+        switch Int.random(in: 0..<3) {
+            case 0:
+                coverFileName = "exampleCoverOne"
+            case 1:
+                coverFileName = "exampleCoverTwo"
+            case 2:
+                coverFileName = "exampleCoverThree"
+            default:
+                coverFileName = "exampleCoverOne"
+        }
+        
+        
+        let entity = BookEntityDto(title: "Buchtitel \(getAllBooks().count)",
                                    isbn: "1234",
                                    publisher: "MB Books",
                                    tags: ["tag1", "tag2"],
-                                   coverImage: UIImage(named: "exampleCoverOne"))
+                                   coverImage: UIImage(named: coverFileName))
         
         _ = createBook(value: entity)
     }
