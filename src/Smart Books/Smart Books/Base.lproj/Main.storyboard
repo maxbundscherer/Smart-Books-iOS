@@ -114,6 +114,9 @@
                                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Aus der Sammlung entfernen"/>
+                                                <connections>
+                                                    <action selector="buttonRemoveAction:" destination="mh1-ca-YbG" eventType="primaryActionTriggered" id="rQI-0J-1lY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-HE-hIO" userLabel="ButtonEdit">
                                                 <rect key="frame" x="20" y="524" width="374" height="30"/>

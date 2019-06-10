@@ -65,6 +65,30 @@ class Configurator {
         
     }
     
+    func deleteBook(value: BookEntity?) -> Bool {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            
+            NSLog("Error: Delete failure 'appDelegate'")
+            return false
+        }
+        
+        let managementContext = appDelegate.persistentContainer.viewContext
+        
+        guard let entity: BookEntity = value else { return false }
+        
+        managementContext.delete(entity)
+        
+        do {
+            try managementContext.save()
+            return true
+        } catch let error as NSError {
+            NSLog("Error: Delete failure '\(error)'")
+            return false
+        }
+        
+    }
+    
     func getAllBooks() -> [BookEntity] {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

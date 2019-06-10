@@ -27,5 +27,19 @@ class SingleBookView: UIViewController {
         
         super.viewDidLoad()
     }
-
+    
+    @IBAction func buttonRemoveAction(_ sender: Any) {
+        
+        switch Configurator.shared.deleteBook(value: passedEntity) {
+            
+            case true:
+                navigationController?.popViewController(animated: true)
+            
+            default:
+                return
+            
+        }
+        
+    }
+    
 }
