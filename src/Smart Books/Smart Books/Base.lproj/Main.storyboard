@@ -40,6 +40,7 @@
                                         </textView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exampleCoverOne" translatesAutoresizingMaskIntoConstraints="NO" id="hWY-se-jTh" userLabel="ImageViewCover">
                                             <rect key="frame" x="10" y="10" width="129.5" height="129.5"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -97,7 +98,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="byk-xD-qMN" userLabel="ImageViewCover">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exampleCoverOne" translatesAutoresizingMaskIntoConstraints="NO" id="byk-xD-qMN" userLabel="ImageViewCover">
                                                 <rect key="frame" x="83" y="115.5" width="248" height="248.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="byk-xD-qMN" secondAttribute="height" multiplier="1:1" id="B2W-JH-eWS"/>
