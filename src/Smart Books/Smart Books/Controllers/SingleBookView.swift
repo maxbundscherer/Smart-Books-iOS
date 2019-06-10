@@ -42,4 +42,17 @@ class SingleBookView: UIViewController {
         
     }
     
+    @IBAction func buttonEditAction(_ sender: Any) {
+        
+        performSegue(withIdentifier: "sgEditBook", sender: passedEntity)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let entity:   BookEntity          = sender as? BookEntity else { return }
+        guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
+        
+        dest.passedEntity = entity
+    }
+    
 }

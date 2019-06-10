@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXd-lN-MqV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8E-5I-yea" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="574"/>
@@ -124,6 +124,9 @@
                                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Bearbeiten"/>
+                                                <connections>
+                                                    <action selector="buttonEditAction:" destination="mh1-ca-YbG" eventType="primaryActionTriggered" id="9g9-OG-U6j"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,16 +173,17 @@
                         <outlet property="cover" destination="byk-xD-qMN" id="qpa-4U-wUk"/>
                         <outlet property="desc" destination="sXQ-sN-UlK" id="NJ6-f9-Cxm"/>
                         <outlet property="headline" destination="tOY-5s-KkO" id="9k4-x2-abh"/>
+                        <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="AUh-S2-VlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h48-Sj-3PF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3635" y="-914"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Book Table View-->
         <scene sceneID="CCb-rz-r3y">
             <objects>
-                <tableViewController id="MzB-0b-jCi" sceneMemberID="viewController">
+                <tableViewController id="MzB-0b-jCi" customClass="EditBookTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8VP-pY-ocj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,13 +220,14 @@
                             <outlet property="delegate" destination="MzB-0b-jCi" id="f5H-f7-3bg"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Igx-T7-fla"/>
                     <connections>
                         <segue destination="37w-Uf-DBc" kind="show" identifier="sgShowCollection" id="4yR-DM-1W4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfR-1l-K0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3635" y="-247"/>
+            <point key="canvasLocation" x="3936" y="-200"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YUl-EM-mgf">
@@ -519,7 +524,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2yH-cf-aYw"/>
-        <segue reference="LHF-dv-iY1"/>
+        <segue reference="AUh-S2-VlL"/>
+        <segue reference="4yR-DM-1W4"/>
     </inferredMetricsTieBreakers>
 </document>
