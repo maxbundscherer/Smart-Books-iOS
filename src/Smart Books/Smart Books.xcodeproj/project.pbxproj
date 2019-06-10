@@ -13,7 +13,7 @@
 		3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* Configurator.swift */; };
 		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
-		3B664B6922AD70780099055A /* SmartBooksModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */; };
+		3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SBModels.xcdatamodeld */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127622A513A80065B7C1 /* FirstViewController.swift */; };
 		3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127822A513A80065B7C1 /* SecondViewController.swift */; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3B41D6C022AD17A200C361FB /* BookEntityDto.swift */,
-				3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */,
+				3B664B6722AD70780099055A /* SBModels.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */,
 				3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */,
 				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
-				3B664B6922AD70780099055A /* SmartBooksModels.xcdatamodeld in Sources */,
+				3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */,
 				3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,13 +470,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3B664B6722AD70780099055A /* SmartBooksModels.xcdatamodeld */ = {
+		3B664B6722AD70780099055A /* SBModels.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */,
 			);
 			currentVersion = 3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */;
-			path = SmartBooksModels.xcdatamodeld;
+			path = SBModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
