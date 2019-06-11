@@ -21,15 +21,20 @@ class Attribute {
     }
 }
 
-class EditBookTableView: UITableViewController {
+extension UIImage: UIImageOrientationFix {}
 
+class EditBookTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     var passedEntity: BookEntity?
     
-    var attributes: [Attribute] = []
+    private var attributes: [Attribute] = []
+    
+    private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         
         reloadData()
+        self.imagePicker.delegate = self
         super.viewDidLoad()
     }
     
@@ -74,35 +79,39 @@ class EditBookTableView: UITableViewController {
         var value: String   = self.attributes[indexPath.row].value
         
         if(sortKey == 4) {
+            
             //Editing 'Cover'
-            //TODO: Implement cover editing
-            return
+            triggerCamera()
         }
-        
-        var message: String = ""
-        
-        if(sortKey == 3) {
-            //Editing 'Tags'
-            message += "Bitte durch ; getrennt ohne Leerzeichen eingeben."
-            value = value.replacingOccurrences(of: " ", with: "")
-        }
-        
-        let alert = UIAlertController(title: key, message: message, preferredStyle: .alert)
-        
-        alert.addTextField { (textField) in
-            textField.text = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        
-        alert.addAction(UIAlertAction(title: "Übernehmen", style: .default, handler: { [weak alert] (_) in
+        else {
             
-            let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
+            //Editing anything else than 'Cover'
+            var message: String = ""
             
-            self.updateEntity(sortKey: sortKey, newValue: newValue)
-        }))
+            if(sortKey == 3) {
+                //Editing 'Tags'
+                message += "Bitte durch ; getrennt ohne Leerzeichen eingeben."
+                value = value.replacingOccurrences(of: " ", with: "")
+            }
+            
+            let alert = UIAlertController(title: key, message: message, preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.text = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            
+            alert.addAction(UIAlertAction(title: "Übernehmen", style: .default, handler: { [weak alert] (_) in
+                
+                let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                self.updateEntity(sortKey: sortKey, newValue: newValue)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     private func updateEntity(sortKey: Int, newValue: String) {
@@ -135,6 +144,46 @@ class EditBookTableView: UITableViewController {
         
         reloadData()
         self.tableView.reloadData()
+    }
+    
+    private func triggerCamera() {
+        
+        //TODO: Check access rights
+        if (UIImagePickerController.isSourceTypeAvailable(.camera) == true) {
+            
+            self.imagePicker.allowsEditing           = false
+            self.imagePicker.sourceType              = .camera
+            self.imagePicker.cameraCaptureMode       = .photo
+            self.imagePicker.modalPresentationStyle  = .fullScreen
+            
+            present(self.imagePicker, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Fehler", message: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let entity: BookEntity = self.passedEntity else { return }
+        
+        DispatchQueue.main.async {
+            
+            guard let chosenImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+            
+            entity.coverImage = (chosenImage.fixedOrientation() ?? UIImage()).pngData()
+            
+            _ = Configurator.shared.saveUpdates()
+        }
+        
+        dismiss(animated:true, completion: nil)
     }
 
 }
