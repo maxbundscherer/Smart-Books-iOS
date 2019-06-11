@@ -45,24 +45,24 @@ class Configurator {
         
     }
 
-    func createBook(value: BookEntityDto) -> Bool {
+    func createBook(value: BookEntityDto) -> BookEntity? {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
             NSLog("Error: Save failure 'appDelegate'")
-            return false
+            return nil
         }
         
         let managementContext = appDelegate.persistentContainer.viewContext
         
-        value.saveToCoreData(context: managementContext)
+        let entity = value.saveToCoreData(context: managementContext)
         
         do {
             try managementContext.save()
-            return true
+            return entity
         } catch let error as NSError {
             NSLog("Error: Save failure '\(error)'")
-            return false
+            return nil
         }
         
     }
