@@ -12,7 +12,7 @@ class StringConverters {
     
     static func convertBookEntityToDescription(value: BookEntityDto) -> String {
         
-        return "ISBN:\t\(value.headline ?? "")\nVerlag:\t\(value.publisher ?? "")\nTags:\t\((value.tags ?? []).joined(separator: "; "))"
+        return "ISBN:\t\(value.isbn ?? "")\nVerlag:\t\(value.publisher ?? "")\nTags:\t\((value.tags ?? []).joined(separator: "; "))"
     }
     
 }
