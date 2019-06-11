@@ -32,12 +32,6 @@ class EditBookTableView: UITableViewController {
         reloadData()
         super.viewDidLoad()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        
-        reloadData()
-        self.tableView.reloadData()
-    }
     
     private func reloadData() {
         
@@ -48,8 +42,8 @@ class EditBookTableView: UITableViewController {
             Attribute(sortKey: 0, key: "Titel", value: book.headline ?? ""),
             Attribute(sortKey: 1, key: "ISBN", value: book.isbn ?? ""),
             Attribute(sortKey: 2, key: "Verlag", value: book.publisher ?? ""),
-            Attribute(sortKey: 3, key: "Tags", value: (book.tags ?? []).joined(separator: ", ")),
-            Attribute(sortKey: 4, key: "Cover", value: "TODO")
+            Attribute(sortKey: 3, key: "Tags", value: (book.tags ?? []).joined(separator: "; ")),
+            Attribute(sortKey: 4, key: "Cover", value: "")
             ]
             .sorted(by: { $0.sortKey < $1.sortKey })
     }
@@ -71,6 +65,76 @@ class EditBookTableView: UITableViewController {
         cell.detailTextLabel?.text  = self.attributes[indexPath.row].value
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let sortKey: Int    = self.attributes[indexPath.row].sortKey
+        let key: String     = self.attributes[indexPath.row].key
+        var value: String   = self.attributes[indexPath.row].value
+        
+        if(sortKey == 4) {
+            //Editing 'Cover'
+            //TODO: Implement cover editing
+            return
+        }
+        
+        var message: String = ""
+        
+        if(sortKey == 3) {
+            //Editing 'Tags'
+            message += "Bitte durch ; getrennt ohne Leerzeichen eingeben."
+            value = value.replacingOccurrences(of: " ", with: "")
+        }
+        
+        let alert = UIAlertController(title: key, message: message, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.text = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        alert.addAction(UIAlertAction(title: "Übernehmen", style: .default, handler: { [weak alert] (_) in
+            
+            let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            self.updateEntity(sortKey: sortKey, newValue: newValue)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func updateEntity(sortKey: Int, newValue: String) {
+        
+        guard let entity: BookEntity = self.passedEntity else { return }
+        
+        switch sortKey {
+            
+            case 0:
+                //Editing 'Headline'
+                entity.headline = newValue
+            
+            case 1:
+                //Editing 'ISBN'
+                entity.isbn = newValue
+            
+            case 2:
+                //Editing 'Publisher'
+                entity.publisher = newValue
+            
+            case 3:
+                //Editing 'Tags'
+                entity.tags = newValue.split(separator: ";").map({ (subString) in String(subString) })
+            
+            default:
+                return
+        }
+    
+        _ = Configurator.shared.saveUpdates()
+        
+        reloadData()
+        self.tableView.reloadData()
     }
 
 }

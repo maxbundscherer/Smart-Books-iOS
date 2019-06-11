@@ -91,6 +91,26 @@ class Configurator {
         
     }
     
+    func saveUpdates() -> Bool {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            
+            NSLog("Error: Update failure 'appDelegate'")
+            return false
+        }
+        
+        let managementContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try managementContext.save()
+            return true
+        } catch let error as NSError {
+            NSLog("Error: Update failure '\(error)'")
+            return false
+        }
+        
+    }
+    
     func getAllBooks() -> [BookEntity] {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

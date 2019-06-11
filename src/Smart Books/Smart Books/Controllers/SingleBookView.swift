@@ -18,14 +18,22 @@ class SingleBookView: UIViewController {
     
     override func viewDidLoad() {
         
+        reloadData()
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadData()
+    }
+    
+    private func reloadData() {
+        
         guard let entity: BookEntity = self.passedEntity else { return }
         let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
         
         self.headline.text  = book.headline
         self.cover.image    = book.coverImage
         self.desc.text      = StringConverters.convertBookEntityToDescription(value: book)
-        
-        super.viewDidLoad()
     }
     
     @IBAction func buttonRemoveAction(_ sender: Any) {
