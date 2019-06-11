@@ -19,12 +19,17 @@ class CollectionTableViewController: UITableViewController {
     private var entities: [BookEntity] = []
 
     override func viewDidLoad() {
+        reloadData()
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.entities = Configurator.shared.getAllBooks()
+        reloadData()
         self.tableView.reloadData()
+    }
+    
+    private func reloadData() {
+        self.entities = Configurator.shared.getAllBooks()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

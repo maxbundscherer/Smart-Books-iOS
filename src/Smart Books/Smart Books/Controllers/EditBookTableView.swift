@@ -29,14 +29,29 @@ class EditBookTableView: UITableViewController {
     
     override func viewDidLoad() {
         
-        remapAttributes()
+        reloadData()
         super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         
-        remapAttributes()
+        reloadData()
         self.tableView.reloadData()
+    }
+    
+    private func reloadData() {
+        
+        guard let entity: BookEntity = self.passedEntity else { return }
+        let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
+        
+        self.attributes = [
+            Attribute(sortKey: 0, key: "Titel", value: book.headline ?? ""),
+            Attribute(sortKey: 1, key: "ISBN", value: book.isbn ?? ""),
+            Attribute(sortKey: 2, key: "Verlag", value: book.publisher ?? ""),
+            Attribute(sortKey: 3, key: "Tags", value: (book.tags ?? []).joined(separator: ", ")),
+            Attribute(sortKey: 4, key: "Cover", value: "TODO")
+            ]
+            .sorted(by: { $0.sortKey < $1.sortKey })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,21 +71,6 @@ class EditBookTableView: UITableViewController {
         cell.detailTextLabel?.text  = self.attributes[indexPath.row].value
         
         return cell
-    }
-    
-    func remapAttributes() {
-        
-        guard let entity: BookEntity = self.passedEntity else { return }
-        let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
-        
-        self.attributes = [
-            Attribute(sortKey: 0, key: "Titel", value: book.headline ?? ""),
-            Attribute(sortKey: 1, key: "ISBN", value: book.isbn ?? ""),
-            Attribute(sortKey: 2, key: "Verlag", value: book.publisher ?? ""),
-            Attribute(sortKey: 3, key: "Tags", value: (book.tags ?? []).joined(separator: ", ")),
-            Attribute(sortKey: 4, key: "Cover", value: "TODO")
-            ]
-            .sorted(by: { $0.sortKey < $1.sortKey })
     }
 
 }
