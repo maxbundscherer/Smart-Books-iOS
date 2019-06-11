@@ -38,16 +38,25 @@ class SingleBookView: UIViewController {
     
     @IBAction func buttonRemoveAction(_ sender: Any) {
         
-        switch Configurator.shared.deleteBook(value: passedEntity) {
-            
-            case true:
-                navigationController?.popViewController(animated: true)
-            
-            default:
-                return
-            
-        }
+        let alert = UIAlertController(title: "Warnung", message: "Möchten Sie dieses Buch wirklich aus Ihrer Sammlung entfernen?", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Löschen", style: .destructive, handler: { (_) in
+            
+            switch Configurator.shared.deleteBook(value: self.passedEntity) {
+                
+                case true:
+                    self.navigationController?.popViewController(animated: true)
+                
+                default:
+                    return
+                
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func buttonEditAction(_ sender: Any) {
