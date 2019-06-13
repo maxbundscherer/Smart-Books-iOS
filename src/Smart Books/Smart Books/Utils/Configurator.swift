@@ -16,8 +16,6 @@ class Configurator {
     
     private init() {
         
-        //TODO: Check if configurator is triggered
-        
         if(StorageService.shared.getAllBooks().isEmpty) {
             
             var coverFileName: String = ""

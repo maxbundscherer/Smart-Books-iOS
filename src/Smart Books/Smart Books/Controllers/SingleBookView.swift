@@ -42,7 +42,7 @@ class SingleBookView: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Löschen", style: .destructive, handler: { (_) in
             
-            switch Configurator.shared.deleteBook(value: self.passedEntity) {
+            switch StorageService.shared.deleteBook(value: self.passedEntity) {
                 
                 case true:
                     self.navigationController?.popViewController(animated: true)

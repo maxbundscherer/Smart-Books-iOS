@@ -34,4 +34,12 @@ class BookEntityDto {
         self.coverImage     = UIImage(data: coreDataEntity.coverImage ?? Data())
     }
     
+    init() {
+        self.headline       = ""
+        self.isbn           = ""
+        self.publisher      = ""
+        self.tags           = []
+        self.coverImage     = UIImage()
+    }
+    
 }

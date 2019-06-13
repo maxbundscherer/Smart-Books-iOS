@@ -27,11 +27,21 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     var passedEntity: BookEntity?
     
+    private var storedDto: BookEntityDto?
     private var attributes: [Attribute] = []
     
     private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
+        
+        if(self.passedEntity == nil) {
+            //Add-Mode
+            self.storedDto = BookEntityDto()
+        }
+        else {
+            //Edit-Mode
+            self.storedDto = BookEntityDto(coreDataEntity: self.passedEntity!)
+        }
         
         reloadData()
         self.imagePicker.delegate = self
@@ -40,15 +50,23 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     private func reloadData() {
         
-        guard let entity: BookEntity = self.passedEntity else { return }
-        let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
+        guard let dto: BookEntityDto = self.storedDto else { return }
+        
+        var coverString: String
+        
+        if(dto.coverImage == nil || dto.coverImage == UIImage()) {
+            coverString = "[kein Cover]"
+        }
+        else {
+            coverString = "[Cover]"
+        }
         
         self.attributes = [
-            Attribute(sortKey: 0, key: "Titel", value: book.headline ?? ""),
-            Attribute(sortKey: 1, key: "ISBN", value: book.isbn ?? ""),
-            Attribute(sortKey: 2, key: "Verlag", value: book.publisher ?? ""),
-            Attribute(sortKey: 3, key: "Tags", value: (book.tags ?? []).joined(separator: "; ")),
-            Attribute(sortKey: 4, key: "Cover", value: "")
+            Attribute(sortKey: 0, key: "Titel", value: dto.headline ?? ""),
+            Attribute(sortKey: 1, key: "ISBN", value: dto.isbn ?? ""),
+            Attribute(sortKey: 2, key: "Verlag", value: dto.publisher ?? ""),
+            Attribute(sortKey: 3, key: "Tags", value: (dto.tags ?? []).joined(separator: "; ")),
+            Attribute(sortKey: 4, key: "Cover", value: coverString)
             ]
             .sorted(by: { $0.sortKey < $1.sortKey })
     }
@@ -104,7 +122,7 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
                 
                 let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
                 
-                self.updateEntity(sortKey: sortKey, newValue: newValue)
+                self.writeChangesToDto(sortKey: sortKey, newValue: newValue)
             }))
             
             alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
@@ -114,33 +132,31 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
         
     }
     
-    private func updateEntity(sortKey: Int, newValue: String) {
+    private func writeChangesToDto(sortKey: Int, newValue: String) {
         
-        guard let entity: BookEntity = self.passedEntity else { return }
+        guard let dto: BookEntityDto = self.storedDto else { return }
         
         switch sortKey {
             
             case 0:
                 //Editing 'Headline'
-                entity.headline = newValue
+                dto.headline = newValue
             
             case 1:
                 //Editing 'ISBN'
-                entity.isbn = newValue
+                dto.isbn = newValue
             
             case 2:
                 //Editing 'Publisher'
-                entity.publisher = newValue
+                dto.publisher = newValue
             
             case 3:
                 //Editing 'Tags'
-                entity.tags = newValue.split(separator: ";").map({ (subString) in String(subString) })
+                dto.tags = newValue.split(separator: ";").map({ (subString) in String(subString) })
             
             default:
                 return
         }
-    
-        _ = StorageService.shared.saveUpdates()
         
         reloadData()
         self.tableView.reloadData()
@@ -172,18 +188,39 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let entity: BookEntity = self.passedEntity else { return }
+        guard let dto: BookEntityDto = self.storedDto else { return }
         
         DispatchQueue.main.async {
             
             guard let chosenImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
             
-            entity.coverImage = (chosenImage.fixedOrientation() ?? UIImage()).pngData()
-            
-            _ = StorageService.shared.saveUpdates()
+            dto.coverImage = chosenImage.fixedOrientation() ?? UIImage()
+        
         }
         
         dismiss(animated:true, completion: nil)
     }
-
+    
+    
+    @IBAction func barButtonSaveAction(_ sender: Any) {
+        
+        guard let dto: BookEntityDto = self.storedDto else { return }
+        
+        var result: Bool = false
+        
+        if(self.passedEntity == nil) {
+            //Add-Mode
+            if(StorageService.shared.createBook(value: dto) != nil) { result = true }
+        }
+        else {
+            //Edit-Mode
+            result = StorageService.shared.updateBook(entity: self.passedEntity!, value: dto)
+        }
+        
+        if(result) {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+    }
+    
 }
