@@ -34,17 +34,4 @@ class BookEntityDto {
         self.coverImage     = UIImage(data: coreDataEntity.coverImage ?? Data())
     }
     
-    func saveToCoreData(context: NSManagedObjectContext) -> BookEntity {
-        
-        let entity = BookEntity(context: context)
-        
-        entity.headline     = self.headline
-        entity.isbn         = self.isbn
-        entity.publisher    = self.publisher
-        entity.tags         = self.tags
-        entity.coverImage   = self.coverImage?.pngData()
-        
-        return entity
-    }
-    
 }

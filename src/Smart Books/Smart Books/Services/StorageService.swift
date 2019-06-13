@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 class StorageService {
     
@@ -26,7 +28,9 @@ class StorageService {
         
         let managementContext = appDelegate.persistentContainer.viewContext
         
-        let entity = value.saveToCoreData(context: managementContext)
+        let entity = BookEntity(context: managementContext)
+        
+        _ = mapDtoToEntity(dto: value, entity: entity)
         
         do {
             try managementContext.save()
@@ -62,7 +66,7 @@ class StorageService {
         
     }
     
-    func saveUpdates() -> Bool {
+    func updateBook(entity: BookEntity, value: BookEntityDto) -> Bool {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
@@ -71,6 +75,8 @@ class StorageService {
         }
         
         let managementContext = appDelegate.persistentContainer.viewContext
+        
+        _ = mapDtoToEntity(dto: value, entity: entity)
         
         do {
             try managementContext.save()
@@ -99,6 +105,17 @@ class StorageService {
             return []
         }
         
+    }
+    
+    private func mapDtoToEntity(dto: BookEntityDto, entity: BookEntity) -> BookEntity {
+        
+        entity.headline     = dto.headline
+        entity.isbn         = dto.isbn
+        entity.publisher    = dto.publisher
+        entity.tags         = dto.tags
+        entity.coverImage   = dto.coverImage?.pngData()
+        
+        return entity
     }
     
 }
