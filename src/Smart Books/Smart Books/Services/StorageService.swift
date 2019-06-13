@@ -107,6 +107,29 @@ class StorageService {
         
     }
     
+    func queryBooks(searchString: String) -> [BookEntity] {
+        
+        //I had to implement the search manually, because fetchRequest can not search in []
+        
+        let preparedSearchString: String = searchString.lowercased()
+        let unfilteredResults: [BookEntity] = getAllBooks()
+        
+        var filteredResults: Set<BookEntity> = Set()
+        
+        for book in unfilteredResults {
+            
+            if(
+                (book.headline ?? "")   .lowercased().contains(preparedSearchString) ||
+                (book.isbn ?? "")       .lowercased().contains(preparedSearchString) ||
+                (book.publisher ?? "")  .lowercased().contains(preparedSearchString) ||
+                (book.tags ?? [])       .contains(preparedSearchString)
+                ) { filteredResults.insert(book) }
+            
+        }
+        
+        return Array(filteredResults)
+    }
+    
     private func writeChangesToEntity(dto: BookEntityDto, entity: BookEntity) {
         
         entity.headline     = dto.headline
