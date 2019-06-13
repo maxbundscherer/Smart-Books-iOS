@@ -16,6 +16,8 @@ class PrototypeCellBook: UITableViewCell {
 
 class CollectionTableViewController: UITableViewController {
     
+    var passedEntities: [BookEntity] = []
+    
     //Trigger Configurator
     let configurator = Configurator.shared
     
@@ -32,7 +34,12 @@ class CollectionTableViewController: UITableViewController {
     }
     
     private func reloadData() {
-        self.entities = StorageService.shared.getAllBooks()
+        if(self.passedEntities.isEmpty) {
+            self.entities = StorageService.shared.getAllBooks()
+        }
+        else {
+            self.entities = self.passedEntities
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

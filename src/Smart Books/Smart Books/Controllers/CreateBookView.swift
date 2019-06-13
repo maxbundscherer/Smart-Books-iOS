@@ -16,7 +16,7 @@ class CreateBookView: UIViewController {
     
     @IBAction func buttonManInputAction(_ sender: Any) {
         
-        performSegue(withIdentifier: "sgEditBook", sender: Any)
+        performSegue(withIdentifier: "sgEditBook", sender: nil)
     }
     
     @IBAction func buttonCameraAction(_ sender: Any) {
