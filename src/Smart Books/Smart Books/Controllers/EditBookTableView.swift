@@ -140,7 +140,7 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
                 return
         }
     
-        _ = Configurator.shared.saveUpdates()
+        _ = StorageService.shared.saveUpdates()
         
         reloadData()
         self.tableView.reloadData()
@@ -180,7 +180,7 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
             
             entity.coverImage = (chosenImage.fixedOrientation() ?? UIImage()).pngData()
             
-            _ = Configurator.shared.saveUpdates()
+            _ = StorageService.shared.saveUpdates()
         }
         
         dismiss(animated:true, completion: nil)

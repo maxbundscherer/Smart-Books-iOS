@@ -23,6 +23,7 @@
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */; };
 		3B7DD89F22AD34D1009C7DD2 /* StringConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverters.swift */; };
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
+		3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A422B2323B00C1E951 /* StorageService.swift */; };
 		3BFFDF1322AE930D000BD7CA /* EditBookTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFDF1222AE930D000BD7CA /* EditBookTableView.swift */; };
 		7F74D3CD1396B43A247ED262 /* Pods_Smart_Books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFix.swift; sourceTree = "<group>"; };
 		3B7DD89E22AD34D1009C7DD2 /* StringConverters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverters.swift; sourceTree = "<group>"; };
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
+		3BE518A422B2323B00C1E951 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		3BFFDF1222AE930D000BD7CA /* EditBookTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookTableView.swift; sourceTree = "<group>"; };
 		5FC6065BC7848D6596C2FCBD /* Pods-Smart Books.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Books.release.xcconfig"; path = "Target Support Files/Pods-Smart Books/Pods-Smart Books.release.xcconfig"; sourceTree = "<group>"; };
 		9DAD7806F402E0B509D09CA7 /* Pods-Smart Books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Books.debug.xcconfig"; path = "Target Support Files/Pods-Smart Books/Pods-Smart Books.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				3B41D6C522AD1A7D00C361FB /* NetworkService.swift */,
 				3B41D6CA22AD1EAA00C361FB /* JsonService.swift */,
+				3BE518A422B2323B00C1E951 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
 				3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */,
 				3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */,
+				3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
