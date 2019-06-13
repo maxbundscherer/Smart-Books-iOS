@@ -30,7 +30,7 @@ class StorageService {
         
         let entity = BookEntity(context: managementContext)
         
-        _ = mapDtoToEntity(dto: value, entity: entity)
+        writeChangesToEntity(dto: value, entity: entity)
         
         do {
             try managementContext.save()
@@ -76,7 +76,7 @@ class StorageService {
         
         let managementContext = appDelegate.persistentContainer.viewContext
         
-        _ = mapDtoToEntity(dto: value, entity: entity)
+        writeChangesToEntity(dto: value, entity: entity)
         
         do {
             try managementContext.save()
@@ -107,7 +107,7 @@ class StorageService {
         
     }
     
-    private func mapDtoToEntity(dto: BookEntityDto, entity: BookEntity) -> BookEntity {
+    private func writeChangesToEntity(dto: BookEntityDto, entity: BookEntity) {
         
         entity.headline     = dto.headline
         entity.isbn         = dto.isbn
@@ -115,7 +115,6 @@ class StorageService {
         entity.tags         = dto.tags
         entity.coverImage   = dto.coverImage?.pngData()
         
-        return entity
     }
     
 }
