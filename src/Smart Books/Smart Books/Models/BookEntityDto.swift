@@ -35,11 +35,11 @@ class BookEntityDto {
     }
     
     init() {
-        self.headline       = ""
-        self.isbn           = ""
-        self.publisher      = ""
+        self.headline       = nil
+        self.isbn           = nil
+        self.publisher      = nil
         self.tags           = []
-        self.coverImage     = UIImage()
+        self.coverImage     = nil
     }
     
 }
