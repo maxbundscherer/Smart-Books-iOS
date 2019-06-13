@@ -14,9 +14,9 @@ class PrototypeCellBook: UITableViewCell {
     @IBOutlet weak var desc: UITextView!
 }
 
-class CollectionTableViewController: UITableViewController {
+class CollectionTableView: UITableViewController {
     
-    var passedEntities: [BookEntity] = []
+    var passedEntities: [BookEntity]?
     
     //Trigger Configurator
     let configurator = Configurator.shared
@@ -34,11 +34,11 @@ class CollectionTableViewController: UITableViewController {
     }
     
     private func reloadData() {
-        if(self.passedEntities.isEmpty) {
+        if(self.passedEntities == nil) {
             self.entities = StorageService.shared.getAllBooks()
         }
         else {
-            self.entities = self.passedEntities
+            self.entities = self.passedEntities!
         }
     }
 

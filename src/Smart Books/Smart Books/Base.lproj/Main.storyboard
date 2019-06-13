@@ -13,7 +13,7 @@
         <!--Sammlung-->
         <scene sceneID="qq6-Vr-Bfa">
             <objects>
-                <tableViewController id="37w-Uf-DBc" customClass="CollectionTableViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="37w-Uf-DBc" customClass="CollectionTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5RH-5t-oz2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -410,7 +410,7 @@
         <!--Suchen-->
         <scene sceneID="EHz-6e-TmM">
             <objects>
-                <viewController id="jwK-u2-Rso" sceneMemberID="viewController">
+                <viewController id="jwK-u2-Rso" customClass="SearchBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ZT-lh-FvS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -432,6 +432,9 @@
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Suchen"/>
+                                <connections>
+                                    <action selector="buttonSearchAction:" destination="jwK-u2-Rso" eventType="primaryActionTriggered" id="3Jk-B6-Tl1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -450,6 +453,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Suchen" id="Rog-ap-KqO"/>
                     <connections>
+                        <outlet property="searchword" destination="WoP-uL-rbe" id="e6Y-RQ-Eg3"/>
                         <segue destination="37w-Uf-DBc" kind="show" identifier="sgShowCollection" id="LHF-dv-iY1"/>
                     </connections>
                 </viewController>
@@ -540,6 +544,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gDd-GN-C3d"/>
-        <segue reference="4yR-DM-1W4"/>
+        <segue reference="LHF-dv-iY1"/>
     </inferredMetricsTieBreakers>
 </document>
