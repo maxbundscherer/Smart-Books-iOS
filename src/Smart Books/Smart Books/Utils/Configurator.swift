@@ -18,26 +18,27 @@ class Configurator {
         
         if(StorageService.shared.getAllBooks().isEmpty) {
             
-            var coverFileName: String = ""
+            let entityOne = BookEntityDto(title: "Der Struwwelpeter",
+                                          isbn: "978-3-937467-78-8",
+                                          publisher: "Edition Tintenfaß",
+                                          tags: ["kinderbuch", "erinnerung"],
+                                          coverImage: UIImage(named: "exampleCoverOne"))
             
-            switch Int.random(in: 0..<3) {
-                case 0:
-                    coverFileName = "exampleCoverOne"
-                case 1:
-                    coverFileName = "exampleCoverTwo"
-                case 2:
-                    coverFileName = "exampleCoverThree"
-                default:
-                    coverFileName = "exampleCoverOne"
-            }
+            let entityTwo = BookEntityDto(title: "Peter Pan",
+                                          isbn: "978-3-401-05546-6",
+                                          publisher: "Arena Verlag GmbH",
+                                          tags: ["kinderbuch", "favorit"],
+                                          coverImage: UIImage(named: "exampleCoverTwo"))
             
-            let entity = BookEntityDto(title: "Beispielsbuch",
-                isbn: "123456789",
-                publisher: "Beispielverlag",
-                tags: ["tag1", "tag2"],
-                coverImage: UIImage(named: coverFileName))
+            let entityThree = BookEntityDto(title: "Die Bibel",
+                                          isbn: "978-3-7306-0273-7",
+                                          publisher: "Anaconda Verlag",
+                                          tags: ["religion", "langweilig"],
+                                          coverImage: UIImage(named: "exampleCoverThree"))
             
-            _ = StorageService.shared.createBook(value: entity)
+            _ = StorageService.shared.createBook(value: entityOne)
+            _ = StorageService.shared.createBook(value: entityTwo)
+            _ = StorageService.shared.createBook(value: entityThree)
         }
         
     }
