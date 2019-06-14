@@ -31,7 +31,7 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     private var storedDto: BookEntityDto?
     private var attributes: [Attribute] = []
-    
+    private var hasCameraAccess: Bool = false
     private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -55,6 +55,14 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
         reloadData()
         self.imagePicker.delegate = self
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            self.hasCameraAccess = response
+        }
+        
     }
     
     private func reloadData() {
@@ -175,26 +183,22 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
         
         let cameraAvailableFlag : Bool = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+        let accessFlag: Bool = (self.hasCameraAccess && cameraAvailableFlag)
+        
+        switch accessFlag {
             
-            let accessFlag: Bool = (response && cameraAvailableFlag)
+            case true:
+                
+                self.imagePicker.allowsEditing           = false
+                self.imagePicker.sourceType              = .camera
+                self.imagePicker.cameraCaptureMode       = .photo
+                self.imagePicker.modalPresentationStyle  = .fullScreen
+                
+                self.present(self.imagePicker, animated: true, completion: nil)
             
-            switch accessFlag {
+            default:
                 
-                case true:
-                    
-                    self.imagePicker.allowsEditing           = false
-                    self.imagePicker.sourceType              = .camera
-                    self.imagePicker.cameraCaptureMode       = .photo
-                    self.imagePicker.modalPresentationStyle  = .fullScreen
-                    
-                    self.present(self.imagePicker, animated: true, completion: nil)
-                
-                default:
-                    
-                    AlertHelper.showError(msg: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", viewController: self)
-                
-            }
+                AlertHelper.showError(msg: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", viewController: self)
             
         }
         
