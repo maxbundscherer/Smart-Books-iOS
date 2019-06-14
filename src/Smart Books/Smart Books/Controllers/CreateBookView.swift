@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateBookView: UIViewController {
+class CreateBookView: UIViewController, BarcodeScannerHelperDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class CreateBookView: UIViewController {
         
         let barcodeScannerHelper = BarcodeScannerHelper()
         
+        barcodeScannerHelper.delegate             = self
         barcodeScannerHelper.codeDelegate         = barcodeScannerHelper
         barcodeScannerHelper.errorDelegate        = barcodeScannerHelper
         barcodeScannerHelper.dismissalDelegate    = barcodeScannerHelper
@@ -31,6 +32,19 @@ class CreateBookView: UIViewController {
     }
     
     @IBAction func buttonChatAction(_ sender: Any) {
+    }
+    
+    func editPreparedBookDto(dto: BookEntityDto) {
+        
+        performSegue(withIdentifier: "sgEditBook", sender: dto)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let dto:      BookEntityDto       = sender as? BookEntityDto else { return }
+        guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
+        
+        dest.passedDto = dto
     }
     
 }

@@ -23,8 +23,10 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
                 self.dismiss(animated: true, completion: nil)
             }
             else {
-                //TODO: Implement wire
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.editPreparedBookDto(dto: resultBook!)
+                })
+                
             }
             
         }
@@ -55,6 +57,14 @@ extension BarcodeScannerHelper: BarcodeScannerDismissalDelegate {
     }
 }
 
+protocol BarcodeScannerHelperDelegate {
+    
+    func editPreparedBookDto(dto: BookEntityDto)
+    
+}
+
 class BarcodeScannerHelper: BarcodeScannerViewController {
+    
+    var delegate: BarcodeScannerHelperDelegate?
     
 }
