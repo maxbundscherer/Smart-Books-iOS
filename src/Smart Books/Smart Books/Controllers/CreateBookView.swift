@@ -34,9 +34,12 @@ class CreateBookView: UIViewController, BarcodeScannerHelperDelegate {
     @IBAction func buttonChatAction(_ sender: Any) {
     }
     
-    func editPreparedBookDto(dto: BookEntityDto) {
-        
+    func barcodeToBookSuccess(dto: BookEntityDto) {
         performSegue(withIdentifier: "sgEditBook", sender: dto)
+    }
+    
+    func barcodeToBookFailure(msg: String) {
+        AlertHelper.showError(msg: msg, viewController: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -19,12 +19,13 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
             let resultBook: BookEntityDto? = BookLookUpService.shared.lookupBook(ean: code.trimmingCharacters(in: .whitespacesAndNewlines))
             
             if(resultBook == nil) {
-                AlertHelper.showError(msg: "Leider konnte kein Buch gefunden werden.", viewController: self)
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.barcodeToBookFailure(msg: "Leider konnte kein Buch gefunden werden.")
+                })
             }
             else {
                 self.dismiss(animated: true, completion: {
-                    self.delegate?.editPreparedBookDto(dto: resultBook!)
+                    self.delegate?.barcodeToBookSuccess(dto: resultBook!)
                 })
                 
             }
@@ -33,8 +34,9 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
         else {
             
             //Barcode is not from a book
-            AlertHelper.showError(msg: "Bitte scannen Sie einen Barcode von einem Buch.", viewController: self)
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                self.delegate?.barcodeToBookFailure(msg: "Bitte scannen Sie einen Barcode von einem Buch.")
+            })
         }
         
     }
@@ -59,7 +61,8 @@ extension BarcodeScannerHelper: BarcodeScannerDismissalDelegate {
 
 protocol BarcodeScannerHelperDelegate {
     
-    func editPreparedBookDto(dto: BookEntityDto)
+    func barcodeToBookSuccess(dto: BookEntityDto)
+    func barcodeToBookFailure(msg: String)
     
 }
 
