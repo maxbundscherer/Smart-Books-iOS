@@ -25,6 +25,7 @@
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
 		3BA8A3B922B3CF16005D065E /* BarcodeScannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodeScannerHelper.swift */; };
 		3BA8A3BB22B3D5AB005D065E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */; };
+		3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */; };
 		3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A422B2323B00C1E951 /* StorageService.swift */; };
 		3BE518A722B2412500C1E951 /* CreateBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A622B2412500C1E951 /* CreateBookView.swift */; };
 		3BE518A922B24A4600C1E951 /* SearchBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A822B24A4600C1E951 /* SearchBookView.swift */; };
@@ -54,6 +55,7 @@
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
 		3BA8A3B822B3CF16005D065E /* BarcodeScannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerHelper.swift; sourceTree = "<group>"; };
 		3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupService.swift; sourceTree = "<group>"; };
 		3BE518A422B2323B00C1E951 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		3BE518A622B2412500C1E951 /* CreateBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookView.swift; sourceTree = "<group>"; };
 		3BE518A822B24A4600C1E951 /* SearchBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				3B41D6C522AD1A7D00C361FB /* NetworkService.swift */,
 				3B41D6CA22AD1EAA00C361FB /* JsonService.swift */,
 				3BE518A422B2323B00C1E951 /* StorageService.swift */,
+				3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */,
 				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
 				3BE518A922B24A4600C1E951 /* SearchBookView.swift in Sources */,
+				3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */,
 				3BE518A722B2412500C1E951 /* CreateBookView.swift in Sources */,
 				3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */,
 				3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */,

@@ -16,8 +16,16 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
         if(type == "org.gs1.EAN-13") {
             
             //Barcode is from book
-            print("-\(code)- -\(type)-")
-            self.dismiss(animated: true, completion: nil)
+            let resultBook: BookEntityDto? = BookLookUpService.shared.lookupBook(ean: code.trimmingCharacters(in: .whitespacesAndNewlines))
+            
+            if(resultBook == nil) {
+                AlertHelper.showError(msg: "Leider konnte kein Buch gefunden werden.", viewController: self)
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                //TODO: Implement wire
+                self.dismiss(animated: true, completion: nil)
+            }
             
         }
         else {

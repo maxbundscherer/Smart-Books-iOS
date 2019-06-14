@@ -27,6 +27,7 @@ extension UIImage: UIImageOrientationFix {}
 class EditBookTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var passedEntity: BookEntity?
+    var passedDto: BookEntityDto?
     
     private var storedDto: BookEntityDto?
     private var attributes: [Attribute] = []
@@ -37,7 +38,14 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
         
         if(self.passedEntity == nil) {
             //Add-Mode
-            self.storedDto = BookEntityDto()
+            if(self.passedDto == nil) {
+                //No dto passed
+                self.storedDto = BookEntityDto()
+            }
+            else {
+                //Dto passed
+                self.storedDto = self.passedDto!
+            }
         }
         else {
             //Edit-Mode
