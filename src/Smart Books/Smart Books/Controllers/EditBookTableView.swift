@@ -173,22 +173,18 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
             
             switch accessFlag {
                 
-            case true:
+                case true:
+                    
+                    self.imagePicker.allowsEditing           = false
+                    self.imagePicker.sourceType              = .camera
+                    self.imagePicker.cameraCaptureMode       = .photo
+                    self.imagePicker.modalPresentationStyle  = .fullScreen
+                    
+                    self.present(self.imagePicker, animated: true, completion: nil)
                 
-                self.imagePicker.allowsEditing           = false
-                self.imagePicker.sourceType              = .camera
-                self.imagePicker.cameraCaptureMode       = .photo
-                self.imagePicker.modalPresentationStyle  = .fullScreen
-                
-                self.present(self.imagePicker, animated: true, completion: nil)
-                
-            default:
-                
-                let alert = UIAlertController(title: "Fehler", message: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
-                
-                self.present(alert, animated: true, completion: nil)
+                default:
+                    
+                    AlertHelper.showError(msg: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", viewController: self)
                 
             }
             

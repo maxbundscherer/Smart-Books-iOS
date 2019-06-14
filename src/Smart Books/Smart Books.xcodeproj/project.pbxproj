@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,8 +21,10 @@
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
 		3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127F22A513A90065B7C1 /* LaunchScreen.storyboard */; };
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */; };
-		3B7DD89F22AD34D1009C7DD2 /* StringConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverters.swift */; };
+		3B7DD89F22AD34D1009C7DD2 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringHelper.swift */; };
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
+		3BA8A3B922B3CF16005D065E /* BarcodeScannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodeScannerHelper.swift */; };
+		3BA8A3BB22B3D5AB005D065E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */; };
 		3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A422B2323B00C1E951 /* StorageService.swift */; };
 		3BE518A722B2412500C1E951 /* CreateBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A622B2412500C1E951 /* CreateBookView.swift */; };
 		3BE518A922B24A4600C1E951 /* SearchBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A822B24A4600C1E951 /* SearchBookView.swift */; };
@@ -48,8 +50,10 @@
 		3B6E128022A513A90065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6E128222A513A90065B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFix.swift; sourceTree = "<group>"; };
-		3B7DD89E22AD34D1009C7DD2 /* StringConverters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverters.swift; sourceTree = "<group>"; };
+		3B7DD89E22AD34D1009C7DD2 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
+		3BA8A3B822B3CF16005D065E /* BarcodeScannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerHelper.swift; sourceTree = "<group>"; };
+		3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		3BE518A422B2323B00C1E951 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		3BE518A622B2412500C1E951 /* CreateBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookView.swift; sourceTree = "<group>"; };
 		3BE518A822B24A4600C1E951 /* SearchBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookView.swift; sourceTree = "<group>"; };
@@ -92,8 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				3B41D6C722AD1B0200C361FB /* Configurator.swift */,
-				3B7DD89E22AD34D1009C7DD2 /* StringConverters.swift */,
+				3B7DD89E22AD34D1009C7DD2 /* StringHelper.swift */,
 				3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */,
+				3BA8A3B822B3CF16005D065E /* BarcodeScannerHelper.swift */,
+				3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 				3B6E126D22A513A80065B7C1 /* Sources */,
 				3B6E126E22A513A80065B7C1 /* Frameworks */,
 				3B6E126F22A513A80065B7C1 /* Resources */,
+				3757DFF806387D4902F3FAB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +249,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3757DFF806387D4902F3FAB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smart Books/Pods-Smart Books-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smart Books/Pods-Smart Books-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smart Books/Pods-Smart Books-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3E0BCAD1CEE3702AD42EEED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,13 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7DD89F22AD34D1009C7DD2 /* StringConverters.swift in Sources */,
+				3BA8A3B922B3CF16005D065E /* BarcodeScannerHelper.swift in Sources */,
+				3B7DD89F22AD34D1009C7DD2 /* StringHelper.swift in Sources */,
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */,
 				3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */,
 				3B41D6C622AD1A7D00C361FB /* NetworkService.swift in Sources */,
 				3B77762922AF96D60073D5F2 /* UIImageOrientationFix.swift in Sources */,
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,
+				3BA8A3BB22B3D5AB005D065E /* AlertHelper.swift in Sources */,
 				3BFFDF1322AE930D000BD7CA /* EditBookTableView.swift in Sources */,
 				3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */,
 				3B6E127722A513A80065B7C1 /* FirstViewController.swift in Sources */,

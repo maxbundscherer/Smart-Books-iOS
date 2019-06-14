@@ -20,6 +20,14 @@ class CreateBookView: UIViewController {
     }
     
     @IBAction func buttonCameraAction(_ sender: Any) {
+        
+        let barcodeScannerHelper = BarcodeScannerHelper()
+        
+        barcodeScannerHelper.codeDelegate         = barcodeScannerHelper
+        barcodeScannerHelper.errorDelegate        = barcodeScannerHelper
+        barcodeScannerHelper.dismissalDelegate    = barcodeScannerHelper
+        
+        present(barcodeScannerHelper, animated: true, completion: nil)
     }
     
     @IBAction func buttonChatAction(_ sender: Any) {

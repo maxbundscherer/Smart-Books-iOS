@@ -33,7 +33,7 @@ class SingleBookView: UIViewController {
         
         self.headline.text  = book.headline
         self.cover.image    = book.coverImage
-        self.desc.text      = StringConverters.convertBookEntityToDescription(value: book)
+        self.desc.text      = StringHelper.convertBookToDescription(book: book)
     }
     
     @IBAction func buttonRemoveAction(_ sender: Any) {
