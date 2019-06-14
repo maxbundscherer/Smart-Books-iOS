@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class Attribute {
     
@@ -164,23 +165,32 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     private func triggerCamera() {
         
-        //TODO: Check access rights
-        if (UIImagePickerController.isSourceTypeAvailable(.camera) == true) {
+        let cameraAvailableFlag : Bool = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             
-            self.imagePicker.allowsEditing           = false
-            self.imagePicker.sourceType              = .camera
-            self.imagePicker.cameraCaptureMode       = .photo
-            self.imagePicker.modalPresentationStyle  = .fullScreen
+            let accessFlag: Bool = (response && cameraAvailableFlag)
             
-            present(self.imagePicker, animated: true, completion: nil)
-            
-        } else {
-            
-            let alert = UIAlertController(title: "Fehler", message: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
-            
-            self.present(alert, animated: true, completion: nil)
+            switch accessFlag {
+                
+            case true:
+                
+                self.imagePicker.allowsEditing           = false
+                self.imagePicker.sourceType              = .camera
+                self.imagePicker.cameraCaptureMode       = .photo
+                self.imagePicker.modalPresentationStyle  = .fullScreen
+                
+                self.present(self.imagePicker, animated: true, completion: nil)
+                
+            default:
+                
+                let alert = UIAlertController(title: "Fehler", message: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
             
         }
         
