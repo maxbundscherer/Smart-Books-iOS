@@ -13,9 +13,20 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         
-        //TODO: Implement
-        print("-\(code)- -\(type)-")
-        self.dismiss(animated: true, completion: nil)
+        if(type == "org.gs1.EAN-13") {
+            
+            //Barcode is from book
+            print("-\(code)- -\(type)-")
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        else {
+            
+            //Barcode is not from a book
+            AlertHelper.showError(msg: "Bitte scannen Sie einen Barcode von einem Buch.", viewController: self)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
 }
 
