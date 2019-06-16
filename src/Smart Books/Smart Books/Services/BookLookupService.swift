@@ -61,12 +61,12 @@ class BookLookUpService {
         isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 8))
         isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 15))
         
-        let fallbackDto = BookEntityDto()
-        fallbackDto.isbn = isbn13
-        
         let result: ( BookEntityDto?, String? ) = processData(isbn13: isbn13)
         
-        return (result.0 ?? fallbackDto, result.1)
+        let preparedDto: BookEntityDto = result.0 ?? BookEntityDto()
+        preparedDto.isbn = isbn13
+        
+        return (preparedDto, result.1)
     }
     
 }
