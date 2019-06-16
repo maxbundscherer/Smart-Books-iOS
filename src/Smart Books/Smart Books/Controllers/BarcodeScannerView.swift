@@ -51,7 +51,7 @@ extension BarcodescannerView: BarcodeScannerErrorDelegate {
     func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
         
         self.dismiss(animated: true, completion: {
-            self.delegate?.barcodescannerViewFailure(errorMessage: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n\(error.localizedDescription)")
+            self.delegate?.barcodescannerViewFailure(errorMessage: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n'\(error.localizedDescription)'.")
         })
     }
 }
