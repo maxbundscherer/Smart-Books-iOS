@@ -18,10 +18,8 @@ class BookEntityDto {
     var tags:           [String]?
     var coverImage:     UIImage?
     
-    //TODO: Refactor 'title'
-    
-    init(title: String?, isbn: String?, publisher: String?, tags: [String], coverImage: UIImage?) {
-        self.headline       = title
+    init(headline: String?, isbn: String?, publisher: String?, tags: [String], coverImage: UIImage?) {
+        self.headline       = headline
         self.isbn           = isbn
         self.publisher      = publisher
         self.tags           = tags
@@ -36,8 +34,8 @@ class BookEntityDto {
         self.coverImage     = nil
     }
     
-    init(title: String?, publisher: String?) {
-        self.headline       = title
+    init(headline: String?, publisher: String?) {
+        self.headline       = headline
         self.isbn           = nil
         self.publisher      = publisher
         self.tags           = []

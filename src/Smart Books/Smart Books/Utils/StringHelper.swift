@@ -10,6 +10,10 @@ import Foundation
 
 class StringHelper {
     
+    private init() {
+        
+    }
+    
     static func convertBookToDescription(book: BookEntityDto) -> String {
         
         return "ISBN:\t\(book.isbn ?? "")\nVerlag:\t\(book.publisher ?? "")\nTags:\t\((book.tags ?? []).joined(separator: "; "))"

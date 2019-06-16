@@ -11,6 +11,10 @@ import UIKit
 
 class AlertHelper {
     
+    private init() {
+        
+    }
+    
     static func showError(msg: String, viewController: UIViewController) {
         
         let alert = UIAlertController(title: "Fehler", message: msg, preferredStyle: .alert)

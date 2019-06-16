@@ -34,7 +34,7 @@ class JsonService {
         do {
             
             let result: JSONBookResult = try JSONDecoder().decode(JSONBookResult.self, from: data)
-            let book: BookEntityDto = BookEntityDto(title: result.book.title.trimmingCharacters(in: .whitespacesAndNewlines), publisher: result.book.publisher.trimmingCharacters(in: .whitespacesAndNewlines))
+            let book: BookEntityDto = BookEntityDto(headline: result.book.title.trimmingCharacters(in: .whitespacesAndNewlines), publisher: result.book.publisher.trimmingCharacters(in: .whitespacesAndNewlines))
             
             return(book)
         }

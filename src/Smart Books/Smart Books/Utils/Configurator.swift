@@ -22,19 +22,19 @@ class Configurator {
         
         if(StorageService.shared.getAllBooks().isEmpty) {
             
-            let entityOne = BookEntityDto(title: "Der Struwwelpeter",
+            let entityOne = BookEntityDto(headline: "Der Struwwelpeter",
                                           isbn: "978-3-937467-78-8",
                                           publisher: "Edition Tintenfaß",
                                           tags: ["kinderbuch", "erinnerung"],
                                           coverImage: UIImage(named: "exampleCoverOne"))
             
-            let entityTwo = BookEntityDto(title: "Peter Pan",
+            let entityTwo = BookEntityDto(headline: "Peter Pan",
                                           isbn: "978-3-401-05546-6",
                                           publisher: "Arena Verlag GmbH",
                                           tags: ["kinderbuch", "favorit"],
                                           coverImage: UIImage(named: "exampleCoverTwo"))
             
-            let entityThree = BookEntityDto(title: "Die Bibel",
+            let entityThree = BookEntityDto(headline: "Die Bibel",
                                             isbn: "978-3-7306-0273-7",
                                             publisher: "Anaconda Verlag",
                                             tags: ["religion", "langweilig"],
