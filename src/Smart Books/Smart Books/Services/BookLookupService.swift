@@ -16,13 +16,19 @@ class BookLookUpService {
         
     }
     
-    func lookupBook(ean: String) -> BookEntityDto? {
+    /// Lookup Book by EAN (ISBN 13 = EAN without '-')
+    ///
+    /// - Parameter ean: EAN
+    /// - Returns: (Left = BookEntityDto / Right = Optional errorMessage)
+    func lookupBook(ean: String) -> (BookEntityDto, String?) {
         
         //TODO: Implement lookup
-        let t = BookEntityDto()
-        t.headline = "Testbuch123"
+        let isbn13: String = ean
         
-        return t
+        let t = BookEntityDto()
+        t.isbn = isbn13
+        
+        return (t, "Diese Funktion ist noch nicht implementiert.")
     }
     
 }

@@ -38,8 +38,24 @@ class CreateBookView: UIViewController, BarcodeScannerHelperDelegate {
         performSegue(withIdentifier: "sgEditBook", sender: dto)
     }
     
-    func barcodeToBookFailure(msg: String) {
-        AlertHelper.showError(msg: msg, viewController: self)
+    func barcodeToBookFailure(dto: BookEntityDto?, errorMessage: String) {
+        
+        if(dto != nil) {
+    
+            let alert = UIAlertController(title: "Hinweis", message: errorMessage + "\n\n Die ISBN-Nummer konnte trotzdem übernommen werden.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+                    self.performSegue(withIdentifier: "sgEditBook", sender: dto)
+                }
+            ))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+
+            AlertHelper.showError(msg: errorMessage, viewController: self)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

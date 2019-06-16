@@ -15,17 +15,19 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
         
         if(type == "org.gs1.EAN-13") {
             
-            //Barcode is from book
-            let resultBook: BookEntityDto? = BookLookUpService.shared.lookupBook(ean: code.trimmingCharacters(in: .whitespacesAndNewlines))
+            //Barcode is from a book
+            let resultLookup: (BookEntityDto, String?) = BookLookUpService.shared.lookupBook(ean: code.trimmingCharacters(in: .whitespacesAndNewlines))
             
-            if(resultBook == nil) {
+            if(resultLookup.1 != nil) {
+                //Book wasnt found
                 self.dismiss(animated: true, completion: {
-                    self.delegate?.barcodeToBookFailure(msg: "Leider konnte kein Buch gefunden werden.")
+                    self.delegate?.barcodeToBookFailure(dto: resultLookup.0, errorMessage: resultLookup.1!)
                 })
             }
             else {
+                //Book was found
                 self.dismiss(animated: true, completion: {
-                    self.delegate?.barcodeToBookSuccess(dto: resultBook!)
+                    self.delegate?.barcodeToBookSuccess(dto: resultLookup.0)
                 })
                 
             }
@@ -35,7 +37,7 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
             
             //Barcode is not from a book
             self.dismiss(animated: true, completion: {
-                self.delegate?.barcodeToBookFailure(msg: "Bitte scannen Sie einen Barcode von einem Buch.")
+                self.delegate?.barcodeToBookFailure(dto: nil, errorMessage: "Bitte scannen Sie einen Barcode von einem Buch.")
             })
         }
         
@@ -46,8 +48,9 @@ extension BarcodeScannerHelper: BarcodeScannerErrorDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
         
-        AlertHelper.showError(msg: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n\(error.localizedDescription)", viewController: self)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.barcodeToBookFailure(dto: nil, errorMessage: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n\(error.localizedDescription)")
+        })
     }
 }
 
@@ -62,7 +65,7 @@ extension BarcodeScannerHelper: BarcodeScannerDismissalDelegate {
 protocol BarcodeScannerHelperDelegate {
     
     func barcodeToBookSuccess(dto: BookEntityDto)
-    func barcodeToBookFailure(msg: String)
+    func barcodeToBookFailure(dto: BookEntityDto?, errorMessage: String)
     
 }
 
