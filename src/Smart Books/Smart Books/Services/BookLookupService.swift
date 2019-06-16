@@ -22,8 +22,13 @@ class BookLookUpService {
     /// - Returns: (Left = BookEntityDto / Right = Optional errorMessage)
     func lookupBook(ean: String) -> (BookEntityDto, String?) {
         
+        var isbn13: String = ean
+        isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 3))
+        isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 5))
+        isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 8))
+        isbn13.insert("-", at: isbn13.index(isbn13.startIndex, offsetBy: 15))
+        
         //TODO: Implement lookup
-        let isbn13: String = ean
         
         let t = BookEntityDto()
         t.isbn = isbn13
