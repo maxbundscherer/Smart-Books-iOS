@@ -32,7 +32,7 @@ class NetworkService {
         var request = URLRequest(url: url)
         
         for (headerKey, headerValue) in headerParams {
-            request.setValue(headerKey, forHTTPHeaderField: headerValue)
+            request.addValue(headerValue, forHTTPHeaderField: headerKey)
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
