@@ -28,6 +28,14 @@ class BookEntityDto {
         self.coverImage     = coverImage
     }
     
+    init(isbn: String?) {
+        self.headline       = nil
+        self.isbn           = isbn
+        self.publisher      = nil
+        self.tags           = []
+        self.coverImage     = nil
+    }
+    
     init(title: String?, publisher: String?) {
         self.headline       = title
         self.isbn           = nil

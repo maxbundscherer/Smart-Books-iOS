@@ -10,6 +10,12 @@ import Foundation
 
 class JsonService {
     
+    static let shared = JsonService()
+    
+    private init() {
+        
+    }
+    
     private struct JSONBookResultEntity: Decodable {
         let title: String
         let publisher: String
@@ -19,28 +25,22 @@ class JsonService {
         let book: JSONBookResultEntity
     }
     
-    static let shared = JsonService()
-    
-    private init() {
-        
-    }
-    
-    /// Convert JSON Result to Book
+    /// Convert JSON-Data to Book
     ///
-    /// - Parameter data: JSON Result
-    /// - Returns: (Left = BookEntityDto?, errorMessage?)
-    func convertJSONResultToBook(data: Data) -> ( BookEntityDto?, String? ) {
+    /// - Parameter data: JSON-Data
+    /// - Returns: Dto?
+    func convertDataToBook(data: Data) -> BookEntityDto? {
         
         do {
             
             let result: JSONBookResult = try JSONDecoder().decode(JSONBookResult.self, from: data)
             let book: BookEntityDto = BookEntityDto(title: result.book.title.trimmingCharacters(in: .whitespacesAndNewlines), publisher: result.book.publisher.trimmingCharacters(in: .whitespacesAndNewlines))
             
-            return(book, nil)
+            return(book)
         }
         catch {
             
-            return (nil, "Es konnte kein Buch gefunden werden.")
+            return nil
         }
         
     }

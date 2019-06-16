@@ -18,9 +18,6 @@ class CollectionTableView: UITableViewController {
     
     var passedEntities: [BookEntity]?
     
-    //Trigger Configurator
-    let configurator = Configurator.shared
-    
     private var entities: [BookEntity] = []
 
     override func viewDidLoad() {

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CreateBookView: UIViewController, BarcodeScannerHelperDelegate {
-
+class CreateBookView: UIViewController, BarcodescannerViewDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,41 +21,54 @@ class CreateBookView: UIViewController, BarcodeScannerHelperDelegate {
     
     @IBAction func buttonCameraAction(_ sender: Any) {
         
-        let barcodeScannerHelper = BarcodeScannerHelper()
+        let barcodescannerView  = BarcodescannerView()
         
-        barcodeScannerHelper.delegate             = self
-        barcodeScannerHelper.codeDelegate         = barcodeScannerHelper
-        barcodeScannerHelper.errorDelegate        = barcodeScannerHelper
-        barcodeScannerHelper.dismissalDelegate    = barcodeScannerHelper
+        barcodescannerView.delegate            = self
+        barcodescannerView.codeDelegate        = barcodescannerView
+        barcodescannerView.errorDelegate       = barcodescannerView
+        barcodescannerView.dismissalDelegate   = barcodescannerView
         
-        present(barcodeScannerHelper, animated: true, completion: nil)
+        present(barcodescannerView, animated: true, completion: nil)
     }
     
     @IBAction func buttonChatAction(_ sender: Any) {
-    }
-    
-    func barcodeToBookSuccess(dto: BookEntityDto) {
-        performSegue(withIdentifier: "sgEditBook", sender: dto)
-    }
-    
-    func barcodeToBookFailure(dto: BookEntityDto?, errorMessage: String) {
         
-        if(dto != nil) {
+        //TODO: Implement conversation
+    }
     
-            let alert = UIAlertController(title: "Hinweis", message: errorMessage + "\n\n Die ISBN-Nummer konnte trotzdem übernommen werden.", preferredStyle: .alert)
+    func barcodescannerViewSuccess(ean: String) {
+        
+        BookLookupService.shared.lookupBookByEan(ean: ean) { (dto, errorMessage, isbn) in
             
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+            if(errorMessage == nil && dto != nil) {
+                
+                //Lookup success
+                DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "sgEditBook", sender: dto)
                 }
-            ))
+            }
+            else {
+                
+                //Lookup failure
+                DispatchQueue.main.async {
+                    
+                    let alert = UIAlertController(title: "Hinweis", message: (errorMessage ?? "Unbekannter Fehler") + "\n\n Die ISBN-Nummer konnte trotzdem übernommen werden.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+                            self.performSegue(withIdentifier: "sgEditBook", sender: BookEntityDto(isbn: isbn))
+                        }
+                    ))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
             
-            self.present(alert, animated: true, completion: nil)
-            
-        } else {
-
-            AlertHelper.showError(msg: errorMessage, viewController: self)
         }
         
+    }
+    
+    func barcodescannerViewFailure(errorMessage: String) {
+        AlertHelper.showError(msg: errorMessage, viewController: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

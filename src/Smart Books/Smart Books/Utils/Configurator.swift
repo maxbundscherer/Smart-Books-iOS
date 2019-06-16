@@ -16,6 +16,10 @@ class Configurator {
     
     private init() {
         
+    }
+    
+    func loadExampleData() {
+        
         if(StorageService.shared.getAllBooks().isEmpty) {
             
             let entityOne = BookEntityDto(title: "Der Struwwelpeter",
@@ -31,10 +35,10 @@ class Configurator {
                                           coverImage: UIImage(named: "exampleCoverTwo"))
             
             let entityThree = BookEntityDto(title: "Die Bibel",
-                                          isbn: "978-3-7306-0273-7",
-                                          publisher: "Anaconda Verlag",
-                                          tags: ["religion", "langweilig"],
-                                          coverImage: UIImage(named: "exampleCoverThree"))
+                                            isbn: "978-3-7306-0273-7",
+                                            publisher: "Anaconda Verlag",
+                                            tags: ["religion", "langweilig"],
+                                            coverImage: UIImage(named: "exampleCoverThree"))
             
             _ = StorageService.shared.createBook(value: entityOne)
             _ = StorageService.shared.createBook(value: entityTwo)
@@ -42,5 +46,8 @@ class Configurator {
         }
         
     }
+    
+    //TODO: Implement token
+    func getTokenForBookLookup() -> String { return "" }
     
 }

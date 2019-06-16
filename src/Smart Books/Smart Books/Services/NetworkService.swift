@@ -1,8 +1,8 @@
 //
-//  Network.swift
+//  NetworkService.swift
 //  Smart Books
 //
-//  Created by Maximilian Bundscherer on 09.06.19.
+//  Created by Maximilian Bundscherer on 16.06.19.
 //  Copyright © 2019 Maximilian Bundscherer. All rights reserved.
 //
 
@@ -16,16 +16,16 @@ class NetworkService {
         
     }
     
-    /// Get Request (network request)
+    /// Process get request
     ///
     /// - Parameters:
-    ///   - targetUrl: Url (example google.de)
-    ///   - headerParams: Header-Parameters [ key : value ]
-    ///   - completion: (Left = Data? / Right = errorMessage?)
-    func getRequest( targetUrl: String, headerParams: [String : String] = [:], completion: @escaping (Data?, String?) -> () ) {
+    ///   - targetUrl: Url example google.de
+    ///   - headerParams: [Key: Value]
+    ///   - completion: (0. = data? / 1. = errorMessage?)
+    func getRequest( targetUrl: String, headerParams: [String : String] = [:] , completion: @escaping (Data?, String?) -> () ) {
         
         guard let url: URL          = URL(string: targetUrl) else {
-            completion(nil, "Invalid url")
+            completion(nil, "Unbekannte Anfrageadresse")
             return
         }
         
