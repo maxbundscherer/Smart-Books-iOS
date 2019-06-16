@@ -16,4 +16,15 @@ class JsonService {
         
     }
     
+    /// Convert JSON Result to Book
+    ///
+    /// - Parameter data: JSON Result
+    /// - Returns: (Left = BookEntityDto?, errorMessage?)
+    func convertJSONResultToBook(data: Data) -> ( BookEntityDto?, String? ) {
+        
+        NSLog("Got json data")
+        
+        return (nil, "Nicht fertig!")
+    }
+    
 }

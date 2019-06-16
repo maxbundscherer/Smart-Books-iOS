@@ -16,7 +16,7 @@ extension BarcodeScannerHelper: BarcodeScannerCodeDelegate {
         if(type == "org.gs1.EAN-13") {
             
             //Barcode is from a book
-            let resultLookup: (BookEntityDto, String?) = BookLookUpService.shared.lookupBook(ean: code.trimmingCharacters(in: .whitespacesAndNewlines))
+            let resultLookup: (BookEntityDto, String?) = BookLookUpService.shared.lookupBook(ean13: code.trimmingCharacters(in: .whitespacesAndNewlines))
             
             if(resultLookup.1 != nil) {
                 //Book wasnt found
