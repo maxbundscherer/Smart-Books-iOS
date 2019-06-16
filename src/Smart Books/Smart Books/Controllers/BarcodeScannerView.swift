@@ -13,6 +13,7 @@ protocol BarcodescannerViewDelegate {
     
     func barcodescannerViewSuccess(ean: String)
     func barcodescannerViewFailure(errorMessage: String)
+    func barcodescannerViewDismiss()
     
 }
 
@@ -59,6 +60,8 @@ extension BarcodescannerView: BarcodeScannerDismissalDelegate {
     
     func scannerDidDismiss(_ controller: BarcodeScannerViewController) {
         
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: {
+            self.delegate?.barcodescannerViewDismiss()
+        })
     }
 }
