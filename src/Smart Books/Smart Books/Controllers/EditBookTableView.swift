@@ -9,19 +9,6 @@
 import UIKit
 import AVKit
 
-class Attribute {
-    
-    let sortKey: Int
-    let key: String
-    let value: String
-    
-    init(sortKey: Int, key: String, value: String) {
-        self.sortKey = sortKey
-        self.key = key
-        self.value = value
-    }
-}
-
 extension UIImage: UIImageOrientationFix {}
 
 class EditBookTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -31,8 +18,15 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
     
     private var storedDto: BookEntityDto?
     private var attributes: [Attribute] = []
+    
     private var hasCameraAccess: Bool = false
     private let imagePicker = UIImagePickerController()
+    
+    private struct Attribute {
+        let sortKey: Int
+        let key: String
+        let value: String
+    }
     
     override func viewDidLoad() {
         

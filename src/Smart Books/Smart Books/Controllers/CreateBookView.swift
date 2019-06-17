@@ -35,7 +35,7 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate {
     
     @IBAction func buttonChatAction(_ sender: Any) {
         
-        //TODO: Implement conversation
+        performSegue(withIdentifier: "sgChat", sender: nil)
     }
     
     func barcodescannerViewSuccess(ean: String) {
@@ -81,10 +81,12 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let dto:      BookEntityDto       = sender as? BookEntityDto else { return }
-        guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
-        
-        dest.passedDto = dto
+        if(segue.identifier == "sgEditBook") {
+            guard let dto:      BookEntityDto       = sender as? BookEntityDto else { return }
+            guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
+            
+            dest.passedDto = dto
+        }
     }
     
     private func showLoadingIndicator() {
