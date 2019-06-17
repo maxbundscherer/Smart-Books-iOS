@@ -37,7 +37,7 @@ class Configurator {
             let entityThree = BookEntityDto(headline: "Die Bibel",
                                             isbn: "978-3-7306-0273-7",
                                             publisher: "Anaconda Verlag",
-                                            tags: ["religion", "langweilig"],
+                                            tags: ["religion"],
                                             coverImage: UIImage(named: "exampleCoverThree"))
             
             _ = StorageService.shared.createBook(value: entityOne)
