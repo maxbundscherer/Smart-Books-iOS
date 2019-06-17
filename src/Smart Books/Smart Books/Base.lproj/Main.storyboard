@@ -253,7 +253,7 @@
                                 <rect key="frame" x="5" y="203" width="404" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgFromMe" rowHeight="100" id="nyS-BX-XUy" customClass="PrototypeCellMsgFromMe" customModule="Smart_Books" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgFromMe" rowHeight="100" id="nyS-BX-XUy" customClass="PrototypeCellMsgFromMe" customModule="Smart_Books" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="404" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nyS-BX-XUy" id="lMf-sf-THu">
@@ -278,7 +278,7 @@
                                             <outlet property="msg" destination="3Di-Ty-PUt" id="7Gm-I0-H0L"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgToMe" rowHeight="100" id="ECL-dY-mno" customClass="PrototypeCellMsgToMe" customModule="Smart_Books" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgToMe" rowHeight="100" id="ECL-dY-mno" customClass="PrototypeCellMsgToMe" customModule="Smart_Books" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="128" width="404" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECL-dY-mno" id="Y7w-zu-YFG">
