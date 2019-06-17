@@ -17,6 +17,8 @@ class ChatView: UIViewController {
     
     override func viewDidLoad() {
         
+        initAutoKeyboardDismiss()
+        
         self.chat.delegate              = self.chatTableView
         self.chat.dataSource            = self.chatTableView
         self.chatTableView.tableView    = self.chat
@@ -31,18 +33,21 @@ class ChatView: UIViewController {
     
     @IBAction func buttonSendTextAction(_ sender: Any) {
         
+        dismissKeyboard()
+        
         let msg = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         self.chatTableView.addMessageFromMe(msg: msg)
         
         self.myMessage.text = ""
-        self.view.endEditing(true)
     }
     
     @IBAction func buttonUseLangAction(_ sender: Any) {
         
+        dismissKeyboard()
+        
         //TODO: Implement
         let msg = "Diese Funktion ist noch nicht implementiert."
-        self.chatTableView.addMessageFromMe(msg: msg)
+        self.chatTableView.addMessageToMe(msg: msg)
     }
     
     private func simulateChat() {

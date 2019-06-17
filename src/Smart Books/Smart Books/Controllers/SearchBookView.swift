@@ -13,11 +13,14 @@ class SearchBookView: UIViewController {
     @IBOutlet weak var searchword: UITextField!
     
     override func viewDidLoad() {
+        
+        initAutoKeyboardDismiss()
         super.viewDidLoad()
     }
     
     @IBAction func buttonSearchAction(_ sender: Any) {
         
+        dismissKeyboard()
         performSegue(withIdentifier: "sgShowCollection", sender: (self.searchword.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
