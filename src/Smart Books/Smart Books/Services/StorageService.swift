@@ -116,6 +116,8 @@ class StorageService {
         
         var filteredResults: Set<BookEntity> = Set()
         
+        //TODO: Improve search in tags
+        
         for book in unfilteredResults {
             
             if(
