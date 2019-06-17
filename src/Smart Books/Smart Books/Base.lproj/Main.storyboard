@@ -235,15 +235,15 @@
             </objects>
             <point key="canvasLocation" x="3936" y="-200"/>
         </scene>
-        <!--Chat Table View-->
+        <!--Chat View-->
         <scene sceneID="YUl-EM-mgf">
             <objects>
-                <viewController id="YX2-4P-yoo" customClass="ChatTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YX2-4P-yoo" customClass="ChatView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZ8-DH-u91">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nachricht..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGl-JK-9r4" userLabel="TextFieldMessage">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nachricht..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGl-JK-9r4" userLabel="TextFieldMyMessage">
                                 <rect key="frame" x="5" y="93" width="404" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -275,7 +275,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="msg" destination="3Di-Ty-PUt" id="HTG-Vd-UuS"/>
+                                            <outlet property="msg" destination="3Di-Ty-PUt" id="7Gm-I0-H0L"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgToMe" rowHeight="100" id="ECL-dY-mno" customClass="PrototypeCellMsgToMe" customModule="Smart_Books" customModuleProvider="target">
@@ -300,7 +300,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="msg" destination="Rhv-qB-nw3" id="plK-5r-902"/>
+                                            <outlet property="msg" destination="Rhv-qB-nw3" id="7p4-Jq-nWU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -310,12 +310,18 @@
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Text senden"/>
+                                <connections>
+                                    <action selector="buttonSendTextAction:" destination="YX2-4P-yoo" eventType="primaryActionTriggered" id="AM4-z8-rVt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSM-In-8O2" userLabel="ButtonUseLang">
                                 <rect key="frame" x="5" y="163" width="404" height="30"/>
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sprache benutzen"/>
+                                <connections>
+                                    <action selector="buttonUseLangAction:" destination="YX2-4P-yoo" eventType="primaryActionTriggered" id="Tnt-mD-G6P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -337,6 +343,8 @@
                         <viewLayoutGuide key="safeArea" id="FX5-mM-qzd"/>
                     </view>
                     <connections>
+                        <outlet property="chat" destination="Oad-AU-5bW" id="3tz-fy-gib"/>
+                        <outlet property="myMessage" destination="IGl-JK-9r4" id="tOy-Ok-jM3"/>
                         <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="2yH-cf-aYw"/>
                     </connections>
                 </viewController>
@@ -550,6 +558,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2yH-cf-aYw"/>
-        <segue reference="LHF-dv-iY1"/>
+        <segue reference="4yR-DM-1W4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,7 +23,7 @@
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */; };
 		3B7DD89F22AD34D1009C7DD2 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringHelper.swift */; };
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
-		3B8ABB9522B784E900034B0B /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatTableView.swift */; };
+		3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatView.swift */; };
 		3BA8A3B922B3CF16005D065E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */; };
 		3BA8A3BB22B3D5AB005D065E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */; };
 		3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */; };
@@ -54,7 +54,7 @@
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFix.swift; sourceTree = "<group>"; };
 		3B7DD89E22AD34D1009C7DD2 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
-		3B8ABB9422B784E900034B0B /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
+		3B8ABB9422B784E900034B0B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		3BA8A3BA22B3D5AB005D065E /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupService.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				3BFFDF1222AE930D000BD7CA /* EditBookTableView.swift */,
 				3BE518A622B2412500C1E951 /* CreateBookView.swift */,
 				3BE518A822B24A4600C1E951 /* SearchBookView.swift */,
-				3B8ABB9422B784E900034B0B /* ChatTableView.swift */,
+				3B8ABB9422B784E900034B0B /* ChatView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA8A3B922B3CF16005D065E /* BarcodeScannerView.swift in Sources */,
-				3B8ABB9522B784E900034B0B /* ChatTableView.swift in Sources */,
+				3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */,
 				3B7DD89F22AD34D1009C7DD2 /* StringHelper.swift in Sources */,
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B6E127922A513A80065B7C1 /* SecondViewController.swift in Sources */,
