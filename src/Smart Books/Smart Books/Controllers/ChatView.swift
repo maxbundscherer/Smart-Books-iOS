@@ -8,12 +8,23 @@
 
 import UIKit
 
+protocol ChatViewDelegate {
+    
+    func chatViewSuccess(dto: BookEntityDto)
+    
+}
+
 class ChatView: UIViewController {
+    
+    var delegate: ChatViewDelegate?
     
     @IBOutlet weak var chat: UITableView!
     @IBOutlet weak var myMessage: UITextField!
     
-    private var chatTableView = ChatTableView()
+    private let chatService     = ChatService()
+    private var chatTableView   = ChatTableView()
+    
+    private var flagProcessInput: Bool = false
     
     override func viewDidLoad() {
         
@@ -24,21 +35,31 @@ class ChatView: UIViewController {
         self.chatTableView.tableView    = self.chat
         
         self.chatTableView.initChat()
-        
-        //TODO: Remove simulator
-        simulateChat()
+        startChat()
         
         super.viewDidLoad()
     }
     
     @IBAction func buttonSendTextAction(_ sender: Any) {
         
+        if(!self.flagProcessInput) { return }
+        
         dismissKeyboard()
         
+        //Get msg
         let msg = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        self.chatTableView.addMessageFromMe(msg: msg)
         
+        //Show msg in chat and clear chatInput
+        self.chatTableView.addMessageFromMe(msg: msg)
         self.myMessage.text = ""
+        
+        if(msg != "") {
+            processInput(input: msg)
+        }
+        else {
+            self.chatTableView.addMessageToMe(msg: "Bitte reden Sie mit mir!")
+        }
+        
     }
     
     @IBAction func buttonUseLangAction(_ sender: Any) {
@@ -50,28 +71,46 @@ class ChatView: UIViewController {
         self.chatTableView.addMessageToMe(msg: msg)
     }
     
-    private func simulateChat() {
+    private func processInput(input: String) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            self.chatTableView.addMessageFromMe(msg: "Was machst du so?")
+        //Process through chat-service
+        let dto: BookEntityDto? = self.chatService.processResponse(response: input)
+        
+        if( dto == nil ) {
+            
+            //Dto is not ready at the moment
+            self.flagProcessInput = false
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
+                self.flagProcessInput = true
+            })
+            
+        }
+        else {
+            
+            //Dto is ready at the moment
+            self.navigationController?.popViewController(animated: true)
+            self.delegate?.chatViewSuccess(dto: dto!)
+            
+        }
+        
+    }
+    
+    private func startChat() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Ihr interaktiver Assistent!")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-            self.chatTableView.addMessageToMe(msg: "Nicht viel und du?")
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
-            self.chatTableView.addMessageFromMe(msg: "Auch nicht!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+            self.chatTableView.addMessageToMe(msg: "Keine Sorge, falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(8), execute: {
-            self.chatTableView.addMessageToMe(msg: "Und wie geht es dir dabei?")
+            self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
+            self.flagProcessInput = true
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-            self.chatTableView.addMessageFromMe(msg: "Mir ist langweilig...")
-        })
-        
     }
     
 }
@@ -95,12 +134,6 @@ class ChatTableView: UITableViewController {
     }
     
     func initChat() {
-        
-        self.chatMessages = [
-            ChatMessage(timestamp: 0, msgFromMe: false, msg: "Hallo, wie geht es dir?"),
-            ChatMessage(timestamp: 1, msgFromMe: true, msg: "Gut und dir?"),
-            ChatMessage(timestamp: 2, msgFromMe: false, msg: "Danke auch!")
-            ].sorted(by: { $0.timestamp < $1.timestamp })
         
         reloadData()
     }
@@ -127,8 +160,10 @@ class ChatTableView: UITableViewController {
         
         //Scroll to the bottom
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.chatMessages.count-1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            if(!self.chatMessages.isEmpty) {
+                let indexPath = IndexPath(row: self.chatMessages.count-1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
     }
     

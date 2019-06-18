@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateBookView: UIViewController, BarcodescannerViewDelegate {
+class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDelegate {
 
     private var storedLoadingIndicator: UIView? = nil
     
@@ -79,6 +79,10 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate {
         self.hideLoadingIndicator()
     }
     
+    func chatViewSuccess(dto: BookEntityDto) {
+        self.performSegue(withIdentifier: "sgEditBook", sender: dto)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "sgEditBook") {
@@ -86,6 +90,11 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate {
             guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
             
             dest.passedDto = dto
+        }
+        else if(segue.identifier == "sgChat") {
+            
+            guard let dest:     ChatView   = segue.destination as? ChatView else { return }
+            dest.delegate = self
         }
     }
     
