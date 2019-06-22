@@ -48,6 +48,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon und auf die interne Sprachverarbeitungseinheit.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

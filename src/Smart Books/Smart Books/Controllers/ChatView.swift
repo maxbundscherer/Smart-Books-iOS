@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Speech
 
 protocol ChatViewDelegate {
     
@@ -14,16 +15,35 @@ protocol ChatViewDelegate {
     
 }
 
-class ChatView: UIViewController {
+class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     
     var delegate: ChatViewDelegate?
     
+    /*
+     UI
+     */
     @IBOutlet weak var chat: UITableView!
     @IBOutlet weak var myMessage: UITextField!
+    @IBOutlet weak var useLang: UIButton!
     
+    /*
+    Chat Service and chat view
+    */
     private let chatService     = ChatService()
     private var chatTableView   = ChatTableView()
     
+    /*
+     Speech
+     */
+    //TODO: Fix permissions bug
+    private let audioEngine         = AVAudioEngine()
+    private let speechRecognizer    = SFSpeechRecognizer()
+    private let audioRequest        = SFSpeechAudioBufferRecognitionRequest()
+    private var recognitionTask     : SFSpeechRecognitionTask?
+    
+    /*
+     Flags
+     */
     private var flagProcessInput: Bool = false
     
     override func viewDidLoad() {
@@ -46,19 +66,7 @@ class ChatView: UIViewController {
         
         dismissKeyboard()
         
-        //Get msg
-        let msg = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        //Show msg in chat and clear chatInput
-        self.chatTableView.addMessageFromMe(msg: msg)
-        self.myMessage.text = ""
-        
-        if(msg != "") {
-            processInput(input: msg)
-        }
-        else {
-            self.chatTableView.addMessageToMe(msg: "Bitte reden Sie mit mir!")
-        }
+        processInput()
         
     }
     
@@ -66,12 +74,95 @@ class ChatView: UIViewController {
         
         dismissKeyboard()
         
-        //TODO: Implement
-        let msg = "Diese Funktion ist noch nicht implementiert."
-        self.chatTableView.addMessageToMe(msg: msg)
+        if(self.recognitionTask == nil) {
+            
+            //No active recognition
+            if(!self.flagProcessInput) { return }
+            self.useLang.setTitle("[Spracheingabe beenden]", for: .normal)
+            self.myMessage.text = ""
+            startSpeechRecognition()
+            
+        }
+        else {
+            
+            //Active recognition
+            self.useLang.setTitle("Sprache benutzen", for: .normal)
+            stopSpeechRecognition()
+            processInput()
+            
+        }
+        
     }
     
-    private func processInput(input: String) {
+    private func startSpeechRecognition() {
+        
+        //Setup inputNode with buffer
+        let inNode = audioEngine.inputNode
+        
+        let format = inNode.outputFormat(forBus: 0)
+        
+        inNode.installTap(onBus: 0, bufferSize: 1024, format: format, block: { buffer, _ in
+            self.audioRequest.append(buffer)
+        })
+        
+        //Try to start audio engine
+        self.audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        }
+        catch {
+            AlertHelper.showError(msg: error.localizedDescription, viewController: self)
+            return
+        }
+        
+        //Security checks
+        guard let myRecognizer = SFSpeechRecognizer() else {
+            AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
+            return
+        }
+        if(!myRecognizer.isAvailable) {
+            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
+            return
+        }
+        
+        //Create Task with handler
+        self.recognitionTask = self.speechRecognizer?.recognitionTask(with: self.audioRequest, resultHandler: { result, error in
+            
+            //TODO: Improve global error handling (this way)
+            if let result = result {
+                self.myMessage.text = result.bestTranscription.formattedString
+                
+            } else if let error = error {
+                AlertHelper.showError(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'", viewController: self)
+            }
+            
+        })
+        
+    }
+    
+    private func stopSpeechRecognition() {
+        
+        //Finish recognition
+        self.recognitionTask?.finish()
+        self.recognitionTask = nil
+        
+        //Stop audioEngine
+        self.audioEngine.inputNode.removeTap(onBus: 0)
+        self.audioEngine.stop()
+    }
+    
+    private func processInput() {
+        
+        //Get msg
+        let input = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        if(input == "") {
+            self.chatTableView.addMessageToMe(msg: "Bitte reden Sie mit mir!")
+            return
+        }
+        
+        //Show msg in chat and clear chatInput
+        self.chatTableView.addMessageFromMe(msg: input)
+        self.myMessage.text = ""
         
         //Process through chat-service
         let dto: BookEntityDto? = self.chatService.processResponse(response: input)

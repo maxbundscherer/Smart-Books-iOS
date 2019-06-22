@@ -345,6 +345,7 @@
                     <connections>
                         <outlet property="chat" destination="Oad-AU-5bW" id="3tz-fy-gib"/>
                         <outlet property="myMessage" destination="IGl-JK-9r4" id="tOy-Ok-jM3"/>
+                        <outlet property="useLang" destination="kSM-In-8O2" id="sd8-Yj-zkk"/>
                         <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="2yH-cf-aYw"/>
                     </connections>
                 </viewController>
