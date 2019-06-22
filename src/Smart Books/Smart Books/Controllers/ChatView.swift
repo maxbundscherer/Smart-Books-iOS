@@ -54,8 +54,25 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         self.chat.dataSource            = self.chatTableView
         self.chatTableView.tableView    = self.chat
         
-        self.chatTableView.initChat()
-        startChat()
+        /*
+         Question: Speech output enabled?
+        */
+        let alert = UIAlertController(title: "Frage", message: "Möchten Sie die Sprachausgabe aktivieren?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (_) in
+            
+            self.chatTableView.initChat(textToSpeechEnabled: true)
+            self.startChat()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
+            
+            self.chatTableView.initChat(textToSpeechEnabled: false)
+            self.startChat()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
         
         super.viewDidLoad()
     }
@@ -116,7 +133,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         }
         
         //Security checks
-        guard let myRecognizer = SFSpeechRecognizer() else {
+        guard let myRecognizer = self.speechRecognizer else {
             AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
             return
         }
@@ -191,7 +208,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     private func startChat() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Ihr interaktiver Assistent!")
+            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Buchverwalter 3000!")
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
@@ -215,8 +232,11 @@ class PrototypeCellMsgFromMe: UITableViewCell {
 }
 
 class ChatTableView: UITableViewController {
-    
+
     private var chatMessages: [ChatMessage] = []
+    
+    private var flagTextToSpeech: Bool  = false
+    private var speechSynth             = AVSpeechSynthesizer()
     
     private struct ChatMessage {
         let timestamp: Double
@@ -224,7 +244,9 @@ class ChatTableView: UITableViewController {
         let msg: String
     }
     
-    func initChat() {
+    func initChat(textToSpeechEnabled: Bool) {
+        
+        self.flagTextToSpeech = textToSpeechEnabled
         
         reloadData()
     }
@@ -240,6 +262,13 @@ class ChatTableView: UITableViewController {
     func addMessageToMe(msg: String) {
         
         if(msg == "") { return }
+        
+        if(self.flagTextToSpeech) {
+            
+            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: msg)
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-DE")
+            self.speechSynth.speak(speechUtterance)
+        }
         
         self.chatMessages.insert(ChatMessage(timestamp: NSDate().timeIntervalSince1970, msgFromMe: false, msg: msg), at: self.chatMessages.count)
         reloadData()
