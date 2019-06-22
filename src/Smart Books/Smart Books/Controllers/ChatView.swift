@@ -57,19 +57,19 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         /*
          Question: Speech output enabled?
         */
-        let alert = UIAlertController(title: "Frage", message: "Möchten Sie die Sprachausgabe aktivieren?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Frage", message: "Möchten Sie die Sprachausgabe aktivieren? Bitte schalten Sie dazu auch Ihr Geräut auf 'Laut'.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
+            
+            self.chatTableView.initChat(textToSpeechEnabled: false)
+            self.startChat()
+        }))
         
         alert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (_) in
             
             self.chatTableView.initChat(textToSpeechEnabled: true)
             self.startChat()
             
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
-            
-            self.chatTableView.initChat(textToSpeechEnabled: false)
-            self.startChat()
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -254,7 +254,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             self.chatTableView.addMessageToMe(msg: "Keine Sorge: Falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(12), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
             self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
             self.flagProcessInput = true
         })
