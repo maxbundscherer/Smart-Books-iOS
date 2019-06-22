@@ -35,7 +35,6 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     /*
      Speech
      */
-    //TODO: Fix permissions bug
     private let audioEngine         = AVAudioEngine()
     private let speechRecognizer    = SFSpeechRecognizer()
     private let audioRequest        = SFSpeechAudioBufferRecognitionRequest()
@@ -45,6 +44,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
      Flags
      */
     private var flagProcessInput: Bool = false
+    private var hasMicAccess: Bool = false
     
     override func viewDidLoad() {
         
@@ -77,6 +77,20 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        SFSpeechRecognizer.requestAuthorization { [unowned self] authStatus in
+            DispatchQueue.main.async {
+                if authStatus == .authorized {
+                    self.hasMicAccess = true
+                } else {
+                    self.hasMicAccess = false
+                }
+            }
+        }
+        
+    }
+    
     @IBAction func buttonSendTextAction(_ sender: Any) {
         
         if(!self.flagProcessInput) { return }
@@ -90,6 +104,12 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     @IBAction func buttonUseLangAction(_ sender: Any) {
         
         dismissKeyboard()
+        
+        if(!self.hasMicAccess) {
+            
+            AlertHelper.showError(msg: "Bitte geben Sie die nötigen Zugriffsrechte auf Ihr Mikrofon.", viewController: self)
+            return
+        }
         
         if(self.recognitionTask == nil) {
             
@@ -112,6 +132,19 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     private func startSpeechRecognition() {
+        
+        //Fix synth bug (mix volume)
+        do
+        {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+            try AVAudioSession.sharedInstance().setMode(AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+        }
+        catch
+        {
+            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
+            return
+        }
         
         //Setup inputNode with buffer
         let inNode = audioEngine.inputNode
@@ -147,7 +180,13 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             
             //TODO: Improve global error handling (this way)
             if let result = result {
+                
                 self.myMessage.text = result.bestTranscription.formattedString
+                
+                if(result.isFinal) {
+                    //End recognition
+                    inNode.removeTap(onBus: 0)
+                }
                 
             } else if let error = error {
                 AlertHelper.showError(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'", viewController: self)
@@ -163,9 +202,9 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         
-        //Stop audioEngine
-        self.audioEngine.inputNode.removeTap(onBus: 0)
+        //Stop audioEngine and finish request
         self.audioEngine.stop()
+        self.audioRequest.endAudio()
     }
     
     private func processInput() {
@@ -211,11 +250,11 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Buchverwalter 3000!")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            self.chatTableView.addMessageToMe(msg: "Keine Sorge, falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+            self.chatTableView.addMessageToMe(msg: "Keine Sorge: Falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(8), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(12), execute: {
             self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
             self.flagProcessInput = true
         })
@@ -236,7 +275,7 @@ class ChatTableView: UITableViewController {
     private var chatMessages: [ChatMessage] = []
     
     private var flagTextToSpeech: Bool  = false
-    private var speechSynth             = AVSpeechSynthesizer()
+    private let speechSynth             = AVSpeechSynthesizer()
     
     private struct ChatMessage {
         let timestamp: Double

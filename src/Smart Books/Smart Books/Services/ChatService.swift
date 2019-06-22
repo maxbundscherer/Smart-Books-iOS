@@ -22,9 +22,9 @@ class ChatService {
         
         self.chatQuestions  = [
             0: "Wie lautet der Titel des Buches?",
-            1: "Wie lautet die ISBN des Buches?",
-            2: "Wie lautet der Verlages des Buches?",
-            3: "Unter welchen Schlagwörtern möchten Sie das Buch finden?",
+            1: "Alles klar! Wie lautet die ISBN-Nummer des Buches?",
+            2: "Übernommen! Wie heißt der Verlag des Buches?",
+            3: "Super. Nun die letzte Frage! Unter welchen Schlagwörtern möchten Sie das Buch finden?",
         ]
         
     }
