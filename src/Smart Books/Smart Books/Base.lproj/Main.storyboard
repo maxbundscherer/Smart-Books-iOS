@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="3936" y="-200"/>
         </scene>
-        <!--Chat View-->
+        <!--Chat View Controller-->
         <scene sceneID="YUl-EM-mgf">
             <objects>
-                <viewController id="YX2-4P-yoo" customClass="ChatView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YX2-4P-yoo" customClass="ChatViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZ8-DH-u91">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

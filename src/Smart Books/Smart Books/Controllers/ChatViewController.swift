@@ -9,15 +9,15 @@
 import UIKit
 import Speech
 
-protocol ChatViewDelegate {
+protocol ChatViewControllerDelegate {
     
-    func chatViewSuccess(dto: BookEntityDto)
+    func chatViewControllerSuccess(dto: BookEntityDto)
     
 }
 
-class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDelegate {
+class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDelegate {
     
-    var delegate: ChatViewDelegate?
+    var delegate: ChatViewControllerDelegate?
     
     /*
      UI
@@ -281,7 +281,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
             
             //Dto is ready at the moment
             self.navigationController?.popViewController(animated: true)
-            self.delegate?.chatViewSuccess(dto: dto!)
+            self.delegate?.chatViewControllerSuccess(dto: dto!)
             
         }
         

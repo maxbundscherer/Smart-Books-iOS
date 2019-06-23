@@ -22,7 +22,7 @@
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */; };
 		3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */; };
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */; };
-		3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatView.swift */; };
+		3B8ABB9522B784E900034B0B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatViewController.swift */; };
 		3B8ABB9722B7B61500034B0B /* AutoKeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */; };
 		3BA8A3B922B3CF16005D065E /* BarcodescannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodescannerViewController.swift */; };
 		3BA8A3BB22B3D5AB005D065E /* ErrorAlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */; };
@@ -54,7 +54,7 @@
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFixExtension.swift; sourceTree = "<group>"; };
 		3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverterService.swift; sourceTree = "<group>"; };
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookViewController.swift; sourceTree = "<group>"; };
-		3B8ABB9422B784E900034B0B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		3B8ABB9422B784E900034B0B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoKeyboardDismissExtension.swift; sourceTree = "<group>"; };
 		3BA8A3B822B3CF16005D065E /* BarcodescannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodescannerViewController.swift; sourceTree = "<group>"; };
 		3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertExtension.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				3BFFDF1222AE930D000BD7CA /* EditBookTableViewController.swift */,
 				3BE518A622B2412500C1E951 /* CreateBookViewController.swift */,
 				3BE518A822B24A4600C1E951 /* SearchBookViewController.swift */,
-				3B8ABB9422B784E900034B0B /* ChatView.swift */,
+				3B8ABB9422B784E900034B0B /* ChatViewController.swift */,
 				3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */,
 			);
 			path = Controllers;
@@ -305,7 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA8A3B922B3CF16005D065E /* BarcodescannerViewController.swift in Sources */,
-				3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */,
+				3B8ABB9522B784E900034B0B /* ChatViewController.swift in Sources */,
 				3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */,
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B41D6C322AD1A4500C361FB /* CollectionTableViewController.swift in Sources */,
