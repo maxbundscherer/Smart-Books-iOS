@@ -139,15 +139,12 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
             
             //No active recognition
             if(!self.flagProcessInput) { return }
-            self.useLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
-            self.myMessage.text = ""
             startSpeechRecognition()
             
         }
         else {
             
             //Active recognition
-            self.useLang.setTitle("Sprache benutzen", for: .normal)
             stopSpeechRecognition()
             processInput()
             
@@ -156,6 +153,9 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
     }
     
     private func startSpeechRecognition() {
+        
+        self.useLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
+        self.myMessage.text = ""
         
         self.silenceTimer       = nil
         self.flagProcessInput   = false
@@ -176,16 +176,19 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
         }
         catch {
             AlertHelper.showError(msg: error.localizedDescription, viewController: self)
+            stopSpeechRecognition()
             return
         }
         
         //Security checks
         guard let myRecognizer = self.speechRecognizer else {
             AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
+            stopSpeechRecognition()
             return
         }
         if(!myRecognizer.isAvailable) {
             AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
+            stopSpeechRecognition()
             return
         }
         
@@ -222,6 +225,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
                 
             } else if let error = error {
                 AlertHelper.showError(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'", viewController: self)
+                self.toggleSpeechRecognition()
             }
             
         })
@@ -230,6 +234,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
     
     private func stopSpeechRecognition() {
         
+        self.useLang.setTitle("Sprache benutzen", for: .normal)
         self.flagProcessInput = true
         
         //Finish recognition
