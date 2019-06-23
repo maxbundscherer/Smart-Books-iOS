@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateBookView: UIViewController, BarcodescannerViewControllerDelegate, ChatViewDelegate {
+class CreateBookViewController: UIViewController, BarcodescannerViewControllerDelegate, ChatViewDelegate {
 
     private var storedLoadingIndicator: UIView? = nil
     
