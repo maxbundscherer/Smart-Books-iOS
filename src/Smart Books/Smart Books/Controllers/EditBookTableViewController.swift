@@ -15,13 +15,12 @@ class EditBookTableViewController: UITableViewController, UINavigationController
     var passedDto: BookEntityDto?
     
     private var storedDto: BookEntityDto?
-    private var attributes: [Attribute] = []
+    private var attributes: [Int : Attribute] = [:]
     
     private var flagHasCameraAccess: Bool   = false
     private let imagePicker                 = UIImagePickerController()
     
     private struct Attribute {
-        let sortKey: Int
         let key: String
         let value: String
     }
@@ -71,13 +70,12 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         }
         
         self.attributes = [
-            Attribute(sortKey: 0, key: "Titel", value: dto.headline ?? ""),
-            Attribute(sortKey: 1, key: "ISBN", value: dto.isbn ?? ""),
-            Attribute(sortKey: 2, key: "Verlag", value: dto.publisher ?? ""),
-            Attribute(sortKey: 3, key: "Tags", value: (dto.tags ?? []).joined(separator: "; ")),
-            Attribute(sortKey: 4, key: "Cover", value: coverString)
+            0: Attribute(key: "Titel", value: dto.headline ?? ""),
+            1: Attribute(key: "ISBN", value: dto.isbn ?? ""),
+            2: Attribute(key: "Verlag", value: dto.publisher ?? ""),
+            3: Attribute(key: "Tags", value: (dto.tags ?? []).joined(separator: "; ")),
+            4: Attribute(key: "Cover", value: coverString)
             ]
-            .sorted(by: { $0.sortKey < $1.sortKey })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,19 +91,19 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         let cell = tableView
             .dequeueReusableCell(withIdentifier: "PrototypeCellAttribute", for: indexPath)
         
-        cell.textLabel?.text        = self.attributes[indexPath.row].key
-        cell.detailTextLabel?.text  = self.attributes[indexPath.row].value
+        cell.textLabel?.text        = self.attributes[indexPath.row]?.key
+        cell.detailTextLabel?.text  = self.attributes[indexPath.row]?.value
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let sortKey: Int    = self.attributes[indexPath.row].sortKey
-        let key: String     = self.attributes[indexPath.row].key
-        var value: String   = self.attributes[indexPath.row].value
+        let indexKey: Int       = indexPath.row
+        let key: String         = self.attributes[indexPath.row]?.key ?? ""
+        var value: String       = self.attributes[indexPath.row]?.value ?? ""
         
-        if(sortKey == 4) {
+        if(indexKey == 4) {
             
             //Editing 'Cover'
             triggerCamera()
@@ -115,7 +113,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
             //Editing anything else than 'Cover'
             var message: String = ""
             
-            if(sortKey == 3) {
+            if(indexKey == 3) {
                 //Editing 'Tags'
                 message += "Bitte durch ; getrennt ohne Leerzeichen eingeben."
                 value = value.replacingOccurrences(of: " ", with: "")
@@ -131,7 +129,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
                 
                 let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
                 
-                self.writeChangesToDto(sortKey: sortKey, newValue: newValue)
+                self.writeChangesToDto(sortKey: indexKey, newValue: newValue)
             }))
             
             alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
@@ -200,15 +198,15 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         
         guard let dto: BookEntityDto = self.storedDto else { return }
         
-        DispatchQueue.main.async {
-            
+        dismiss(animated:true, completion: {
+        
             guard let chosenImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
             
             dto.coverImage = chosenImage.fixedOrientation() ?? UIImage()
+            self.reloadData()
+            self.tableView.reloadData()
         
-        }
-        
-        dismiss(animated:true, completion: nil)
+        })
     }
     
     
