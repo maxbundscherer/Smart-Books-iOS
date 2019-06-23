@@ -10,7 +10,7 @@ import UIKit
 
 class SearchBookViewController: UIViewController {
 
-    @IBOutlet weak var searchword: UITextField!
+    @IBOutlet weak var textFieldSearchword: UITextField!
     
     override func viewDidLoad() {
         
@@ -21,7 +21,7 @@ class SearchBookViewController: UIViewController {
     @IBAction func buttonSearchAction(_ sender: Any) {
         
         dismissKeyboard()
-        performSegue(withIdentifier: "sgShowCollection", sender: (self.searchword.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines))
+        performSegue(withIdentifier: "sgShowCollection", sender: (self.textFieldSearchword.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

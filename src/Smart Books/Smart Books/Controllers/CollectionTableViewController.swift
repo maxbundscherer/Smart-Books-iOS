@@ -9,9 +9,9 @@
 import UIKit
 
 class PrototypeCellBook: UITableViewCell {
-    @IBOutlet weak var cover: UIImageView!
-    @IBOutlet weak var headline: UILabel!
-    @IBOutlet weak var desc: UITextView!
+    @IBOutlet weak var imageViewCover: UIImageView!
+    @IBOutlet weak var labelHeadline: UILabel!
+    @IBOutlet weak var textViewDesc: UITextView!
 }
 
 class CollectionTableViewController: UITableViewController {
@@ -58,9 +58,9 @@ class CollectionTableViewController: UITableViewController {
 
         let book: BookEntityDto = BookEntityDto(coreDataEntity: self.entities[indexPath.row])
         
-        cell.cover.image    = book.coverImage
-        cell.headline.text  = book.headline
-        cell.desc.text      = StringConverterService.shared.convertBookToDescription(book: book)
+        cell.imageViewCover.image   = book.coverImage
+        cell.labelHeadline.text     = book.headline
+        cell.textViewDesc.text      = StringConverterService.shared.convertBookToDescription(book: book)
 
         return cell
     }

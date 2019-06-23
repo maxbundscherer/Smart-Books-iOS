@@ -22,9 +22,9 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     /*
      UI
      */
-    @IBOutlet weak var chat: UITableView!
-    @IBOutlet weak var myMessage: UITextField!
-    @IBOutlet weak var useLang: UIButton!
+    @IBOutlet weak var tableViewChat: UITableView!
+    @IBOutlet weak var textFieldMyMessage: UITextField!
+    @IBOutlet weak var buttonUseLang: UIButton!
     
     /*
     Chat Service and chat view
@@ -54,11 +54,11 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
         initAutoKeyboardDismiss()
         
-        self.chat.delegate              = self.chatTableViewController
-        self.chat.dataSource            = self.chatTableViewController
+        self.tableViewChat.delegate                 = self.chatTableViewController
+        self.tableViewChat.dataSource               = self.chatTableViewController
         
-        self.chatTableViewController.tableView    = self.chat
-        self.chatTableViewController.delegate     = self
+        self.chatTableViewController.tableView      = self.tableViewChat
+        self.chatTableViewController.delegate       = self
         
         /*
          Question: Speech output enabled?
@@ -154,8 +154,8 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     
     private func startSpeechRecognition() {
         
-        self.useLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
-        self.myMessage.text = ""
+        self.buttonUseLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
+        self.textFieldMyMessage.text = ""
         
         self.silenceTimer       = nil
         self.flagProcessInput   = false
@@ -201,7 +201,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
                 if(result.isFinal) {
                     
                     //End recognition
-                    self.myMessage.text = ""
+                    self.textFieldMyMessage.text = ""
                     
                     //Silence timer (auto abort after time of silence)
                     self.silenceTimer?.invalidate()
@@ -210,7 +210,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
                 } else {
                     
                     //In recognition
-                    self.myMessage.text = result.bestTranscription.formattedString
+                    self.textFieldMyMessage.text = result.bestTranscription.formattedString
                     
                     //Silence timer (auto abort after time of silence)
                     if let timer = self.silenceTimer, timer.isValid {
@@ -234,7 +234,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     
     private func stopSpeechRecognition() {
         
-        self.useLang.setTitle("Sprache benutzen", for: .normal)
+        self.buttonUseLang.setTitle("Sprache benutzen", for: .normal)
         self.flagProcessInput = true
         
         //Finish recognition
@@ -250,7 +250,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     private func processInput() {
         
         //Get msg
-        let input = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        let input = (textFieldMyMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         if(input == "") {
             self.chatTableViewController.addMessageToMe(msg: "Bitte reden Sie mit mir!")
             return
@@ -258,7 +258,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
         //Show msg in chat and clear chatInput
         self.chatTableViewController.addMessageFromMe(msg: input)
-        self.myMessage.text = ""
+        self.textFieldMyMessage.text = ""
         
         //Process through chat-service
         let dto: BookEntityDto? = self.chatService.processResponse(response: input)

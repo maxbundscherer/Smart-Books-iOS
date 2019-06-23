@@ -10,9 +10,9 @@ import UIKit
 
 class SingleBookViewController: UIViewController {
 
-    @IBOutlet weak var headline: UILabel!
-    @IBOutlet weak var cover: UIImageView!
-    @IBOutlet weak var desc: UITextView!
+    @IBOutlet weak var labelHeadline: UILabel!
+    @IBOutlet weak var imageViewCover: UIImageView!
+    @IBOutlet weak var textViewDesc: UITextView!
     
     var passedEntity: BookEntity?
     
@@ -31,9 +31,9 @@ class SingleBookViewController: UIViewController {
         guard let entity: BookEntity = self.passedEntity else { return }
         let book: BookEntityDto = BookEntityDto(coreDataEntity: entity)
         
-        self.headline.text  = book.headline
-        self.cover.image    = book.coverImage
-        self.desc.text      = StringConverterService.shared.convertBookToDescription(book: book)
+        self.labelHeadline.text     = book.headline
+        self.imageViewCover.image   = book.coverImage
+        self.textViewDesc.text      = StringConverterService.shared.convertBookToDescription(book: book)
     }
     
     @IBAction func buttonRemoveAction(_ sender: Any) {

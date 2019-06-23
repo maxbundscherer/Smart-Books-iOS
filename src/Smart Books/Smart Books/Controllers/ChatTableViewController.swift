@@ -17,11 +17,11 @@ protocol ChatTableViewControllerDelegate {
 }
 
 class PrototypeCellMsgToMe: UITableViewCell {
-    @IBOutlet weak var msg: UITextView!
+    @IBOutlet weak var textViewMsg: UITextView!
 }
 
 class PrototypeCellMsgFromMe: UITableViewCell {
-    @IBOutlet weak var msg: UITextView!
+    @IBOutlet weak var textViewMsg: UITextView!
 }
 
 class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegate {
@@ -124,7 +124,7 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
             let cell = tableView
                 .dequeueReusableCell(withIdentifier: "PrototypeCellMsgFromMe", for: indexPath) as! PrototypeCellMsgFromMe
             
-            cell.msg.text = chatMessage.msg
+            cell.textViewMsg.text = chatMessage.msg
             return cell
             
         default:
@@ -133,7 +133,7 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
             let cell = tableView
                 .dequeueReusableCell(withIdentifier: "PrototypeCellMsgToMe", for: indexPath) as! PrototypeCellMsgToMe
             
-            cell.msg.text = chatMessage.msg
+            cell.textViewMsg.text = chatMessage.msg
             return cell
             
         }

@@ -54,9 +54,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cover" destination="hWY-se-jTh" id="AUk-Aw-Dhi"/>
-                                    <outlet property="desc" destination="0sc-oT-gUU" id="UK6-v3-zGq"/>
-                                    <outlet property="headline" destination="deA-pJ-FlH" id="wOh-zQ-DJv"/>
+                                    <outlet property="imageViewCover" destination="hWY-se-jTh" id="AUk-Aw-Dhi"/>
+                                    <outlet property="labelHeadline" destination="deA-pJ-FlH" id="wOh-zQ-DJv"/>
+                                    <outlet property="textViewDesc" destination="0sc-oT-gUU" id="UK6-v3-zGq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -166,9 +166,9 @@
                         <viewLayoutGuide key="safeArea" id="UMX-rC-yCC"/>
                     </view>
                     <connections>
-                        <outlet property="cover" destination="byk-xD-qMN" id="qpa-4U-wUk"/>
-                        <outlet property="desc" destination="sXQ-sN-UlK" id="NJ6-f9-Cxm"/>
-                        <outlet property="headline" destination="tOY-5s-KkO" id="9k4-x2-abh"/>
+                        <outlet property="imageViewCover" destination="byk-xD-qMN" id="qpa-4U-wUk"/>
+                        <outlet property="labelHeadline" destination="tOY-5s-KkO" id="9k4-x2-abh"/>
+                        <outlet property="textViewDesc" destination="sXQ-sN-UlK" id="NJ6-f9-Cxm"/>
                         <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="AUh-S2-VlL"/>
                     </connections>
                 </viewController>
@@ -257,7 +257,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Hallo, wie geht es dir?" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="3Di-Ty-PUt" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="40" y="5" width="540" height="89.5"/>
+                                                    <rect key="frame" x="40" y="5" width="354" height="89.5"/>
                                                     <color key="backgroundColor" red="0.89599034791582621" green="1" blue="0.89043761326628423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -271,7 +271,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="msg" destination="3Di-Ty-PUt" id="7Gm-I0-H0L"/>
+                                            <outlet property="textViewMsg" destination="3Di-Ty-PUt" id="7Gm-I0-H0L"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgToMe" rowHeight="100" id="ECL-dY-mno" customClass="PrototypeCellMsgToMe" customModule="Smart_Books" customModuleProvider="target">
@@ -282,7 +282,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gut und dir?" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-qB-nw3" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="10" y="5" width="540" height="89.5"/>
+                                                    <rect key="frame" x="10" y="5" width="354" height="89.5"/>
                                                     <color key="backgroundColor" red="0.87556377568986432" green="0.97845176457497973" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -296,7 +296,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="msg" destination="Rhv-qB-nw3" id="7p4-Jq-nWU"/>
+                                            <outlet property="textViewMsg" destination="Rhv-qB-nw3" id="7p4-Jq-nWU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -339,9 +339,9 @@
                         <viewLayoutGuide key="safeArea" id="FX5-mM-qzd"/>
                     </view>
                     <connections>
-                        <outlet property="chat" destination="Oad-AU-5bW" id="3tz-fy-gib"/>
-                        <outlet property="myMessage" destination="IGl-JK-9r4" id="tOy-Ok-jM3"/>
-                        <outlet property="useLang" destination="kSM-In-8O2" id="sd8-Yj-zkk"/>
+                        <outlet property="buttonUseLang" destination="kSM-In-8O2" id="sd8-Yj-zkk"/>
+                        <outlet property="tableViewChat" destination="Oad-AU-5bW" id="3tz-fy-gib"/>
+                        <outlet property="textFieldMyMessage" destination="IGl-JK-9r4" id="tOy-Ok-jM3"/>
                         <segue destination="MzB-0b-jCi" kind="show" identifier="sgEditBook" id="2yH-cf-aYw"/>
                     </connections>
                 </viewController>
@@ -464,7 +464,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Suchen" id="Rog-ap-KqO"/>
                     <connections>
-                        <outlet property="searchword" destination="WoP-uL-rbe" id="e6Y-RQ-Eg3"/>
+                        <outlet property="textFieldSearchword" destination="WoP-uL-rbe" id="e6Y-RQ-Eg3"/>
                         <segue destination="37w-Uf-DBc" kind="show" identifier="sgShowCollection" id="LHF-dv-iY1"/>
                     </connections>
                 </viewController>
