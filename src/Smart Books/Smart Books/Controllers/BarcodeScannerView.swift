@@ -9,21 +9,21 @@
 import Foundation
 import BarcodeScanner
 
-protocol BarcodescannerViewDelegate {
+protocol BarcodescannerViewControllerDelegate {
     
-    func barcodescannerViewSuccess(ean: String)
-    func barcodescannerViewFailure(errorMessage: String)
-    func barcodescannerViewDismiss()
-    
-}
-
-class BarcodescannerView: BarcodeScannerViewController {
-    
-    var delegate: BarcodescannerViewDelegate?
+    func barcodescannerViewControllerSuccess(ean: String)
+    func barcodescannerViewControllerFailure(errorMessage: String)
+    func barcodescannerViewControllerDismiss()
     
 }
 
-extension BarcodescannerView: BarcodeScannerCodeDelegate {
+class BarcodescannerViewController: BarcodeScannerViewController {
+    
+    var delegate: BarcodescannerViewControllerDelegate?
+    
+}
+
+extension BarcodescannerViewController: BarcodeScannerCodeDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         
@@ -31,7 +31,7 @@ extension BarcodescannerView: BarcodeScannerCodeDelegate {
             
             //Barcode is from a book
             self.dismiss(animated: true, completion: {
-                self.delegate?.barcodescannerViewSuccess(ean: code)
+                self.delegate?.barcodescannerViewControllerSuccess(ean: code)
             })
             
         }
@@ -39,29 +39,29 @@ extension BarcodescannerView: BarcodeScannerCodeDelegate {
             
             //Barcode is not from a book
             self.dismiss(animated: true, completion: {
-                self.delegate?.barcodescannerViewFailure(errorMessage: "Bitte scannen Sie einen Barcode von einem Buch.")
+                self.delegate?.barcodescannerViewControllerFailure(errorMessage: "Bitte scannen Sie einen Barcode von einem Buch.")
             })
         }
         
     }
 }
 
-extension BarcodescannerView: BarcodeScannerErrorDelegate {
+extension BarcodescannerViewController: BarcodeScannerErrorDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
         
         self.dismiss(animated: true, completion: {
-            self.delegate?.barcodescannerViewFailure(errorMessage: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n'\(error.localizedDescription)'.")
+            self.delegate?.barcodescannerViewControllerFailure(errorMessage: "Beim Scannen des Barcodes ist ein Fehler aufgetreten: \n\n'\(error.localizedDescription)'.")
         })
     }
 }
 
-extension BarcodescannerView: BarcodeScannerDismissalDelegate {
+extension BarcodescannerViewController: BarcodeScannerDismissalDelegate {
     
     func scannerDidDismiss(_ controller: BarcodeScannerViewController) {
         
         controller.dismiss(animated: true, completion: {
-            self.delegate?.barcodescannerViewDismiss()
+            self.delegate?.barcodescannerViewControllerDismiss()
         })
     }
 }

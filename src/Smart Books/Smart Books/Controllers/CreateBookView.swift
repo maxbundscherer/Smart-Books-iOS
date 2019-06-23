@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDelegate {
+class CreateBookView: UIViewController, BarcodescannerViewControllerDelegate, ChatViewDelegate {
 
     private var storedLoadingIndicator: UIView? = nil
     
@@ -23,14 +23,14 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDele
     
     @IBAction func buttonCameraAction(_ sender: Any) {
         
-        let barcodescannerView  = BarcodescannerView()
+        let barcodescannerViewController  = BarcodescannerViewController()
         
-        barcodescannerView.delegate            = self
-        barcodescannerView.codeDelegate        = barcodescannerView
-        barcodescannerView.errorDelegate       = barcodescannerView
-        barcodescannerView.dismissalDelegate   = barcodescannerView
+        barcodescannerViewController.delegate            = self
+        barcodescannerViewController.codeDelegate        = barcodescannerViewController
+        barcodescannerViewController.errorDelegate       = barcodescannerViewController
+        barcodescannerViewController.dismissalDelegate   = barcodescannerViewController
         
-        present(barcodescannerView, animated: true, completion: {self.showLoadingIndicator()})
+        present(barcodescannerViewController, animated: true, completion: {self.showLoadingIndicator()})
     }
     
     @IBAction func buttonChatAction(_ sender: Any) {
@@ -38,7 +38,7 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDele
         performSegue(withIdentifier: "sgChat", sender: nil)
     }
     
-    func barcodescannerViewSuccess(ean: String) {
+    func barcodescannerViewControllerSuccess(ean: String) {
         
         BookLookupService.shared.lookupBookByEan(ean: ean) { (dto, errorMessage, isbn) in
             
@@ -70,12 +70,12 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDele
         
     }
     
-    func barcodescannerViewFailure(errorMessage: String) {
+    func barcodescannerViewControllerFailure(errorMessage: String) {
         self.hideLoadingIndicator()
         showErrorAlert(msg: errorMessage)
     }
     
-    func barcodescannerViewDismiss() {
+    func barcodescannerViewControllerDismiss() {
         self.hideLoadingIndicator()
     }
     
