@@ -143,6 +143,9 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buttonEditAction:" destination="mh1-ca-YbG" eventType="primaryActionTriggered" id="9g9-OG-U6j"/>
@@ -349,7 +352,7 @@
                                 <rect key="frame" x="5" y="163" width="404" height="30"/>
                                 <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Sprache benutzen"/>
+                                <state key="normal" title="Spracheingabe starten"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
@@ -518,10 +521,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcy-9T-mW0" userLabel="ButtonSearch">
-                                <rect key="frame" x="20" y="231" width="374" height="30"/>
+                                <rect key="frame" x="20" y="241" width="374" height="30"/>
                                 <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Suchen"/>
+                                <state key="normal" title="Sammlung durchsuchen"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
@@ -543,7 +546,7 @@
                             <constraint firstItem="WoP-uL-rbe" firstAttribute="top" secondItem="oIc-Qt-4mb" secondAttribute="bottom" constant="30" id="6b6-AL-KV9"/>
                             <constraint firstItem="E0U-hR-Njb" firstAttribute="trailing" secondItem="Pcy-9T-mW0" secondAttribute="trailing" constant="20" id="7vR-GS-5DI"/>
                             <constraint firstItem="oIc-Qt-4mb" firstAttribute="leading" secondItem="E0U-hR-Njb" secondAttribute="leading" constant="20" id="CcA-mD-ryk"/>
-                            <constraint firstItem="Pcy-9T-mW0" firstAttribute="top" secondItem="WoP-uL-rbe" secondAttribute="bottom" constant="10" id="Fpu-jm-YLN"/>
+                            <constraint firstItem="Pcy-9T-mW0" firstAttribute="top" secondItem="WoP-uL-rbe" secondAttribute="bottom" constant="20" id="Fpu-jm-YLN"/>
                             <constraint firstItem="E0U-hR-Njb" firstAttribute="trailing" secondItem="WoP-uL-rbe" secondAttribute="trailing" constant="20" id="Ib2-vU-3LB"/>
                             <constraint firstItem="Pcy-9T-mW0" firstAttribute="leading" secondItem="E0U-hR-Njb" secondAttribute="leading" constant="20" id="MsT-ES-c8H"/>
                             <constraint firstItem="WoP-uL-rbe" firstAttribute="leading" secondItem="E0U-hR-Njb" secondAttribute="leading" constant="20" id="U9j-sJ-jfM"/>
@@ -646,7 +649,7 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUh-S2-VlL"/>
+        <segue reference="2yH-cf-aYw"/>
         <segue reference="LHF-dv-iY1"/>
     </inferredMetricsTieBreakers>
 </document>

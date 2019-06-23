@@ -256,7 +256,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     private func stopSpeechRecognition() {
         
         //GUI
-        self.buttonUseLang.setTitle("Sprache benutzen", for: .normal)
+        self.buttonUseLang.setTitle("Spracheingabe starten", for: .normal)
         self.flagProcessInput = true
         
         //Finish recognition

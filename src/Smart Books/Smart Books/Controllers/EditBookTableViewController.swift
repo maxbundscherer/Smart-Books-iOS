@@ -71,10 +71,10 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         var coverString: String
         
         if(dto.coverImage == nil || dto.coverImage == UIImage()) {
-            coverString = "[kein Cover]"
+            coverString = "[kein Cover hinterlegt]"
         }
         else {
-            coverString = "[Cover]"
+            coverString = "[Cover hinterlegt]"
         }
         
         self.attributes = [
