@@ -33,7 +33,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     private var chatTableViewController     = ChatTableViewController()
     
     /*
-     Speech
+     Speech Recognizer
      */
     private let audioEngine             = AVAudioEngine()
     private let speechRecognizer        = SFSpeechRecognizer()

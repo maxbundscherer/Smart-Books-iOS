@@ -10,6 +10,9 @@ import UIKit
 
 class SearchBookViewController: UIViewController {
 
+    /*
+     UI
+     */
     @IBOutlet weak var textFieldSearchword: UITextField!
     
     override func viewDidLoad() {

@@ -30,8 +30,8 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
     
     private var chatMessages: [ChatMessage] = []
     
-    private var flagTextToSpeech: Bool  = false
-    private let speechSynth             = AVSpeechSynthesizer()
+    private var flagEnableTextToSpeech: Bool    = false
+    private let speechSynth                     = AVSpeechSynthesizer()
     
     private struct ChatMessage {
         let timestamp: Double
@@ -41,10 +41,10 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
     
     func initChat(textToSpeechEnabled: Bool) {
         
-        self.flagTextToSpeech       = textToSpeechEnabled
-        self.speechSynth.delegate   = self
+        self.flagEnableTextToSpeech         = textToSpeechEnabled
+        self.speechSynth.delegate           = self
         
-        if(self.flagTextToSpeech) {
+        if(self.flagEnableTextToSpeech) {
             
             //Fix synth bug (mix volume)
             do
@@ -56,7 +56,7 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
             catch
             {
                 showErrorAlert(msg: "Sprachausgabe ist derzeit leider nicht verfügbar.")
-                self.flagTextToSpeech = false
+                self.flagEnableTextToSpeech = false
             }
         }
         
@@ -78,7 +78,7 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
         self.chatMessages.insert(ChatMessage(timestamp: NSDate().timeIntervalSince1970, msgFromMe: false, msg: msg), at: self.chatMessages.count)
         reloadData()
         
-        if(self.flagTextToSpeech) {
+        if(self.flagEnableTextToSpeech) {
             
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: msg)
             speechUtterance.voice = AVSpeechSynthesisVoice(language: ConfiguratorService.shared.getSynthesisVoiceLanguage())

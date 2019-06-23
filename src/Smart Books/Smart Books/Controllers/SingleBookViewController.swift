@@ -10,6 +10,9 @@ import UIKit
 
 class SingleBookViewController: UIViewController {
 
+    /*
+     UI
+     */
     @IBOutlet weak var labelHeadline: UILabel!
     @IBOutlet weak var imageViewCover: UIImageView!
     @IBOutlet weak var textViewDesc: UITextView!

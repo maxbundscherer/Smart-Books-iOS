@@ -17,8 +17,8 @@ class EditBookTableViewController: UITableViewController, UINavigationController
     private var storedDto: BookEntityDto?
     private var attributes: [Attribute] = []
     
-    private var hasCameraAccess: Bool = false
-    private let imagePicker = UIImagePickerController()
+    private var flagHasCameraAccess: Bool   = false
+    private let imagePicker                 = UIImagePickerController()
     
     private struct Attribute {
         let sortKey: Int
@@ -52,7 +52,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
     override func viewDidAppear(_ animated: Bool) {
         
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
-            self.hasCameraAccess = response
+            self.flagHasCameraAccess = response
         }
         
     }
@@ -175,7 +175,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         
         let cameraAvailableFlag : Bool = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        let accessFlag: Bool = (self.hasCameraAccess && cameraAvailableFlag)
+        let accessFlag: Bool = (self.flagHasCameraAccess && cameraAvailableFlag)
         
         switch accessFlag {
             
