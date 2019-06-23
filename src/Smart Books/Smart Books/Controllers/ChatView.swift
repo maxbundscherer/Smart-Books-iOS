@@ -15,7 +15,7 @@ protocol ChatViewDelegate {
     
 }
 
-class ChatView: UIViewController, SFSpeechRecognizerDelegate {
+class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDelegate {
     
     var delegate: ChatViewDelegate?
     
@@ -35,16 +35,20 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     /*
      Speech
      */
-    private let audioEngine         = AVAudioEngine()
-    private let speechRecognizer    = SFSpeechRecognizer()
-    private let audioRequest        = SFSpeechAudioBufferRecognitionRequest()
-    private var recognitionTask     : SFSpeechRecognitionTask?
+    private let audioEngine             = AVAudioEngine()
+    private let speechRecognizer        = SFSpeechRecognizer()
+    private let audioRequest            = SFSpeechAudioBufferRecognitionRequest()
+    private var recognitionTask         : SFSpeechRecognitionTask?
+    private var silenceTimer            : Timer?
     
     /*
      Flags
      */
-    private var flagProcessInput: Bool = false
-    private var hasMicAccess: Bool = false
+    private var flagProcessInput                        : Bool = false
+    private var flagHasMicAccess                        : Bool = false
+    private var flagAutoStartSpeechRecognizer           : Bool = false
+    private var flagWaitingForAutoStartSpeechRecognizer : Bool = false
+    private var flagChatHasStarted                      : Bool = false
     
     override func viewDidLoad() {
         
@@ -52,24 +56,26 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         
         self.chat.delegate              = self.chatTableView
         self.chat.dataSource            = self.chatTableView
+        
         self.chatTableView.tableView    = self.chat
+        self.chatTableView.delegate     = self
         
         /*
          Question: Speech output enabled?
         */
         let alert = UIAlertController(title: "Frage", message: "Möchten Sie die Sprachausgabe aktivieren? Bitte schalten Sie dazu auch Ihr Geräut auf 'Laut'.", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
-            
-            self.chatTableView.initChat(textToSpeechEnabled: false)
-            self.startChat()
-        }))
-        
         alert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (_) in
             
             self.chatTableView.initChat(textToSpeechEnabled: true)
             self.startChat()
             
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
+            
+            self.chatTableView.initChat(textToSpeechEnabled: false)
+            self.startChat()
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -82,9 +88,9 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         SFSpeechRecognizer.requestAuthorization { [unowned self] authStatus in
             DispatchQueue.main.async {
                 if authStatus == .authorized {
-                    self.hasMicAccess = true
+                    self.flagHasMicAccess = true
                 } else {
-                    self.hasMicAccess = false
+                    self.flagHasMicAccess = false
                 }
             }
         }
@@ -93,9 +99,9 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func buttonSendTextAction(_ sender: Any) {
         
-        if(!self.flagProcessInput) { return }
-        
         dismissKeyboard()
+        
+        if(!self.flagProcessInput) { return }
         
         processInput()
         
@@ -105,7 +111,25 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         
         dismissKeyboard()
         
-        if(!self.hasMicAccess) {
+        if(self.recognitionTask == nil) {
+            
+            //No active recognition
+            self.flagAutoStartSpeechRecognizer = true
+            
+        }
+        else {
+            
+            //Active recognition
+            self.flagAutoStartSpeechRecognizer = false
+            
+        }
+        
+        toggleSpeechRecognition()
+    }
+    
+    private func toggleSpeechRecognition() {
+        
+        if(!self.flagHasMicAccess) {
             
             AlertHelper.showError(msg: "Bitte geben Sie die nötigen Zugriffsrechte auf Ihr Mikrofon.", viewController: self)
             return
@@ -115,7 +139,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             
             //No active recognition
             if(!self.flagProcessInput) { return }
-            self.useLang.setTitle("[Spracheingabe beenden / Fertig]", for: .normal)
+            self.useLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
             self.myMessage.text = ""
             startSpeechRecognition()
             
@@ -133,7 +157,8 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     
     private func startSpeechRecognition() {
         
-        self.flagProcessInput = false
+        self.silenceTimer       = nil
+        self.flagProcessInput   = false
         
         //Setup inputNode with buffer
         let inNode = audioEngine.inputNode
@@ -171,12 +196,28 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             if let result = result {
                 
                 if(result.isFinal) {
+                    
                     //End recognition
-                    inNode.removeTap(onBus: 0)
                     self.myMessage.text = ""
+                    
+                    //Silence timer (auto abort after time of silence)
+                    self.silenceTimer?.invalidate()
+                    self.silenceTimer = nil
+                    
                 } else {
+                    
                     //In recognition
                     self.myMessage.text = result.bestTranscription.formattedString
+                    
+                    //Silence timer (auto abort after time of silence)
+                    if let timer = self.silenceTimer, timer.isValid {
+                            timer.invalidate()
+                    } else {
+                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
+                            self.toggleSpeechRecognition()
+                        })
+                    }
+                    
                 }
                 
             } else if let error = error {
@@ -196,6 +237,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         self.recognitionTask = nil
         
         //Stop audioEngine and finish request
+        self.audioEngine.inputNode.removeTap(onBus: 0)
         self.audioEngine.stop()
         self.audioRequest.endAudio()
     }
@@ -222,8 +264,11 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             self.flagProcessInput = false
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                
                 self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
-                self.flagProcessInput = true
+
+                //Auto Start SpeechRecognizer in dialog after text to speech
+                if(self.flagAutoStartSpeechRecognizer) { self.flagWaitingForAutoStartSpeechRecognizer = true }
             })
             
         }
@@ -248,9 +293,26 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(9), execute: {
+            self.flagChatHasStarted = true
             self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
-            self.flagProcessInput = true
         })
+    }
+    
+    func didStartSpeaking() {
+        
+        self.flagProcessInput = false
+        
+    }
+    
+    func didFinishResponse() {
+        
+        if(self.flagChatHasStarted) { self.flagProcessInput = true }
+        
+        if(self.flagWaitingForAutoStartSpeechRecognizer) {
+            self.flagWaitingForAutoStartSpeechRecognizer = false
+            toggleSpeechRecognition()
+        }
+        
     }
     
 }
@@ -263,8 +325,15 @@ class PrototypeCellMsgFromMe: UITableViewCell {
     @IBOutlet weak var msg: UITextView!
 }
 
-class ChatTableView: UITableViewController {
+protocol ChatTableViewDelegate {
+    func didStartSpeaking()
+    func didFinishResponse()
+}
 
+class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
+
+    var delegate: ChatTableViewDelegate?
+    
     private var chatMessages: [ChatMessage] = []
     
     private var flagTextToSpeech: Bool  = false
@@ -278,7 +347,8 @@ class ChatTableView: UITableViewController {
     
     func initChat(textToSpeechEnabled: Bool) {
         
-        self.flagTextToSpeech = textToSpeechEnabled
+        self.flagTextToSpeech       = textToSpeechEnabled
+        self.speechSynth.delegate   = self
         
         if(self.flagTextToSpeech) {
             
@@ -311,15 +381,16 @@ class ChatTableView: UITableViewController {
         
         if(msg == "") { return }
         
+        self.chatMessages.insert(ChatMessage(timestamp: NSDate().timeIntervalSince1970, msgFromMe: false, msg: msg), at: self.chatMessages.count)
+        reloadData()
+        
         if(self.flagTextToSpeech) {
             
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: msg)
             speechUtterance.voice = AVSpeechSynthesisVoice(language: Configurator.shared.getSynthesisVoiceLanguage())
             self.speechSynth.speak(speechUtterance)
         }
-        
-        self.chatMessages.insert(ChatMessage(timestamp: NSDate().timeIntervalSince1970, msgFromMe: false, msg: msg), at: self.chatMessages.count)
-        reloadData()
+        else { self.delegate?.didFinishResponse() }
     }
     
     private func reloadData() {
@@ -373,6 +444,14 @@ class ChatTableView: UITableViewController {
             
         }
         
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        self.delegate?.didFinishResponse()
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        self.delegate?.didStartSpeaking()
     }
 
 }
