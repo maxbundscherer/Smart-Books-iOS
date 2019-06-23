@@ -172,7 +172,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
         //Try to start audio engine
         self.audioEngine.prepare()
         do {
-            try audioEngine.start()
+            try self.audioEngine.start()
         }
         catch {
             AlertHelper.showError(msg: error.localizedDescription, viewController: self)
@@ -182,13 +182,13 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
         
         //Security checks
         guard let myRecognizer = self.speechRecognizer else {
-            AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
             stopSpeechRecognition()
+            AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
             return
         }
         if(!myRecognizer.isAvailable) {
-            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
             stopSpeechRecognition()
+            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
             return
         }
         
@@ -216,7 +216,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
                     if let timer = self.silenceTimer, timer.isValid {
                             timer.invalidate()
                     } else {
-                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
+                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(Configurator.shared.getSilenceDelay()), repeats: false, block: { (timer) in
                             self.toggleSpeechRecognition()
                         })
                     }
@@ -224,8 +224,8 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
                 }
                 
             } else if let error = error {
+                self.stopSpeechRecognition()
                 AlertHelper.showError(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'", viewController: self)
-                self.toggleSpeechRecognition()
             }
             
         })
@@ -268,7 +268,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
             //Dto is not ready at the moment
             self.flagProcessInput = false
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 
                 self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
 
@@ -290,14 +290,14 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
     private func startChat() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
-            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Buchverwalter 3000!")
+            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Lisa! Ich kümmere mich um Ihre Bücher!")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            self.chatTableView.addMessageToMe(msg: "Keine Sorge: Falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+            self.chatTableView.addMessageToMe(msg: "Falls ich etwas nicht korrekt verstehe: Am Ende können Sie natürlich noch Ihr Buch überarbeiten.")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(9), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
             self.flagChatHasStarted = true
             self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
         })

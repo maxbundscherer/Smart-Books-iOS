@@ -47,9 +47,11 @@ class Configurator {
         
     }
     
-    func getBarcodeEANTypeString()      -> String { return "org.gs1.EAN-13" }
+    func getBarcodeEANTypeString()      -> String   { return "org.gs1.EAN-13" }
     
-    func getSynthesisVoiceLanguage()    -> String { return  "de-DE" }
+    func getSynthesisVoiceLanguage()    -> String   { return  "de-DE" }
+    
+    func getSilenceDelay()              -> Double   { return 2 }
     
     //TODO: Put token isbn database in here
     func getTokenForBookLookup()        -> String { return "" }
