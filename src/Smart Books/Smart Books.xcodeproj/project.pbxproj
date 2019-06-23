@@ -102,14 +102,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		3B67311522A515FE00D499E3 /* Utils */ = {
+		3B67311522A515FE00D499E3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */,
 				3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */,
 				3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */,
 			);
-			path = Utils;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3B67311822A5162900D499E3 /* Controllers */ = {
@@ -161,7 +161,7 @@
 				3B41D6C422AD1A6900C361FB /* Services */,
 				3B67311B22A5165E00D499E3 /* Models */,
 				3B67311822A5162900D499E3 /* Controllers */,
-				3B67311522A515FE00D499E3 /* Utils */,
+				3B67311522A515FE00D499E3 /* Extensions */,
 				3B6E127422A513A80065B7C1 /* AppDelegate.swift */,
 				3B6E127A22A513A80065B7C1 /* Main.storyboard */,
 				3B6E127D22A513A90065B7C1 /* Assets.xcassets */,
