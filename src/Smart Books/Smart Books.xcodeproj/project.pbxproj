@@ -15,6 +15,7 @@
 		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
 		3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SBModels.xcdatamodeld */; };
+		3B69878722C024C9005539F8 /* LightStatusBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127A22A513A80065B7C1 /* Main.storyboard */; };
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		3B41D6CA22AD1EAA00C361FB /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleCovers.xcassets; sourceTree = "<group>"; };
 		3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
+		3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarExtension.swift; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127B22A513A80065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */,
 				3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */,
 				3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */,
+				3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3BFFDF1322AE930D000BD7CA /* EditBookTableViewController.swift in Sources */,
 				3B41D6C822AD1B0200C361FB /* ConfiguratorService.swift in Sources */,
 				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
+				3B69878722C024C9005539F8 /* LightStatusBarExtension.swift in Sources */,
 				3BE518A922B24A4600C1E951 /* SearchBookViewController.swift in Sources */,
 				3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */,
 				3BDEAE7D22B90DBD004FA00D /* ChatService.swift in Sources */,

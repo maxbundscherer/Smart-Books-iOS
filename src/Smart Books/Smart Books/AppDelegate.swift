@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Prepare database
         ConfiguratorService.shared.prepareDatabase()
         
+        //Prepare UI
+        ConfiguratorService.shared.prepareUI()
+        
         return true
     }
     

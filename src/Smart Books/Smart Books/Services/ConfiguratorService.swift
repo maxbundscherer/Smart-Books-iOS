@@ -47,6 +47,15 @@ class ConfiguratorService {
         
     }
     
+    func prepareUI() {
+        
+        UINavigationBar.appearance().barTintColor           = #colorLiteral(red: 0.009652188979, green: 0.5029947162, blue: 0.7534247041, alpha: 1)
+        UINavigationBar.appearance().tintColor              = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes    = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+        UINavigationBar.appearance().isTranslucent          = false
+        
+    }
+    
     func getBarcodeEANTypeString()      -> String   { return "org.gs1.EAN-13" }
     
     func getSynthesisVoiceLanguage()    -> String   { return  "de-DE" }
