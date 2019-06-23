@@ -67,7 +67,7 @@ class SingleBookViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let entity:   BookEntity          = sender as? BookEntity else { return }
-        guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
+        guard let dest:     EditBookTableViewController   = segue.destination as? EditBookTableViewController else { return }
         
         dest.passedEntity = entity
     }

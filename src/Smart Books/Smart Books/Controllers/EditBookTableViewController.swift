@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class EditBookTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class EditBookTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var passedEntity: BookEntity?
     var passedDto: BookEntityDto?

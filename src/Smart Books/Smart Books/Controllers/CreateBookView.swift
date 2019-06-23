@@ -87,7 +87,7 @@ class CreateBookView: UIViewController, BarcodescannerViewControllerDelegate, Ch
         
         if(segue.identifier == "sgEditBook") {
             guard let dto:      BookEntityDto       = sender as? BookEntityDto else { return }
-            guard let dest:     EditBookTableView   = segue.destination as? EditBookTableView else { return }
+            guard let dest:     EditBookTableViewController   = segue.destination as? EditBookTableViewController else { return }
             
             dest.passedDto = dto
         }

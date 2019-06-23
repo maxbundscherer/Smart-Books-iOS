@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="3635" y="-914"/>
         </scene>
-        <!--Edit Book Table View-->
+        <!--Edit Book Table View Controller-->
         <scene sceneID="CCb-rz-r3y">
             <objects>
-                <tableViewController id="MzB-0b-jCi" customClass="EditBookTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MzB-0b-jCi" customClass="EditBookTableViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8VP-pY-ocj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
