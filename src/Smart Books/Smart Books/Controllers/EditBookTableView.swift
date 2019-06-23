@@ -222,11 +222,11 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
         
         if(self.passedEntity == nil) {
             //Add-Mode
-            if(StorageService.shared.createBook(value: dto) != nil) { result = true }
+            if(StorageService.shared.createBook(dto: dto) != nil) { result = true }
         }
         else {
             //Edit-Mode
-            result = StorageService.shared.updateBook(entity: self.passedEntity!, value: dto)
+            result = StorageService.shared.updateBook(entity: self.passedEntity!, dto: dto)
         }
         
         if(result) {

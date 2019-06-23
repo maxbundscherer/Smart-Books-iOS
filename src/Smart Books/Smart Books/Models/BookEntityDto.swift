@@ -30,7 +30,7 @@ class BookEntityDto {
         self.headline       = nil
         self.isbn           = isbn
         self.publisher      = nil
-        self.tags           = []
+        self.tags           = nil
         self.coverImage     = nil
     }
     
@@ -38,25 +38,26 @@ class BookEntityDto {
         self.headline       = headline
         self.isbn           = nil
         self.publisher      = publisher
-        self.tags           = []
+        self.tags           = nil
         self.coverImage     = nil
     }
     
-    //TODO: Refactor nil
-    
     init(coreDataEntity: BookEntity) {
+        
         self.headline       = coreDataEntity.headline
         self.isbn           = coreDataEntity.isbn
         self.publisher      = coreDataEntity.publisher
         self.tags           = coreDataEntity.tags
-        self.coverImage     = UIImage(data: coreDataEntity.coverImage ?? Data())
+        
+        if(coreDataEntity.coverImage == nil) { self.coverImage = nil }
+        else { self.coverImage = UIImage(data: coreDataEntity.coverImage!) }
     }
     
     init() {
         self.headline       = nil
         self.isbn           = nil
         self.publisher      = nil
-        self.tags           = []
+        self.tags           = nil
         self.coverImage     = nil
     }
     

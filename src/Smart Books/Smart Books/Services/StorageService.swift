@@ -18,7 +18,7 @@ class StorageService {
         
     }
     
-    func createBook(value: BookEntityDto) -> BookEntity? {
+    func createBook(dto: BookEntityDto) -> BookEntity? {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
@@ -30,7 +30,7 @@ class StorageService {
         
         let entity = BookEntity(context: managementContext)
         
-        writeChangesToEntity(dto: value, entity: entity)
+        mapDtoToEntity(dto: dto, entity: entity)
         
         do {
             try managementContext.save()
@@ -42,7 +42,7 @@ class StorageService {
         
     }
     
-    func deleteBook(value: BookEntity?) -> Bool {
+    func deleteBook(entity: BookEntity?) -> Bool {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
@@ -52,7 +52,7 @@ class StorageService {
         
         let managementContext = appDelegate.persistentContainer.viewContext
         
-        guard let entity: BookEntity = value else { return false }
+        guard let entity: BookEntity = entity else { return false }
         
         managementContext.delete(entity)
         
@@ -66,7 +66,7 @@ class StorageService {
         
     }
     
-    func updateBook(entity: BookEntity, value: BookEntityDto) -> Bool {
+    func updateBook(entity: BookEntity, dto: BookEntityDto) -> Bool {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             
@@ -76,7 +76,7 @@ class StorageService {
         
         let managementContext = appDelegate.persistentContainer.viewContext
         
-        writeChangesToEntity(dto: value, entity: entity)
+        mapDtoToEntity(dto: dto, entity: entity)
         
         do {
             try managementContext.save()
@@ -116,8 +116,6 @@ class StorageService {
         
         var filteredResults: Set<BookEntity> = Set()
         
-        //TODO: Improve search in tags
-        
         for book in unfilteredResults {
             
             if(
@@ -132,7 +130,7 @@ class StorageService {
         return Array(filteredResults)
     }
     
-    private func writeChangesToEntity(dto: BookEntityDto, entity: BookEntity) {
+    private func mapDtoToEntity(dto: BookEntityDto, entity: BookEntity) {
         
         entity.headline     = dto.headline
         entity.isbn         = dto.isbn
