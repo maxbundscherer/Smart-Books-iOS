@@ -17,6 +17,7 @@
 		3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SBModels.xcdatamodeld */; };
 		3B69878722C024C9005539F8 /* LightStatusBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */; };
 		3B69878922C0265E005539F8 /* TabBarIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B69878822C0265E005539F8 /* TabBarIcons.xcassets */; };
+		3B69878B22C028AA005539F8 /* CornerBorderButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B69878A22C028AA005539F8 /* CornerBorderButtonExtension.swift */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127A22A513A80065B7C1 /* Main.storyboard */; };
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
 		3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarExtension.swift; sourceTree = "<group>"; };
 		3B69878822C0265E005539F8 /* TabBarIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarIcons.xcassets; sourceTree = "<group>"; };
+		3B69878A22C028AA005539F8 /* CornerBorderButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBorderButtonExtension.swift; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127B22A513A80065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */,
 				3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */,
 				3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */,
+				3B69878A22C028AA005539F8 /* CornerBorderButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				3BE518A722B2412500C1E951 /* CreateBookViewController.swift in Sources */,
 				3B8ABB9722B7B61500034B0B /* AutoKeyboardDismissExtension.swift in Sources */,
 				3B2022E922B6A4CE008AD964 /* NetworkService.swift in Sources */,
+				3B69878B22C028AA005539F8 /* CornerBorderButtonExtension.swift in Sources */,
 				3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */,
 				3B7DD8A122AD35DE009C7DD2 /* SingleBookViewController.swift in Sources */,
 				3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */,
