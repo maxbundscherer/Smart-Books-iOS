@@ -15,7 +15,7 @@ protocol ChatViewControllerDelegate {
     
 }
 
-class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewControllerDelegate {
+class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewControllerDelegate, UITextFieldDelegate {
     
     var delegate: ChatViewControllerDelegate?
     
@@ -53,6 +53,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     override func viewDidLoad() {
         
         initAutoKeyboardDismiss()
+        textFieldMyMessage.delegate                 = self
         
         self.tableViewChat.delegate                 = self.chatTableViewController
         self.tableViewChat.dataSource               = self.chatTableViewController
@@ -350,6 +351,12 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
             toggleSpeechRecognition()
         }
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        buttonSendTextAction(self)
+        return true
     }
     
 }

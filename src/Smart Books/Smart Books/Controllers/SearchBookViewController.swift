@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchBookViewController: UIViewController {
+class SearchBookViewController: UIViewController, UITextFieldDelegate {
 
     /*
      UI
@@ -18,6 +18,8 @@ class SearchBookViewController: UIViewController {
     override func viewDidLoad() {
         
         initAutoKeyboardDismiss()
+        textFieldSearchword.delegate = self
+        
         super.viewDidLoad()
     }
     
@@ -33,6 +35,12 @@ class SearchBookViewController: UIViewController {
         guard let dest:     CollectionTableViewController = segue.destination as? CollectionTableViewController else { return }
         
         dest.passedEntities = StorageService.shared.queryBooks(searchString: searchString)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        buttonSearchAction(self)
+        return true
     }
     
 }
