@@ -2,7 +2,7 @@
 
 # Let´s get started
 
-1. Add token from isbn database in file: ``src/Smart Books/Smart Books/Services/ConfiguratorService.swift``
+1. Add token from isbn database in file: ``./src/Smart Books/Smart Books/Services/ConfiguratorService.swift``
 2. Open XCode-Project only with this file: ``./src/Smart Books/Smart Books.xcworkspace/`` 
 
 # Note
