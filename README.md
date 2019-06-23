@@ -1,11 +1,12 @@
 # Smart Books
 
-Open XCode-Project with this file:
+# Let´s get started
 
-``./src/Smart\ Books/Smart\ Books.xcworkspace/``
+1. Add token from isbn database in file: ``src/Smart Books/Smart Books/Services/ConfiguratorService.swift``
+2. Open XCode-Project only with this file: ``./src/Smart Books/Smart Books.xcworkspace/`` 
 
-# Prepare for deploy
-- Add Token from ISBN Database
+# Note
+- External dependencies may in swift 4
 
 # External dependencies
 - [BarcodeScanner](https://cocoapods.org/pods/BarcodeScanner)
