@@ -421,7 +421,7 @@
         <!--Suchen-->
         <scene sceneID="EHz-6e-TmM">
             <objects>
-                <viewController id="jwK-u2-Rso" customClass="SearchBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jwK-u2-Rso" customClass="SearchBookViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ZT-lh-FvS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

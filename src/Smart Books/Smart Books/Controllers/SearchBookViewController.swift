@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchBookView: UIViewController {
+class SearchBookViewController: UIViewController {
 
     @IBOutlet weak var searchword: UITextField!
     
