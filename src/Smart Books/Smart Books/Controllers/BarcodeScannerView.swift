@@ -27,8 +27,7 @@ extension BarcodescannerView: BarcodeScannerCodeDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         
-        //TODO: Type String
-        if(type == "org.gs1.EAN-13") {
+        if(type == Configurator.shared.getBarcodeEANTypeString()) {
             
             //Barcode is from a book
             self.dismiss(animated: true, completion: {

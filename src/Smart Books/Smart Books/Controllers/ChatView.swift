@@ -115,7 +115,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             
             //No active recognition
             if(!self.flagProcessInput) { return }
-            self.useLang.setTitle("[Spracheingabe beenden]", for: .normal)
+            self.useLang.setTitle("[Spracheingabe beenden / Fertig]", for: .normal)
             self.myMessage.text = ""
             startSpeechRecognition()
             
@@ -133,18 +133,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     
     private func startSpeechRecognition() {
         
-        //Fix synth bug (mix volume)
-        do
-        {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
-            try AVAudioSession.sharedInstance().setMode(AVAudioSession.Mode.default)
-            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
-        }
-        catch
-        {
-            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
-            return
-        }
+        self.flagProcessInput = false
         
         //Setup inputNode with buffer
         let inNode = audioEngine.inputNode
@@ -181,11 +170,13 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
             //TODO: Improve global error handling (this way)
             if let result = result {
                 
-                self.myMessage.text = result.bestTranscription.formattedString
-                
                 if(result.isFinal) {
                     //End recognition
                     inNode.removeTap(onBus: 0)
+                    self.myMessage.text = ""
+                } else {
+                    //In recognition
+                    self.myMessage.text = result.bestTranscription.formattedString
                 }
                 
             } else if let error = error {
@@ -197,6 +188,8 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     private func stopSpeechRecognition() {
+        
+        self.flagProcessInput = true
         
         //Finish recognition
         self.recognitionTask?.finish()
@@ -246,15 +239,15 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate {
     
     private func startChat() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
             self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Buchverwalter 3000!")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             self.chatTableView.addMessageToMe(msg: "Keine Sorge: Falls ich etwas falsch verstehe. Am Ende können Sie Ihr Buch natürlich noch überarbeiten.")
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(9), execute: {
             self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
             self.flagProcessInput = true
         })
@@ -287,6 +280,22 @@ class ChatTableView: UITableViewController {
         
         self.flagTextToSpeech = textToSpeechEnabled
         
+        if(self.flagTextToSpeech) {
+            
+            //Fix synth bug (mix volume)
+            do
+            {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+                try AVAudioSession.sharedInstance().setMode(AVAudioSession.Mode.default)
+                try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+            }
+            catch
+            {
+                AlertHelper.showError(msg: "Sprachausgabe ist derzeit leider nicht verfügbar.", viewController: self)
+                self.flagTextToSpeech = false
+            }
+        }
+        
         reloadData()
     }
     
@@ -305,7 +314,7 @@ class ChatTableView: UITableViewController {
         if(self.flagTextToSpeech) {
             
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: msg)
-            speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-DE")
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: Configurator.shared.getSynthesisVoiceLanguage())
             self.speechSynth.speak(speechUtterance)
         }
         

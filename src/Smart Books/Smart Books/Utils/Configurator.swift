@@ -18,14 +18,14 @@ class Configurator {
         
     }
     
-    func loadExampleData() {
+    func prepareDatabase() {
         
         if(StorageService.shared.getAllBooks().isEmpty) {
             
             let entityOne = BookEntityDto(headline: "Der Struwwelpeter",
                                           isbn: "978-3-937467-78-8",
                                           publisher: "Edition Tintenfaß",
-                                          tags: ["kinderbuch", "erinnerung"],
+                                          tags: ["kinderbuch", "erinnerung", "korrekteSchreibweise"],
                                           coverImage: UIImage(named: "exampleCoverOne"))
             
             let entityTwo = BookEntityDto(headline: "Peter Pan",
@@ -40,14 +40,18 @@ class Configurator {
                                             tags: ["religion"],
                                             coverImage: UIImage(named: "exampleCoverThree"))
             
-            _ = StorageService.shared.createBook(value: entityOne)
-            _ = StorageService.shared.createBook(value: entityTwo)
-            _ = StorageService.shared.createBook(value: entityThree)
+            _ = StorageService.shared.createBook(dto: entityOne)
+            _ = StorageService.shared.createBook(dto: entityTwo)
+            _ = StorageService.shared.createBook(dto: entityThree)
         }
         
     }
     
-    //TODO: Implement token
-    func getTokenForBookLookup() -> String { return "" }
+    func getBarcodeEANTypeString()      -> String { return "org.gs1.EAN-13" }
+    
+    func getSynthesisVoiceLanguage()    -> String { return  "de-DE" }
+    
+    //TODO: Put token isbn database in here
+    func getTokenForBookLookup()        -> String { return "" }
     
 }
