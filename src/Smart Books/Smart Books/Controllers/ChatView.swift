@@ -216,7 +216,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
                     if let timer = self.silenceTimer, timer.isValid {
                             timer.invalidate()
                     } else {
-                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(Configurator.shared.getSilenceDelay()), repeats: false, block: { (timer) in
+                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(ConfiguratorService.shared.getSilenceDelay()), repeats: false, block: { (timer) in
                             self.toggleSpeechRecognition()
                         })
                     }
@@ -392,7 +392,7 @@ class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
         if(self.flagTextToSpeech) {
             
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: msg)
-            speechUtterance.voice = AVSpeechSynthesisVoice(language: Configurator.shared.getSynthesisVoiceLanguage())
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: ConfiguratorService.shared.getSynthesisVoiceLanguage())
             self.speechSynth.speak(speechUtterance)
         }
         else { self.delegate?.didFinishResponse() }

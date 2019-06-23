@@ -44,7 +44,7 @@ class BookLookupService {
         
         NetworkService.shared.getRequest(
             targetUrl: "https://api2.isbndb.com/book/\(isbn))",
-            headerParams: ["Authorization": Configurator.shared.getTokenForBookLookup()]
+            headerParams: ["Authorization": ConfiguratorService.shared.getTokenForBookLookup()]
         ) {
             
             (dataFromNetworkReq, errorFromNetworkReq) in

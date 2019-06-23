@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
        
         //Prepare database
-        Configurator.shared.prepareDatabase()
+        ConfiguratorService.shared.prepareDatabase()
         
         return true
     }

@@ -10,7 +10,7 @@
 		3B2022E922B6A4CE008AD964 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2022E822B6A4CE008AD964 /* NetworkService.swift */; };
 		3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntityDto.swift */; };
 		3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */; };
-		3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* Configurator.swift */; };
+		3B41D6C822AD1B0200C361FB /* ConfiguratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* ConfiguratorService.swift */; };
 		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
 		3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B664B6722AD70780099055A /* SBModels.xcdatamodeld */; };
@@ -19,7 +19,7 @@
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
 		3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127F22A513A90065B7C1 /* LaunchScreen.storyboard */; };
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */; };
-		3B7DD89F22AD34D1009C7DD2 /* StringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverter.swift */; };
+		3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */; };
 		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
 		3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatView.swift */; };
 		3B8ABB9722B7B61500034B0B /* AutoKeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */; };
@@ -39,7 +39,7 @@
 		3B2022E822B6A4CE008AD964 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3B41D6C022AD17A200C361FB /* BookEntityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntityDto.swift; sourceTree = "<group>"; };
 		3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableView.swift; sourceTree = "<group>"; };
-		3B41D6C722AD1B0200C361FB /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		3B41D6C722AD1B0200C361FB /* ConfiguratorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorService.swift; sourceTree = "<group>"; };
 		3B41D6CA22AD1EAA00C361FB /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleCovers.xcassets; sourceTree = "<group>"; };
 		3B664B6822AD70780099055A /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		3B6E128022A513A90065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6E128222A513A90065B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFixExtension.swift; sourceTree = "<group>"; };
-		3B7DD89E22AD34D1009C7DD2 /* StringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverter.swift; sourceTree = "<group>"; };
+		3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverterService.swift; sourceTree = "<group>"; };
 		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
 		3B8ABB9422B784E900034B0B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoKeyboardDismissExtension.swift; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 				3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */,
 				3B2022E822B6A4CE008AD964 /* NetworkService.swift */,
 				3BDEAE7C22B90DBD004FA00D /* ChatService.swift */,
+				3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */,
+				3B41D6C722AD1B0200C361FB /* ConfiguratorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -101,8 +103,6 @@
 		3B67311522A515FE00D499E3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3B41D6C722AD1B0200C361FB /* Configurator.swift */,
-				3B7DD89E22AD34D1009C7DD2 /* StringConverter.swift */,
 				3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */,
 				3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */,
 				3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */,
@@ -303,14 +303,14 @@
 			files = (
 				3BA8A3B922B3CF16005D065E /* BarcodeScannerView.swift in Sources */,
 				3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */,
-				3B7DD89F22AD34D1009C7DD2 /* StringConverter.swift in Sources */,
+				3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */,
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */,
 				3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */,
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,
 				3BA8A3BB22B3D5AB005D065E /* ErrorAlertExtension.swift in Sources */,
 				3BFFDF1322AE930D000BD7CA /* EditBookTableView.swift in Sources */,
-				3B41D6C822AD1B0200C361FB /* Configurator.swift in Sources */,
+				3B41D6C822AD1B0200C361FB /* ConfiguratorService.swift in Sources */,
 				3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */,
 				3BE518A922B24A4600C1E951 /* SearchBookView.swift in Sources */,
 				3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */,

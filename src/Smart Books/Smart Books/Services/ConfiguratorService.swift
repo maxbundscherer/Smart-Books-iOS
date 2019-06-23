@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import CoreData
 
-class Configurator {
+class ConfiguratorService {
     
-    static let shared   = Configurator()
+    static let shared   = ConfiguratorService()
     
     private init() {
         
