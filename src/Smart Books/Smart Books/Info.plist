@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>de_DE</string>
 	<key>CFBundleDisplayName</key>
 	<string>Smart Books</string>
 	<key>CFBundleExecutable</key>
@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Um das Cover zu fotografieren oder um den Barcode von einem Buch zu scannen, benötigt die App Zugriff auf Ihre Kamera.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon und auf die interne Sprachverarbeitungseinheit.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -48,10 +52,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon und auf die interne Sprachverarbeitungseinheit.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
