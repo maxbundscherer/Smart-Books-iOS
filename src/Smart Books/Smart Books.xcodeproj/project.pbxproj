@@ -10,7 +10,7 @@
 		3B141E5522BFE1F1005C12D2 /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */; };
 		3B2022E922B6A4CE008AD964 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2022E822B6A4CE008AD964 /* NetworkService.swift */; };
 		3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntityDto.swift */; };
-		3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */; };
+		3B41D6C322AD1A4500C361FB /* CollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableViewController.swift */; };
 		3B41D6C822AD1B0200C361FB /* ConfiguratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C722AD1B0200C361FB /* ConfiguratorService.swift */; };
 		3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6CA22AD1EAA00C361FB /* JsonService.swift */; };
 		3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */; };
@@ -40,7 +40,7 @@
 		3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
 		3B2022E822B6A4CE008AD964 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3B41D6C022AD17A200C361FB /* BookEntityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntityDto.swift; sourceTree = "<group>"; };
-		3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableView.swift; sourceTree = "<group>"; };
+		3B41D6C222AD1A4500C361FB /* CollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewController.swift; sourceTree = "<group>"; };
 		3B41D6C722AD1B0200C361FB /* ConfiguratorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorService.swift; sourceTree = "<group>"; };
 		3B41D6CA22AD1EAA00C361FB /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleCovers.xcassets; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */,
-				3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */,
+				3B41D6C222AD1A4500C361FB /* CollectionTableViewController.swift */,
 				3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */,
 				3BFFDF1222AE930D000BD7CA /* EditBookTableView.swift */,
 				3BE518A622B2412500C1E951 /* CreateBookView.swift */,
@@ -308,7 +308,7 @@
 				3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */,
 				3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */,
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
-				3B41D6C322AD1A4500C361FB /* CollectionTableView.swift in Sources */,
+				3B41D6C322AD1A4500C361FB /* CollectionTableViewController.swift in Sources */,
 				3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */,
 				3B141E5522BFE1F1005C12D2 /* ChatTableView.swift in Sources */,
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,

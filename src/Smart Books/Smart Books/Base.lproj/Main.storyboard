@@ -9,7 +9,7 @@
         <!--Sammlung-->
         <scene sceneID="qq6-Vr-Bfa">
             <objects>
-                <tableViewController id="37w-Uf-DBc" customClass="CollectionTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="37w-Uf-DBc" customClass="CollectionTableViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5RH-5t-oz2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,7 +257,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Hallo, wie geht es dir?" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="3Di-Ty-PUt" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="40" y="5" width="354" height="89.5"/>
+                                                    <rect key="frame" x="40" y="5" width="540" height="89.5"/>
                                                     <color key="backgroundColor" red="0.89599034791582621" green="1" blue="0.89043761326628423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -282,7 +282,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gut und dir?" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-qB-nw3" userLabel="TextViewMsg">
-                                                    <rect key="frame" x="10" y="5" width="354" height="89.5"/>
+                                                    <rect key="frame" x="10" y="5" width="540" height="89.5"/>
                                                     <color key="backgroundColor" red="0.87556377568986432" green="0.97845176457497973" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

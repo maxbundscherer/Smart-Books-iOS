@@ -14,7 +14,7 @@ class PrototypeCellBook: UITableViewCell {
     @IBOutlet weak var desc: UITextView!
 }
 
-class CollectionTableView: UITableViewController {
+class CollectionTableViewController: UITableViewController {
     
     var passedEntities: [BookEntity]?
     

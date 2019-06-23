@@ -27,7 +27,7 @@ class SearchBookView: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let searchString:   String        = sender as? String else { return }
-        guard let dest:     CollectionTableView = segue.destination as? CollectionTableView else { return }
+        guard let dest:     CollectionTableViewController = segue.destination as? CollectionTableViewController else { return }
         
         dest.passedEntities = StorageService.shared.queryBooks(searchString: searchString)
     }
