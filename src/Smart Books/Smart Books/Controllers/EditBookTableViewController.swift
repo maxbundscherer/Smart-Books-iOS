@@ -28,18 +28,26 @@ class EditBookTableViewController: UITableViewController, UINavigationController
     override func viewDidLoad() {
         
         if(self.passedEntity == nil) {
-            //Add-Mode
+            
+            /*
+             Add-Mode
+            */
             if(self.passedDto == nil) {
+                
                 //No dto passed
                 self.storedDto = BookEntityDto()
             }
             else {
+                
                 //Dto passed
                 self.storedDto = self.passedDto!
             }
         }
         else {
-            //Edit-Mode
+            
+            /*
+             Edit-Mode
+             */
             self.storedDto = BookEntityDto(coreDataEntity: self.passedEntity!)
         }
         
@@ -129,7 +137,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
                 
                 let newValue: String = (alert?.textFields?[0].text ?? value).trimmingCharacters(in: .whitespacesAndNewlines)
                 
-                self.writeChangesToDto(sortKey: indexKey, newValue: newValue)
+                self.writeChangesToDto(indexKey: indexKey, newValue: newValue)
             }))
             
             alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
@@ -139,11 +147,11 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         
     }
     
-    private func writeChangesToDto(sortKey: Int, newValue: String) {
+    private func writeChangesToDto(indexKey: Int, newValue: String) {
         
         guard let dto: BookEntityDto = self.storedDto else { return }
         
-        switch sortKey {
+        switch indexKey {
             
             case 0:
                 //Editing 'Headline'
@@ -217,15 +225,18 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         var result: Bool = false
         
         if(self.passedEntity == nil) {
+            
             //Add-Mode
             if(StorageService.shared.createBook(dto: dto) != nil) { result = true }
         }
         else {
+            
             //Edit-Mode
             result = StorageService.shared.updateBook(entity: self.passedEntity!, dto: dto)
         }
         
         if(result) {
+            
             self.navigationController?.popViewController(animated: true)
         }
         

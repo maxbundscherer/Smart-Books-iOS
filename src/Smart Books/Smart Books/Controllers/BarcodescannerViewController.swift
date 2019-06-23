@@ -27,9 +27,12 @@ extension BarcodescannerViewController: BarcodeScannerCodeDelegate {
     
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         
+        //Validate type
         if(type == ConfiguratorService.shared.getBarcodeEANTypeString()) {
             
-            //Barcode is from a book
+            /*
+             Barcode is from a book
+             */
             self.dismiss(animated: true, completion: {
                 self.delegate?.barcodescannerViewControllerSuccess(ean: code)
             })
@@ -37,7 +40,9 @@ extension BarcodescannerViewController: BarcodeScannerCodeDelegate {
         }
         else {
             
-            //Barcode is not from a book
+            /*
+             Barcode is not from a book
+             */
             self.dismiss(animated: true, completion: {
                 self.delegate?.barcodescannerViewControllerFailure(errorMessage: "Bitte scannen Sie einen Barcode von einem Buch.")
             })

@@ -97,6 +97,8 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
     }
     
+    /// Use Text (manual input)
+    ///
     @IBAction func buttonSendTextAction(_ sender: Any) {
         
         dismissKeyboard()
@@ -107,6 +109,8 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
     }
     
+    /// Use Speech to text
+    ///
     @IBAction func buttonUseLangAction(_ sender: Any) {
         
         dismissKeyboard()
@@ -154,13 +158,17 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     
     private func startSpeechRecognition() {
         
+        //GUI
         self.buttonUseLang.setTitle("[Spracheingabe läuft... Jetzt abschließen]", for: .normal)
         self.textFieldMyMessage.text = ""
         
+        //Flags
         self.silenceTimer       = nil
         self.flagProcessInput   = false
         
-        //Setup inputNode with buffer
+        /*
+         Setup inputNode with buffer
+         */
         let inNode = audioEngine.inputNode
         
         let format = inNode.outputFormat(forBus: 0)
@@ -169,7 +177,9 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
             self.audioRequest.append(buffer)
         })
         
-        //Try to start audio engine
+        /*
+         Try to start audio engine
+         */
         self.audioEngine.prepare()
         do {
             try self.audioEngine.start()
@@ -180,7 +190,9 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
             return
         }
         
-        //Security checks
+        /*
+         Security checks
+         */
         guard let myRecognizer = self.speechRecognizer else {
             stopSpeechRecognition()
             showErrorAlert(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.")
@@ -192,15 +204,18 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
             return
         }
         
-        //Create Task with handler
+        /*
+         Process recognition (task)
+         */
         self.recognitionTask = self.speechRecognizer?.recognitionTask(with: self.audioRequest, resultHandler: { result, error in
             
-            //TODO: Improve global error handling (this way)
             if let result = result {
                 
                 if(result.isFinal) {
                     
-                    //End recognition
+                    /*
+                     End recognition
+                     */
                     self.textFieldMyMessage.text = ""
                     
                     //Silence timer (auto abort after time of silence)
@@ -209,7 +224,9 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
                     
                 } else {
                     
-                    //In recognition
+                    /*
+                     In recognition
+                     */
                     self.textFieldMyMessage.text = result.bestTranscription.formattedString
                     
                     //Silence timer (auto abort after time of silence)
@@ -224,6 +241,10 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
                 }
                 
             } else if let error = error {
+                
+                /*
+                 Error in recognition
+                 */
                 self.stopSpeechRecognition()
                 self.showErrorAlert(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'")
             }
@@ -234,6 +255,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     
     private func stopSpeechRecognition() {
         
+        //GUI
         self.buttonUseLang.setTitle("Sprache benutzen", for: .normal)
         self.flagProcessInput = true
         
@@ -249,23 +271,31 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     
     private func processInput() {
         
-        //Get msg
+        /*
+         Get Message
+         */
         let input = (textFieldMyMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         if(input == "") {
             self.chatTableViewController.addMessageToMe(msg: "Bitte reden Sie mit mir!")
             return
         }
         
-        //Show msg in chat and clear chatInput
+        /*
+         Show msg in chat and clear chatInput
+         */
         self.chatTableViewController.addMessageFromMe(msg: input)
         self.textFieldMyMessage.text = ""
         
-        //Process through chat-service
+        /*
+         Process through chat-service
+         */
         let dto: BookEntityDto? = self.chatService.processResponse(response: input)
         
         if( dto == nil ) {
             
-            //Dto is not ready at the moment
+            /*
+             Dto is not ready at the moment
+             */
             self.flagProcessInput = false
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -279,7 +309,9 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         }
         else {
             
-            //Dto is ready at the moment
+            /*
+             Dto is ready at the moment
+             */
             self.navigationController?.popViewController(animated: true)
             self.delegate?.chatViewControllerSuccess(dto: dto!)
             

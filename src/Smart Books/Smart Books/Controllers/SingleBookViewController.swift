@@ -36,7 +36,7 @@ class SingleBookViewController: UIViewController {
         
         self.labelHeadline.text     = book.headline
         self.imageViewCover.image   = book.coverImage
-        self.textViewDesc.text      = StringConverterService.shared.convertBookToDescription(book: book)
+        self.textViewDesc.text      = StringConverterService.shared.convertBookToDescription(dto: book)
     }
     
     @IBAction func buttonRemoveAction(_ sender: Any) {

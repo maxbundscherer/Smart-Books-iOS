@@ -16,11 +16,16 @@ class CreateBookViewController: UIViewController, BarcodescannerViewControllerDe
         super.viewDidLoad()
     }
     
+    
+    /// Manual input
+    ///
     @IBAction func buttonManInputAction(_ sender: Any) {
         
         performSegue(withIdentifier: "sgEditBook", sender: nil)
     }
     
+    /// Camera
+    ///
     @IBAction func buttonCameraAction(_ sender: Any) {
         
         let barcodescannerViewController  = BarcodescannerViewController()
@@ -33,6 +38,8 @@ class CreateBookViewController: UIViewController, BarcodescannerViewControllerDe
         present(barcodescannerViewController, animated: true, completion: {self.showLoadingIndicator()})
     }
     
+    /// Chat
+    ///
     @IBAction func buttonChatAction(_ sender: Any) {
         
         performSegue(withIdentifier: "sgChat", sender: nil)
