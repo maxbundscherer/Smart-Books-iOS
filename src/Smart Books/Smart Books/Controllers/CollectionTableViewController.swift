@@ -36,6 +36,7 @@ class CollectionTableViewController: UITableViewController {
         }
         else {
             self.entities = self.passedEntities!
+            if(self.passedEntities!.isEmpty) { showErrorAlert(msg: "Leider konnte nichts gefunden werden.") }
         }
     }
 
