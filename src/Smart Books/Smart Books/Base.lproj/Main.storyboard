@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,31 +11,31 @@
             <objects>
                 <tableViewController id="37w-Uf-DBc" customClass="CollectionTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5RH-5t-oz2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrototypeCellBook" rowHeight="150" id="3S6-p4-CH2" customClass="PrototypeCellBook" customModule="Smart_Books" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3S6-p4-CH2" id="1fR-ts-4JQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mein wirklich langer Buchtitel 3000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deA-pJ-FlH" userLabel="LabelHeadline">
-                                            <rect key="frame" x="149.5" y="10" width="254.5" height="48"/>
+                                            <rect key="frame" x="211.5" y="10" width="378.5" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDesc">
-                                            <rect key="frame" x="144.5" y="63" width="259.5" height="76.5"/>
+                                            <rect key="frame" x="206.5" y="39" width="383.5" height="100.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exampleCoverOne" translatesAutoresizingMaskIntoConstraints="NO" id="hWY-se-jTh" userLabel="ImageViewCover">
-                                            <rect key="frame" x="10" y="10" width="129.5" height="129.5"/>
+                                            <rect key="frame" x="10" y="10" width="191.5" height="129.5"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </imageView>
                                     </subviews>
@@ -78,40 +74,40 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="-731.25"/>
         </scene>
-        <!--Single Book View-->
+        <!--Single Book View Controller-->
         <scene sceneID="GbP-7O-vc3">
             <objects>
-                <viewController storyboardIdentifier="Bucheinsicht" automaticallyAdjustsScrollViewInsets="NO" id="mh1-ca-YbG" customClass="SingleBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Bucheinsicht" automaticallyAdjustsScrollViewInsets="NO" id="mh1-ca-YbG" customClass="SingleBookViewController" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uVG-He-Qze">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXd-lN-MqV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8E-5I-yea" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="574"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="653"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ein wirklicher langer Buchtitel 3000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOY-5s-KkO" userLabel="LabelHeadline">
-                                                <rect key="frame" x="20" y="20" width="374" height="65.5"/>
+                                                <rect key="frame" x="20" y="20" width="560" height="33"/>
                                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exampleCoverOne" translatesAutoresizingMaskIntoConstraints="NO" id="byk-xD-qMN" userLabel="ImageViewCover">
-                                                <rect key="frame" x="83" y="115.5" width="248" height="248.5"/>
+                                                <rect key="frame" x="120" y="83" width="360" height="360"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="byk-xD-qMN" secondAttribute="height" multiplier="1:1" id="B2W-JH-eWS"/>
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sXQ-sN-UlK" userLabel="TextViewDesc">
-                                                <rect key="frame" x="20" y="394" width="374" height="60"/>
+                                                <rect key="frame" x="20" y="473" width="560" height="60"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-qf-3By" userLabel="ButtonRemove">
-                                                <rect key="frame" x="20" y="484" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="563" width="560" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.056107677723829852" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Aus der Sammlung entfernen"/>
@@ -120,7 +116,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-HE-hIO" userLabel="ButtonEdit">
-                                                <rect key="frame" x="20" y="524" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="603" width="560" height="30"/>
                                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Bearbeiten"/>
@@ -185,15 +181,15 @@
             <objects>
                 <tableViewController id="MzB-0b-jCi" customClass="EditBookTableView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8VP-pY-ocj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrototypeCellAttribute" textLabel="dSh-O1-GE7" detailTextLabel="9Ez-bW-qRC" style="IBUITableViewCellStyleValue1" id="Kd2-U6-EXD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kd2-U6-EXD" id="zZz-9q-ZS4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="LabelKey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dSh-O1-GE7">
@@ -204,7 +200,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="LabelValue" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ez-bW-qRC">
-                                            <rect key="frame" x="310.5" y="12" width="83.5" height="20.5"/>
+                                            <rect key="frame" x="496.5" y="12" width="83.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -240,24 +236,24 @@
             <objects>
                 <viewController id="YX2-4P-yoo" customClass="ChatView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZ8-DH-u91">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nachricht..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGl-JK-9r4" userLabel="TextFieldMyMessage">
-                                <rect key="frame" x="5" y="93" width="404" height="30"/>
+                                <rect key="frame" x="5" y="69" width="590" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-AU-5bW" userLabel="TableViewChat">
-                                <rect key="frame" x="5" y="203" width="404" height="605"/>
+                                <rect key="frame" x="5" y="179" width="590" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgFromMe" rowHeight="100" id="nyS-BX-XUy" customClass="PrototypeCellMsgFromMe" customModule="Smart_Books" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="404" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="590" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nyS-BX-XUy" id="lMf-sf-THu">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="590" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Hallo, wie geht es dir?" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="3Di-Ty-PUt" userLabel="TextViewMsg">
@@ -279,10 +275,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCellMsgToMe" rowHeight="100" id="ECL-dY-mno" customClass="PrototypeCellMsgToMe" customModule="Smart_Books" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="404" height="100"/>
+                                        <rect key="frame" x="0.0" y="128" width="590" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECL-dY-mno" id="Y7w-zu-YFG">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="590" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gut und dir?" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-qB-nw3" userLabel="TextViewMsg">
@@ -306,7 +302,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujU-7J-bY2" userLabel="ButtonSendText">
-                                <rect key="frame" x="5" y="128" width="404" height="30"/>
+                                <rect key="frame" x="5" y="104" width="590" height="30"/>
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Text senden"/>
@@ -315,7 +311,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSM-In-8O2" userLabel="ButtonUseLang">
-                                <rect key="frame" x="5" y="163" width="404" height="30"/>
+                                <rect key="frame" x="5" y="139" width="590" height="30"/>
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sprache benutzen"/>
@@ -358,17 +354,17 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="CreateBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wie möchten Sie ihr Buch anlegen?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKg-dy-W1W" userLabel="LabelHeadline">
-                                <rect key="frame" x="20" y="128" width="374" height="65.5"/>
+                                <rect key="frame" x="20" y="104" width="560" height="33"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swR-OA-aOt" userLabel="ButtonManInput">
-                                <rect key="frame" x="20" y="223.5" width="374" height="30"/>
+                                <rect key="frame" x="20" y="167" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.14268725027778595" green="0.5" blue="0.2161671732042158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über manuelle Eingabe"/>
@@ -377,7 +373,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vm-Pp-Z5g" userLabel="ButtonCamera">
-                                <rect key="frame" x="20" y="263.5" width="374" height="30"/>
+                                <rect key="frame" x="20" y="207" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.14268725027778595" green="0.5" blue="0.2161671732042158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über Kamera"/>
@@ -386,7 +382,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-oy-Pof" userLabel="ButtonChat">
-                                <rect key="frame" x="20" y="303.5" width="374" height="30"/>
+                                <rect key="frame" x="20" y="247" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.14268725027778595" green="0.5" blue="0.2161671732042158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über Konversation"/>
@@ -427,23 +423,23 @@
             <objects>
                 <viewController id="jwK-u2-Rso" customClass="SearchBookView" customModule="Smart_Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ZT-lh-FvS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was suchen Sie?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIc-Qt-4mb" userLabel="LabelHeadline">
-                                <rect key="frame" x="20" y="128" width="374" height="33"/>
+                                <rect key="frame" x="20" y="104" width="560" height="33"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suchbegriff..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoP-uL-rbe" userLabel="TextFieldSearchword">
-                                <rect key="frame" x="20" y="191" width="374" height="30"/>
+                                <rect key="frame" x="20" y="167" width="560" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcy-9T-mW0" userLabel="ButtonSearch">
-                                <rect key="frame" x="20" y="231" width="374" height="30"/>
+                                <rect key="frame" x="20" y="207" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.14268725030000001" green="0.5" blue="0.21616717320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Suchen"/>

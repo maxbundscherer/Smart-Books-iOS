@@ -21,7 +21,7 @@
 		3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127F22A513A90065B7C1 /* LaunchScreen.storyboard */; };
 		3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */; };
 		3B7DD89F22AD34D1009C7DD2 /* StringConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */; };
-		3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */; };
+		3B7DD8A122AD35DE009C7DD2 /* SingleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */; };
 		3B8ABB9522B784E900034B0B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9422B784E900034B0B /* ChatView.swift */; };
 		3B8ABB9722B7B61500034B0B /* AutoKeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */; };
 		3BA8A3B922B3CF16005D065E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */; };
@@ -53,7 +53,7 @@
 		3B6E128222A513A90065B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B77762822AF96D60073D5F2 /* UIImageOrientationFixExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageOrientationFixExtension.swift; sourceTree = "<group>"; };
 		3B7DD89E22AD34D1009C7DD2 /* StringConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverterService.swift; sourceTree = "<group>"; };
-		3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
+		3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBookViewController.swift; sourceTree = "<group>"; };
 		3B8ABB9422B784E900034B0B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		3B8ABB9622B7B61500034B0B /* AutoKeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoKeyboardDismissExtension.swift; sourceTree = "<group>"; };
 		3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			children = (
 				3BA8A3B822B3CF16005D065E /* BarcodeScannerView.swift */,
 				3B41D6C222AD1A4500C361FB /* CollectionTableView.swift */,
-				3B7DD8A022AD35DE009C7DD2 /* SingleBookView.swift */,
+				3B7DD8A022AD35DE009C7DD2 /* SingleBookViewController.swift */,
 				3BFFDF1222AE930D000BD7CA /* EditBookTableView.swift */,
 				3BE518A622B2412500C1E951 /* CreateBookView.swift */,
 				3BE518A822B24A4600C1E951 /* SearchBookView.swift */,
@@ -323,7 +323,7 @@
 				3B8ABB9722B7B61500034B0B /* AutoKeyboardDismissExtension.swift in Sources */,
 				3B2022E922B6A4CE008AD964 /* NetworkService.swift in Sources */,
 				3B664B6922AD70780099055A /* SBModels.xcdatamodeld in Sources */,
-				3B7DD8A122AD35DE009C7DD2 /* SingleBookView.swift in Sources */,
+				3B7DD8A122AD35DE009C7DD2 /* SingleBookViewController.swift in Sources */,
 				3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

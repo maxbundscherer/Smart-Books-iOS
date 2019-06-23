@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleBookView: UIViewController {
+class SingleBookViewController: UIViewController {
 
     @IBOutlet weak var headline: UILabel!
     @IBOutlet weak var cover: UIImageView!

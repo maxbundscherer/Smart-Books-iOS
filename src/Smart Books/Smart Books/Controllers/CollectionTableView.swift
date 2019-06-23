@@ -75,7 +75,7 @@ class CollectionTableView: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let entity:   BookEntity      = sender as? BookEntity else { return }
-        guard let dest:     SingleBookView  = segue.destination as? SingleBookView else { return }
+        guard let dest:     SingleBookViewController  = segue.destination as? SingleBookViewController else { return }
     
         dest.passedEntity = entity
     }
