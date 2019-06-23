@@ -9,14 +9,10 @@
 import Foundation
 import UIKit
 
-protocol UIImageOrientationFix {
-    func fixedOrientation() -> UIImage?
-}
-
 //
 // Please see github-fix (https://gist.github.com/schickling/b5d86cb070130f80bb40)
 //
-extension UIImageOrientationFix where Self: UIImage {
+extension UIImage {
     
     func fixedOrientation() -> UIImage? {
         

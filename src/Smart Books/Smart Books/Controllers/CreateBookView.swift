@@ -72,7 +72,7 @@ class CreateBookView: UIViewController, BarcodescannerViewDelegate, ChatViewDele
     
     func barcodescannerViewFailure(errorMessage: String) {
         self.hideLoadingIndicator()
-        AlertHelper.showError(msg: errorMessage, viewController: self)
+        showErrorAlert(msg: errorMessage)
     }
     
     func barcodescannerViewDismiss() {

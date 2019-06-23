@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StringHelper {
+class StringConverter {
     
     private init() {
         

@@ -9,8 +9,6 @@
 import UIKit
 import AVKit
 
-extension UIImage: UIImageOrientationFix {}
-
 class EditBookTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var passedEntity: BookEntity?
@@ -192,7 +190,7 @@ class EditBookTableView: UITableViewController, UINavigationControllerDelegate, 
             
             default:
                 
-                AlertHelper.showError(msg: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.", viewController: self)
+                showErrorAlert(msg: "Ihr Gerät hat keine Kamera oder die Anwendung hat keine Berechtigung um auf die Kamera zuzugreifen.")
             
         }
         

@@ -9,19 +9,15 @@
 import Foundation
 import UIKit
 
-class AlertHelper {
+extension UIViewController {
     
-    private init() {
-        
-    }
-    
-    static func showError(msg: String, viewController: UIViewController) {
+    func showErrorAlert(msg: String) {
         
         let alert = UIAlertController(title: "Fehler", message: msg, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
         
-        viewController.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

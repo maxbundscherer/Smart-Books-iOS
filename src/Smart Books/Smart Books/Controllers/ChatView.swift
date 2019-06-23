@@ -131,7 +131,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
         
         if(!self.flagHasMicAccess) {
             
-            AlertHelper.showError(msg: "Bitte geben Sie die nötigen Zugriffsrechte auf Ihr Mikrofon.", viewController: self)
+            showErrorAlert(msg: "Bitte geben Sie die nötigen Zugriffsrechte auf Ihr Mikrofon.")
             return
         }
         
@@ -175,7 +175,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
             try self.audioEngine.start()
         }
         catch {
-            AlertHelper.showError(msg: error.localizedDescription, viewController: self)
+            showErrorAlert(msg: error.localizedDescription)
             stopSpeechRecognition()
             return
         }
@@ -183,12 +183,12 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
         //Security checks
         guard let myRecognizer = self.speechRecognizer else {
             stopSpeechRecognition()
-            AlertHelper.showError(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.", viewController: self)
+            showErrorAlert(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.")
             return
         }
         if(!myRecognizer.isAvailable) {
             stopSpeechRecognition()
-            AlertHelper.showError(msg: "Spracherkennung ist derzeit leider nicht verfügbar.", viewController: self)
+            showErrorAlert(msg: "Spracherkennung ist derzeit leider nicht verfügbar.")
             return
         }
         
@@ -225,7 +225,7 @@ class ChatView: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDeleg
                 
             } else if let error = error {
                 self.stopSpeechRecognition()
-                AlertHelper.showError(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'", viewController: self)
+                self.showErrorAlert(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'")
             }
             
         })
@@ -366,7 +366,7 @@ class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
             }
             catch
             {
-                AlertHelper.showError(msg: "Sprachausgabe ist derzeit leider nicht verfügbar.", viewController: self)
+                showErrorAlert(msg: "Sprachausgabe ist derzeit leider nicht verfügbar.")
                 self.flagTextToSpeech = false
             }
         }

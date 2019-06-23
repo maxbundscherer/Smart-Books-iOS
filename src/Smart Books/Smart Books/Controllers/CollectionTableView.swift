@@ -60,7 +60,7 @@ class CollectionTableView: UITableViewController {
         
         cell.cover.image    = book.coverImage
         cell.headline.text  = book.headline
-        cell.desc.text      = StringHelper.convertBookToDescription(book: book)
+        cell.desc.text      = StringConverter.convertBookToDescription(book: book)
 
         return cell
     }
