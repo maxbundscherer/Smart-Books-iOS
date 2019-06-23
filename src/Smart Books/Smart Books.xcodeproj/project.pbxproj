@@ -18,6 +18,7 @@
 		3B69878722C024C9005539F8 /* LightStatusBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */; };
 		3B69878922C0265E005539F8 /* TabBarIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B69878822C0265E005539F8 /* TabBarIcons.xcassets */; };
 		3B69878B22C028AA005539F8 /* CornerBorderButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B69878A22C028AA005539F8 /* CornerBorderButtonExtension.swift */; };
+		3B69878F22C02F67005539F8 /* SBLogos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B69878E22C02F67005539F8 /* SBLogos.xcassets */; };
 		3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E127422A513A80065B7C1 /* AppDelegate.swift */; };
 		3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127A22A513A80065B7C1 /* Main.storyboard */; };
 		3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E127D22A513A90065B7C1 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		3B69878622C024C9005539F8 /* LightStatusBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarExtension.swift; sourceTree = "<group>"; };
 		3B69878822C0265E005539F8 /* TabBarIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarIcons.xcassets; sourceTree = "<group>"; };
 		3B69878A22C028AA005539F8 /* CornerBorderButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBorderButtonExtension.swift; sourceTree = "<group>"; };
+		3B69878E22C02F67005539F8 /* SBLogos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SBLogos.xcassets; sourceTree = "<group>"; };
 		3B6E127122A513A80065B7C1 /* Smart Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E127422A513A80065B7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6E127B22A513A80065B7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				3B41D6CC22AD1EF500C361FB /* ExampleCovers.xcassets */,
 				3B69878822C0265E005539F8 /* TabBarIcons.xcassets */,
+				3B69878E22C02F67005539F8 /* SBLogos.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B41D6CD22AD1EF500C361FB /* ExampleCovers.xcassets in Resources */,
+				3B69878F22C02F67005539F8 /* SBLogos.xcassets in Resources */,
 				3B6E128122A513A90065B7C1 /* LaunchScreen.storyboard in Resources */,
 				3B6E127E22A513A90065B7C1 /* Assets.xcassets in Resources */,
 				3B6E127C22A513A80065B7C1 /* Main.storyboard in Resources */,
