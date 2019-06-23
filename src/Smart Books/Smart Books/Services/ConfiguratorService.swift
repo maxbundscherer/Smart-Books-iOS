@@ -25,7 +25,7 @@ class ConfiguratorService {
             let entityOne = BookEntityDto(headline: "Der Struwwelpeter",
                                           isbn: "978-3-937467-78-8",
                                           publisher: "Edition Tintenfaß",
-                                          tags: ["kinderbuch", "erinnerung", "korrekteSchreibweise"],
+                                          tags: ["korrekteSchreibweise"],
                                           coverImage: UIImage(named: "exampleCoverOne"))
             
             let entityTwo = BookEntityDto(headline: "Peter Pan",

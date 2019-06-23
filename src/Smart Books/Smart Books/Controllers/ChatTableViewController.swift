@@ -9,9 +9,11 @@
 import UIKit
 import Speech
 
-protocol ChatTableViewDelegate {
-    func didStartSpeaking()
-    func didFinishResponse()
+protocol ChatTableViewControllerDelegate {
+    
+    func chatTableViewControllerDidStartSpeaking()
+    func chatTableViewControllerDidFinishResponse()
+    
 }
 
 class PrototypeCellMsgToMe: UITableViewCell {
@@ -22,9 +24,9 @@ class PrototypeCellMsgFromMe: UITableViewCell {
     @IBOutlet weak var msg: UITextView!
 }
 
-class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
+class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegate {
     
-    var delegate: ChatTableViewDelegate?
+    var delegate: ChatTableViewControllerDelegate?
     
     private var chatMessages: [ChatMessage] = []
     
@@ -82,7 +84,7 @@ class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
             speechUtterance.voice = AVSpeechSynthesisVoice(language: ConfiguratorService.shared.getSynthesisVoiceLanguage())
             self.speechSynth.speak(speechUtterance)
         }
-        else { self.delegate?.didFinishResponse() }
+        else { self.delegate?.chatTableViewControllerDidFinishResponse() }
     }
     
     private func reloadData() {
@@ -139,11 +141,11 @@ class ChatTableView: UITableViewController, AVSpeechSynthesizerDelegate {
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        self.delegate?.didFinishResponse()
+        self.delegate?.chatTableViewControllerDidFinishResponse()
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        self.delegate?.didStartSpeaking()
+        self.delegate?.chatTableViewControllerDidStartSpeaking()
     }
     
 }

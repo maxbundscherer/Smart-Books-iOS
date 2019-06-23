@@ -15,7 +15,7 @@ protocol ChatViewControllerDelegate {
     
 }
 
-class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewDelegate {
+class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTableViewControllerDelegate {
     
     var delegate: ChatViewControllerDelegate?
     
@@ -29,8 +29,8 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     /*
     Chat Service and chat view
     */
-    private let chatService     = ChatService()
-    private var chatTableView   = ChatTableView()
+    private let chatService                 = ChatService()
+    private var chatTableViewController     = ChatTableViewController()
     
     /*
      Speech
@@ -54,11 +54,11 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
         initAutoKeyboardDismiss()
         
-        self.chat.delegate              = self.chatTableView
-        self.chat.dataSource            = self.chatTableView
+        self.chat.delegate              = self.chatTableViewController
+        self.chat.dataSource            = self.chatTableViewController
         
-        self.chatTableView.tableView    = self.chat
-        self.chatTableView.delegate     = self
+        self.chatTableViewController.tableView    = self.chat
+        self.chatTableViewController.delegate     = self
         
         /*
          Question: Speech output enabled?
@@ -67,14 +67,14 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
         alert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (_) in
             
-            self.chatTableView.initChat(textToSpeechEnabled: true)
+            self.chatTableViewController.initChat(textToSpeechEnabled: true)
             self.startChat()
             
         }))
         
         alert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: { (_) in
             
-            self.chatTableView.initChat(textToSpeechEnabled: false)
+            self.chatTableViewController.initChat(textToSpeechEnabled: false)
             self.startChat()
         }))
         
@@ -252,12 +252,12 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         //Get msg
         let input = (myMessage.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         if(input == "") {
-            self.chatTableView.addMessageToMe(msg: "Bitte reden Sie mit mir!")
+            self.chatTableViewController.addMessageToMe(msg: "Bitte reden Sie mit mir!")
             return
         }
         
         //Show msg in chat and clear chatInput
-        self.chatTableView.addMessageFromMe(msg: input)
+        self.chatTableViewController.addMessageFromMe(msg: input)
         self.myMessage.text = ""
         
         //Process through chat-service
@@ -270,7 +270,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 
-                self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
+                self.chatTableViewController.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
 
                 //Auto Start SpeechRecognizer in dialog after text to speech
                 if(self.flagAutoStartSpeechRecognizer) { self.flagWaitingForAutoStartSpeechRecognizer = true }
@@ -290,26 +290,26 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
     private func startChat() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
-            self.chatTableView.addMessageToMe(msg: "Hallo, ich bin Lisa! Ich kümmere mich um Ihre Bücher!")
+            self.chatTableViewController.addMessageToMe(msg: "Hallo, ich bin Lisa! Ich kümmere mich um Ihre Bücher!")
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-            self.chatTableView.addMessageToMe(msg: "Falls ich etwas nicht korrekt verstehe: Am Ende können Sie natürlich noch Ihr Buch überarbeiten.")
+            self.chatTableViewController.addMessageToMe(msg: "Falls ich etwas nicht korrekt verstehe: Am Ende können Sie natürlich noch Ihr Buch überarbeiten.")
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
             self.flagChatHasStarted = true
-            self.chatTableView.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
+            self.chatTableViewController.addMessageToMe(msg: self.chatService.getNextQuestion() ?? "Fehler im Chat-Service")
         })
     }
     
-    func didStartSpeaking() {
+    func chatTableViewControllerDidStartSpeaking() {
         
         self.flagProcessInput = false
         
     }
     
-    func didFinishResponse() {
+    func chatTableViewControllerDidFinishResponse() {
         
         if(self.flagChatHasStarted) { self.flagProcessInput = true }
         

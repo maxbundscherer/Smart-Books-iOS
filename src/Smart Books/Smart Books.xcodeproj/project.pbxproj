@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B141E5522BFE1F1005C12D2 /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */; };
+		3B141E5522BFE1F1005C12D2 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B141E5422BFE1F1005C12D2 /* ChatTableViewController.swift */; };
 		3B2022E922B6A4CE008AD964 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2022E822B6A4CE008AD964 /* NetworkService.swift */; };
 		3B41D6C122AD17A200C361FB /* BookEntityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C022AD17A200C361FB /* BookEntityDto.swift */; };
 		3B41D6C322AD1A4500C361FB /* CollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41D6C222AD1A4500C361FB /* CollectionTableViewController.swift */; };
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
+		3B141E5422BFE1F1005C12D2 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		3B2022E822B6A4CE008AD964 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3B41D6C022AD17A200C361FB /* BookEntityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntityDto.swift; sourceTree = "<group>"; };
 		3B41D6C222AD1A4500C361FB /* CollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				3BE518A622B2412500C1E951 /* CreateBookViewController.swift */,
 				3BE518A822B24A4600C1E951 /* SearchBookViewController.swift */,
 				3B8ABB9422B784E900034B0B /* ChatViewController.swift */,
-				3B141E5422BFE1F1005C12D2 /* ChatTableView.swift */,
+				3B141E5422BFE1F1005C12D2 /* ChatTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 				3B41D6CB22AD1EAA00C361FB /* JsonService.swift in Sources */,
 				3B41D6C322AD1A4500C361FB /* CollectionTableViewController.swift in Sources */,
 				3B77762922AF96D60073D5F2 /* UIImageOrientationFixExtension.swift in Sources */,
-				3B141E5522BFE1F1005C12D2 /* ChatTableView.swift in Sources */,
+				3B141E5522BFE1F1005C12D2 /* ChatTableViewController.swift in Sources */,
 				3B6E127522A513A80065B7C1 /* AppDelegate.swift in Sources */,
 				3BA8A3BB22B3D5AB005D065E /* ErrorAlertExtension.swift in Sources */,
 				3BFFDF1322AE930D000BD7CA /* EditBookTableViewController.swift in Sources */,
