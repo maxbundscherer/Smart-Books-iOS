@@ -263,7 +263,7 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Hallo, wie geht es dir?" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="3Di-Ty-PUt" userLabel="TextViewMsg">
                                                     <rect key="frame" x="40" y="5" width="354" height="89.5"/>
-                                                    <color key="backgroundColor" red="0.89599034791582621" green="1" blue="0.89043761326628423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.14112979170000001" green="0.5023084283" blue="0.2137262523" alpha="0.20473030821917809" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -288,7 +288,7 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gut und dir?" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-qB-nw3" userLabel="TextViewMsg">
                                                     <rect key="frame" x="10" y="5" width="354" height="89.5"/>
-                                                    <color key="backgroundColor" red="0.87556377568986432" green="0.97845176457497973" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.0096521889789999999" green="0.50299471620000002" blue="0.75342470409999995" alpha="0.19964683219178081" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -561,7 +561,7 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUh-S2-VlL"/>
+        <segue reference="2yH-cf-aYw"/>
         <segue reference="wAr-5F-BSg"/>
     </inferredMetricsTieBreakers>
 </document>
