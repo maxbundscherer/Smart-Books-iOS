@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -26,6 +26,8 @@
 	<string>Um das Cover zu fotografieren oder um den Barcode von einem Buch zu scannen, benötigt die App Zugriff auf Ihre Kamera.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Um das Cover zu fotografieren oder um den Barcode von einem Buch zu scannen, benötigt die App Zugriff auf Ihre Bilder.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Um mit Spracheingabe arbeiten zu können, benötigt die App Zugriff auf Ihr Mikrofon und auf die interne Sprachverarbeitungseinheit.</string>
 	<key>UILaunchStoryboardName</key>
