@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Prepare UI
         ConfiguratorService.shared.prepareUI()
         
+        //Token check
+        if(ConfiguratorService.shared.getTokenForBookLookup() == "") {
+            NSLog("Attention: Please add token from isbn database. See readme for more information")
+        }
+        
         return true
     }
     
