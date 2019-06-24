@@ -49,7 +49,7 @@ class CollectionTableViewController: UITableViewController {
             //If there are no results
             if(self.passedEntities!.isEmpty) {
             
-                let alert = UIAlertController(title: "Hinweis", message: "Leider kein Ergebniss.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Hinweis", message: "Leider kein Ergebnis.", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (_) in
                     self.navigationController?.popViewController(animated: true)

@@ -64,7 +64,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         /*
          Question: Speech output enabled?
         */
-        let alert = UIAlertController(title: "Frage", message: "Möchten Sie die Sprachausgabe aktivieren? Bitte schalten Sie dazu auch Ihr Geräut auf 'Laut'.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sprachausgabe", message: "Möchten Sie die Sprachausgabe aktivieren? Bitte schalten Sie dazu auch Ihr Geräut auf 'Laut'.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (_) in
             
@@ -202,11 +202,13 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
          */
         guard let myRecognizer = self.speechRecognizer else {
             stopSpeechRecognition()
+            self.flagAutoStartSpeechRecognizer = false
             showErrorAlert(msg: "Spracherkennung wird in Ihrer Region nicht unterstützt.")
             return
         }
         if(!myRecognizer.isAvailable) {
             stopSpeechRecognition()
+            self.flagAutoStartSpeechRecognizer = false
             showErrorAlert(msg: "Spracherkennung ist derzeit leider nicht verfügbar.")
             return
         }
@@ -253,6 +255,7 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
                  Error in recognition
                  */
                 self.stopSpeechRecognition()
+                self.flagAutoStartSpeechRecognizer = false
                 self.showErrorAlert(msg: "Fehler in der Spracherkennung:\n\n'\(error.localizedDescription)'")
             }
             
