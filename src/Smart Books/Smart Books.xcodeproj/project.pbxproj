@@ -31,12 +31,12 @@
 		3BA8A3B922B3CF16005D065E /* BarcodescannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3B822B3CF16005D065E /* BarcodescannerViewController.swift */; };
 		3BA8A3BB22B3D5AB005D065E /* ErrorAlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */; };
 		3BA8A3BD22B3DDE5005D065E /* BookLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */; };
+		3BCB075E22C0DB6E004D4387 /* BarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCB075D22C0DB6E004D4387 /* BarcodeScanner.framework */; };
 		3BDEAE7D22B90DBD004FA00D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEAE7C22B90DBD004FA00D /* ChatService.swift */; };
 		3BE518A522B2323B00C1E951 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A422B2323B00C1E951 /* StorageService.swift */; };
 		3BE518A722B2412500C1E951 /* CreateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A622B2412500C1E951 /* CreateBookViewController.swift */; };
 		3BE518A922B24A4600C1E951 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE518A822B24A4600C1E951 /* SearchBookViewController.swift */; };
 		3BFFDF1322AE930D000BD7CA /* EditBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFDF1222AE930D000BD7CA /* EditBookTableViewController.swift */; };
-		7F74D3CD1396B43A247ED262 /* Pods_Smart_Books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +67,7 @@
 		3BA8A3B822B3CF16005D065E /* BarcodescannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodescannerViewController.swift; sourceTree = "<group>"; };
 		3BA8A3BA22B3D5AB005D065E /* ErrorAlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertExtension.swift; sourceTree = "<group>"; };
 		3BA8A3BC22B3DDE5005D065E /* BookLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupService.swift; sourceTree = "<group>"; };
+		3BCB075D22C0DB6E004D4387 /* BarcodeScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BarcodeScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDEAE7C22B90DBD004FA00D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		3BE518A422B2323B00C1E951 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		3BE518A622B2412500C1E951 /* CreateBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F74D3CD1396B43A247ED262 /* Pods_Smart_Books.framework in Frameworks */,
+				3BCB075E22C0DB6E004D4387 /* BarcodeScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +187,7 @@
 		4FF67E31A43D3E5E614362B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BCB075D22C0DB6E004D4387 /* BarcodeScanner.framework */,
 				2B5DC69ED7457992357CB0EC /* Pods_Smart_Books.framework */,
 			);
 			name = Frameworks;
