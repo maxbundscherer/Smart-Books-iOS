@@ -113,7 +113,7 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-qf-3By" userLabel="ButtonRemove">
                                                 <rect key="frame" x="20" y="484" width="374" height="30"/>
-                                                <color key="backgroundColor" red="0.72120875630000003" green="0.14913898140000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.77474259697357517" green="0.009364369280691771" blue="0.0" alpha="0.65825814260563376" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Aus der Sammlung entfernen"/>
                                                 <userDefinedRuntimeAttributes>
@@ -133,7 +133,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fax-HE-hIO" userLabel="ButtonEdit">
                                                 <rect key="frame" x="20" y="524" width="374" height="30"/>
-                                                <color key="backgroundColor" red="0.19565572857745653" green="0.46182979060913709" blue="0.17159954676861758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Bearbeiten"/>
                                                 <userDefinedRuntimeAttributes>
@@ -330,7 +330,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujU-7J-bY2" userLabel="ButtonSendText">
                                 <rect key="frame" x="5" y="128" width="404" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Text senden"/>
                                 <userDefinedRuntimeAttributes>
@@ -350,7 +350,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSM-In-8O2" userLabel="ButtonUseLang">
                                 <rect key="frame" x="5" y="163" width="404" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Spracheingabe starten"/>
                                 <userDefinedRuntimeAttributes>
@@ -414,7 +414,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swR-OA-aOt" userLabel="ButtonManInput">
                                 <rect key="frame" x="20" y="223.5" width="374" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.012135833501815796" green="0.5009462833404541" blue="0.75442302227020264" alpha="0.70477552816901412" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über manuelle Eingabe"/>
                                 <userDefinedRuntimeAttributes>
@@ -434,7 +434,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vm-Pp-Z5g" userLabel="ButtonCamera">
                                 <rect key="frame" x="20" y="263.5" width="374" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über Kamera"/>
                                 <userDefinedRuntimeAttributes>
@@ -454,7 +454,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-oy-Pof" userLabel="ButtonChat">
                                 <rect key="frame" x="20" y="303.5" width="374" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Über Konversation"/>
                                 <userDefinedRuntimeAttributes>
@@ -522,7 +522,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcy-9T-mW0" userLabel="ButtonSearch">
                                 <rect key="frame" x="20" y="241" width="374" height="30"/>
-                                <color key="backgroundColor" red="0.1956557286" green="0.46182979060000001" blue="0.1715995468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0121358335" green="0.50094628330000002" blue="0.75442302230000002" alpha="0.7047755282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sammlung durchsuchen"/>
                                 <userDefinedRuntimeAttributes>
@@ -649,7 +649,7 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2yH-cf-aYw"/>
+        <segue reference="AUh-S2-VlL"/>
         <segue reference="LHF-dv-iY1"/>
     </inferredMetricsTieBreakers>
 </document>

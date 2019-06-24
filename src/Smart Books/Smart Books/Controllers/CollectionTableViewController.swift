@@ -31,12 +31,33 @@ class CollectionTableViewController: UITableViewController {
     }
     
     private func reloadData() {
+        
         if(self.passedEntities == nil) {
+            
+            /*
+             Show all books
+            */
             self.entities = StorageService.shared.getAllBooks()
         }
         else {
+            
+            /*
+             Show search result
+             */
             self.entities = self.passedEntities!
-            if(self.passedEntities!.isEmpty) { showErrorAlert(msg: "Leider konnte nichts gefunden werden.") }
+            
+            //If there are no results
+            if(self.passedEntities!.isEmpty) {
+            
+                let alert = UIAlertController(title: "Hinweis", message: "Leider kein Ergebniss.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (_) in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
         }
     }
 
