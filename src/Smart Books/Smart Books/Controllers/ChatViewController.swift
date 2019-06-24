@@ -98,6 +98,12 @@ class ChatViewController: UIViewController, SFSpeechRecognizerDelegate, ChatTabl
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        self.chatTableViewController.stopSynthesizer()
+        stopSpeechRecognition()
+    }
+    
     /// Use Text (manual input)
     ///
     @IBAction func buttonSendTextAction(_ sender: Any) {

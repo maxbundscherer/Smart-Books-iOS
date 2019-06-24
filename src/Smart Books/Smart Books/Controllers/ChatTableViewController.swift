@@ -140,6 +140,10 @@ class ChatTableViewController: UITableViewController, AVSpeechSynthesizerDelegat
         
     }
     
+    func stopSynthesizer() {
+        self.speechSynth.stopSpeaking(at: .immediate)
+    }
+    
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         self.delegate?.chatTableViewControllerDidFinishResponse()
     }
