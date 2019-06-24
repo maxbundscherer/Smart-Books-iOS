@@ -11,3 +11,4 @@
 ## External dependencies
 - [BarcodeScanner](https://cocoapods.org/pods/BarcodeScanner)
 - [Icons](https://icons8.de/ios)
+- [ISBN Database](https://isbndb.com/)
