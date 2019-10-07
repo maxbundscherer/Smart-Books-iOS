@@ -18,7 +18,7 @@ class StringConverterService {
     
     func convertBookToDescription(dto: BookEntityDto) -> String {
         
-        return "ISBN:\t\(dto.isbn ?? "")\nVerlag:\t\(dto.publisher ?? "")\nTags:\t\((dto.tags ?? []).joined(separator: "; "))"
+        return "ISBN:\t\(dto.isbn ?? "")\nVerlag:\t\(dto.publisher ?? "")\nAutor:\t\(dto.author ?? "")\nTags:\t\((dto.tags ?? []).joined(separator: "; "))"
     }
     
 }

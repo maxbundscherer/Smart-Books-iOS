@@ -122,6 +122,7 @@ class StorageService {
                 (book.headline ?? "")   .lowercased().contains(preparedSearchString) ||
                 (book.isbn ?? "")       .lowercased().contains(preparedSearchString) ||
                 (book.publisher ?? "")  .lowercased().contains(preparedSearchString) ||
+                (book.author ?? "")  .lowercased().contains(preparedSearchString) ||
                 (book.tags ?? [])       .contains(preparedSearchString)
                 ) { filteredResults.insert(book) }
             
@@ -135,6 +136,7 @@ class StorageService {
         entity.headline     = dto.headline
         entity.isbn         = dto.isbn
         entity.publisher    = dto.publisher
+        entity.author       = dto.author
         entity.tags         = dto.tags
         entity.coverImage   = dto.coverImage?.pngData()
         

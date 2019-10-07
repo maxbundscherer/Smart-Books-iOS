@@ -15,13 +15,15 @@ class BookEntityDto {
     var headline:       String?
     var isbn:           String?
     var publisher:      String?
+    var author:         String?
     var tags:           [String]?
     var coverImage:     UIImage?
     
-    init(headline: String?, isbn: String?, publisher: String?, tags: [String], coverImage: UIImage?) {
+    init(headline: String?, isbn: String?, publisher: String?, author: String?, tags: [String], coverImage: UIImage?) {
         self.headline       = headline
         self.isbn           = isbn
         self.publisher      = publisher
+        self.author         = author
         self.tags           = tags
         self.coverImage     = coverImage
     }
@@ -30,6 +32,7 @@ class BookEntityDto {
         self.headline       = nil
         self.isbn           = isbn
         self.publisher      = nil
+        self.author         = nil
         self.tags           = nil
         self.coverImage     = nil
     }
@@ -38,6 +41,7 @@ class BookEntityDto {
         self.headline       = headline
         self.isbn           = nil
         self.publisher      = publisher
+        self.author         = nil
         self.tags           = nil
         self.coverImage     = nil
     }
@@ -47,6 +51,7 @@ class BookEntityDto {
         self.headline       = coreDataEntity.headline
         self.isbn           = coreDataEntity.isbn
         self.publisher      = coreDataEntity.publisher
+        self.author         = coreDataEntity.author
         self.tags           = coreDataEntity.tags
         
         if(coreDataEntity.coverImage == nil) { self.coverImage = nil }
@@ -57,6 +62,7 @@ class BookEntityDto {
         self.headline       = nil
         self.isbn           = nil
         self.publisher      = nil
+        self.author         = nil
         self.tags           = nil
         self.coverImage     = nil
     }

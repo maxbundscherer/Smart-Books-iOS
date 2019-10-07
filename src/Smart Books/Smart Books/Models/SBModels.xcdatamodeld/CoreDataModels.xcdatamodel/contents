@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BookEntity" representedClassName="BookEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="coverImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" customClassName="UIImage" syncable="YES"/>
-        <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="coverImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" customClassName="UIImage"/>
+        <attribute name="headline" optional="YES" attributeType="String"/>
+        <attribute name="isbn" optional="YES" attributeType="String"/>
+        <attribute name="publisher" optional="YES" attributeType="String"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
     </entity>
     <elements>
-        <element name="BookEntity" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="BookEntity" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

@@ -81,8 +81,9 @@ class EditBookTableViewController: UITableViewController, UINavigationController
             0: Attribute(key: "Titel", value: dto.headline ?? ""),
             1: Attribute(key: "ISBN", value: dto.isbn ?? ""),
             2: Attribute(key: "Verlag", value: dto.publisher ?? ""),
-            3: Attribute(key: "Tags", value: (dto.tags ?? []).joined(separator: "; ")),
-            4: Attribute(key: "Cover", value: coverString)
+            3: Attribute(key: "Autor", value: dto.author ?? ""),
+            4: Attribute(key: "Tags", value: (dto.tags ?? []).joined(separator: "; ")),
+            5: Attribute(key: "Cover", value: coverString)
             ]
     }
     
@@ -111,7 +112,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
         let key: String         = self.attributes[indexPath.row]?.key ?? ""
         var value: String       = self.attributes[indexPath.row]?.value ?? ""
         
-        if(indexKey == 4) {
+        if(indexKey == 5) {
             
             //Editing 'Cover'
             triggerCamera()
@@ -121,7 +122,7 @@ class EditBookTableViewController: UITableViewController, UINavigationController
             //Editing anything else than 'Cover'
             var message: String = ""
             
-            if(indexKey == 3) {
+            if(indexKey == 4) {
                 //Editing 'Tags'
                 message += "Bitte durch ; getrennt ohne Leerzeichen eingeben."
                 value = value.replacingOccurrences(of: " ", with: "")
@@ -166,6 +167,10 @@ class EditBookTableViewController: UITableViewController, UINavigationController
                 dto.publisher = newValue
             
             case 3:
+                //Editing 'Author'
+                dto.author = newValue
+            
+            case 4:
                 //Editing 'Tags'
                 dto.tags = newValue.split(separator: ";").map({ (subString) in String(subString) })
             

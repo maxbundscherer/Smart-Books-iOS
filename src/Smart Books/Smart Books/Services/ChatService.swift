@@ -24,7 +24,8 @@ class ChatService {
             0: "Wie lautet der Titel des Buches?",
             1: "Alles klar! Wie lautet die ISBN-Nummer des Buches?",
             2: "Übernommen! Wie heißt der Verlag des Buches?",
-            3: "Super. Nun die letzte Frage! Unter welchen Schlagwörtern möchten Sie das Buch finden?",
+            3: "Okay. Wie heißt der Autor des Buches?",
+            4: "Super. Nun die letzte Frage! Unter welchen Schlagwörtern möchten Sie das Buch finden?",
         ]
         
     }
@@ -66,6 +67,11 @@ class ChatService {
                 return nil
             
             case 4:
+            //Editing 'Author'
+                self.dto.author = response
+                return nil
+            
+            case 5:
                 //Editing 'Tags'
                 self.dto.tags = response.split(separator: " ").map({ (subString) in String(subString) })
                 return self.dto
