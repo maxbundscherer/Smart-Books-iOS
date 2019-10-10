@@ -32,7 +32,8 @@
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0sc-oT-gUU" userLabel="TextViewDesc">
                                             <rect key="frame" x="144.5" y="63" width="259.5" height="77"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -105,7 +106,8 @@
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sXQ-sN-UlK" userLabel="TextViewDesc">
                                                 <rect key="frame" x="20" y="395.5" width="374" height="90"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -150,7 +152,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="byk-xD-qMN" firstAttribute="width" secondItem="E8E-5I-yea" secondAttribute="width" multiplier="0.6" id="1hS-I9-mfx"/>
                                             <constraint firstItem="tOY-5s-KkO" firstAttribute="top" secondItem="E8E-5I-yea" secondAttribute="top" constant="20" id="7m8-m3-1pZ"/>
@@ -181,7 +183,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="EXd-lN-MqV" firstAttribute="leading" secondItem="UMX-rC-yCC" secondAttribute="leading" id="42q-8G-GPD"/>
                             <constraint firstItem="UMX-rC-yCC" firstAttribute="trailing" secondItem="EXd-lN-MqV" secondAttribute="trailing" id="AVK-cU-NOn"/>
@@ -366,7 +368,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kSM-In-8O2" firstAttribute="leading" secondItem="FX5-mM-qzd" secondAttribute="leading" constant="5" id="0it-Le-zFy"/>
                             <constraint firstItem="Oad-AU-5bW" firstAttribute="leading" secondItem="FX5-mM-qzd" secondAttribute="leading" constant="5" id="7LB-CP-HUH"/>
@@ -470,7 +472,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ek3-oy-Pof" firstAttribute="top" secondItem="1vm-Pp-Z5g" secondAttribute="bottom" constant="10" id="D6T-iV-Hyp"/>
                             <constraint firstItem="1vm-Pp-Z5g" firstAttribute="top" secondItem="swR-OA-aOt" secondAttribute="bottom" constant="10" id="DG4-qA-lGd"/>
@@ -537,7 +539,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WoP-uL-rbe" firstAttribute="top" secondItem="oIc-Qt-4mb" secondAttribute="bottom" constant="30" id="6b6-AL-KV9"/>
                             <constraint firstItem="E0U-hR-Njb" firstAttribute="trailing" secondItem="Pcy-9T-mW0" secondAttribute="trailing" constant="20" id="7vR-GS-5DI"/>
@@ -645,7 +647,7 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gDd-GN-C3d"/>
+        <segue reference="AUh-S2-VlL"/>
         <segue reference="LHF-dv-iY1"/>
     </inferredMetricsTieBreakers>
 </document>
